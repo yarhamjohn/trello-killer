@@ -1,0 +1,8 @@
+GET http://localhost:5000/api/SampleData/WeatherForecasts
+Accept: */*
+Cache-Control: no-cache
+
+<> 2018-05-04T015000.200.json
+
+###
+

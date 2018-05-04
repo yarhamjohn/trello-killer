@@ -1,0 +1,32 @@
+[
+  {
+    "dateFormatted": "05/05/2018",
+    "temperatureC": 42,
+    "summary": "Sweltering",
+    "temperatureF": 107
+  },
+  {
+    "dateFormatted": "06/05/2018",
+    "temperatureC": 48,
+    "summary": "Hot",
+    "temperatureF": 118
+  },
+  {
+    "dateFormatted": "07/05/2018",
+    "temperatureC": 40,
+    "summary": "Warm",
+    "temperatureF": 103
+  },
+  {
+    "dateFormatted": "08/05/2018",
+    "temperatureC": -19,
+    "summary": "Warm",
+    "temperatureF": -2
+  },
+  {
+    "dateFormatted": "09/05/2018",
+    "temperatureC": 43,
+    "summary": "Hot",
+    "temperatureF": 109
+  }
+]
