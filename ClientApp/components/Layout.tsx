@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavMenu } from "./NavMenu";
-import {Container} from "semantic-ui-react"
+import { Container } from "semantic-ui-react"
 
 export interface ILayoutProps {
     children?: React.ReactNode;
@@ -8,9 +8,12 @@ export interface ILayoutProps {
 
 export class Layout extends React.Component<ILayoutProps, {}> {
     public render() {
-        return <Container>
-                    <NavMenu />
-                    { this.props.children }
-        </Container>;
+        return (
+            <div>
+                <NavMenu />
+                <Container fluid>
+                    {this.props.children}
+                </Container>
+            </div>);
     }
 }
