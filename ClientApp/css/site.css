@@ -16,7 +16,6 @@
 .board-column {
     padding: 0 1rem !important;
     max-height: 100% !important;
-    min-width: 300px !important
 }
 
 .board-column:first-child {
@@ -25,12 +24,14 @@
 
 .board-column:last-child {
     padding-right: 0 !important;
+    min-width: 314px !important;
 } 
 
 /* Card List Component */
 .card-list {
     max-height: 100% !important;
     display: flex !important;
+    width: 300px !important;
 }
 
 /* Header Segment Component */
@@ -54,7 +55,7 @@
 
 /* Button Segment Component */
 .button-segment {
-    height: 50px !important;
+    min-height: 50px !important;
     border-top: 0 !important;
     display: flex;
     justify-content: center !important;

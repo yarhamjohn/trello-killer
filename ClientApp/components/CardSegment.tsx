@@ -9,7 +9,7 @@ interface ICardSegmentProps {
 export class CardSegment extends React.Component<ICardSegmentProps, {}> {
 
     public createCards = () => {
-        let cards : Object[] = [];
+        let cards: Object[] = [];
         for (let i = 0; i < this.props.numCards; i++) {
             cards.push(<ToDoCard key={i}/>);
         }
