@@ -1,11 +1,13 @@
 ﻿import * as React from "react";
 import { RouteComponentProps } from "react-router";
-import { Image } from "semantic-ui-react"
+import { CardList } from "../CardList";
 
 export class Board extends React.Component<RouteComponentProps<{}>, {}> {
-    render() {
-        return (<div>
-            Here goes board
-        </div>)
+    public render() {
+        return (
+            <div className="grid">
+                <CardList/>
+            </div>
+        );
     }
 }

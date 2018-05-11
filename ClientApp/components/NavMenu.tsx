@@ -13,7 +13,6 @@ export class NavMenu extends React.Component<{}, {}> {
             <Menu pointing={true}>
                 <Menu.Item header>
                     <Image src={require("../images/trello_killer_icon.png")} avatar />
-
                     Trello Killer</Menu.Item>
                 <NavLink exact to={"/"} className={"item"}>
                     Home

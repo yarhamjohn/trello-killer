@@ -1,6 +1,5 @@
 import * as React from "react";
 import { NavMenu } from "./NavMenu";
-import { Container } from "semantic-ui-react"
 
 export interface ILayoutProps {
     children?: React.ReactNode;
@@ -11,9 +10,9 @@ export class Layout extends React.Component<ILayoutProps, {}> {
         return (
             <div>
                 <NavMenu />
-                <Container fluid>
+                <div className="container-content">
                     {this.props.children}
-                </Container>
+                </div>
             </div>);
     }
 }
