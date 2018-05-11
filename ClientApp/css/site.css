@@ -31,6 +31,7 @@
 .card-list {
     max-height: 100% !important;
     width: 300px !important;
+    display: flex !important;
 }
 
 /* Header Segment Component */
@@ -44,8 +45,8 @@
 
 /* Cards Segment Component */
 .cards-segment {
-    max-height: 740px !important;
-    overflow-y: scroll !important;
+    max-height: calc(100% - 90px) !important;
+    overflow-y: auto !important;
     border-top: 0 !important;
     border-bottom: 0 !important;
     padding: 0 0.5em !important;
