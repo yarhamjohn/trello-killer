@@ -2,9 +2,13 @@ import * as React from "react";
 import { Button, Card } from "semantic-ui-react";
 
 export class ToDoCard extends React.Component<{}, {}> {
+
+    public doSomething = () => {
+    }
+
     public render() {
         return (
-            <Card>
+            <Card as={"div"} raised onClick={this.doSomething}>
                 <Card.Content>
                     <Card.Header>
                         Header

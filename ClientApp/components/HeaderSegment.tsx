@@ -5,9 +5,7 @@ export class HeaderSegment extends React.Component<{}, {}> {
     public render() {
         return (
             <Segment className="header-segment">
-                <textarea className="list-name">
-                    List Name
-                </textarea>
+                <textarea className="list-name" defaultValue="List Name" />
             </Segment>
         );
     }

@@ -15,7 +15,6 @@ export class CardList extends React.Component<{}, ICardListState> {
     }
 
     public addCard = () => {
-        console.log("add card to list");
         this.setState((prevState) => ({ numCards: prevState.numCards + 1 }));
     }
 
