@@ -30,7 +30,6 @@
 /* Card List Component */
 .card-list {
     max-height: 100% !important;
-    width: 300px !important;
     display: flex !important;
 }
 
