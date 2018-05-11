@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Segment, Button } from "semantic-ui-react";
 
-export interface IButtonSegmentProps {
+interface IButtonSegmentProps {
     addCard(): void;
 }
 

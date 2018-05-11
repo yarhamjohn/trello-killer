@@ -1,17 +1,31 @@
 /* Global Layout */
 .layout {
-    padding: 1rem !important;
-    height: calc(100vh - 56px) !important;
+    height: calc(100vh - 56px - 3rem) !important;
+    overflow-x: auto !important;
+    margin: 2rem 2rem 1rem 2rem !important;
 }
 
 /* Board Page */
 .board {
     max-height: 100% !important;
     display: flex !important;
-    overflow-x: auto !important;
-    padding: 1rem !important;
+    padding-bottom: 1rem !important;
 }
 
+/* Board Column Element */
+.board-column {
+    padding: 0 1rem !important;
+    max-height: 100% !important;
+    min-width: 300px !important
+}
+
+.board-column:first-child {
+    padding-left: 0 !important;
+}
+
+.board-column:last-child {
+    padding-right: 0 !important;
+} 
 
 /* Card List Component */
 .card-list {
@@ -28,9 +42,9 @@
     background-color: lightgrey !important;
 }
 
-/* Cards Segment Component*/
+/* Cards Segment Component */
 .cards-segment {
-    max-height: calc(100% - 90px) !important;
+    max-height: 740px !important;
     overflow-y: scroll !important;
     border-top: 0 !important;
     border-bottom: 0 !important;
@@ -48,12 +62,11 @@
     background-color: lightgrey !important;
 }
 
-/* Card Component*/
+/* Card Component */
 .card {
     margin-top: 0.5em !important;
     margin-bottom: 0.5em !important;
 }
-
 
 /* List Name Element */
 .list-name {

@@ -4,7 +4,7 @@ import { ButtonSegment } from "./ButtonSegment";
 import { HeaderSegment } from "./HeaderSegment";
 import { CardSegment } from "./CardSegment";
 
-export interface ICardListState {
+interface ICardListState {
     numCards: number;
 }
 
