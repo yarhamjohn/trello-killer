@@ -1,65 +1,73 @@
-/* Board Page */
-.container-content {
+/* Global Layout */
+.layout {
     padding: 1rem !important;
     height: calc(100vh - 56px) !important;
 }
 
-.grid {
+/* Board Page */
+.board {
     max-height: 100% !important;
     display: flex !important;
     overflow-x: auto !important;
     padding: 1rem !important;
 }
 
-.grid-column {
-    height: 100% !important;
-    padding: 1rem !important;
-    width: 300px !important;
-}
 
-.CardList {
+/* Card List Component */
+.card-list {
     max-height: 100% !important;
     width: 300px !important;
 }
 
-.HeaderSegment {
-    height: 30px !important;
+/* Header Segment Component */
+.header-segment {
+    height: 40px !important;
     border-bottom: 0 !important;
     font-weight: bold !important;
-    padding: 0.5em !important;
+    padding: 0.5em 1.25em 0.5em 0.5em !important;
+    background-color: lightgrey !important;
 }
 
-.ButtonSegment {
+/* Cards Segment Component*/
+.cards-segment {
+    max-height: calc(100% - 90px) !important;
+    overflow-y: scroll !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    padding: 0 0.5em !important;
+    background-color: lightgrey !important;
+}
+
+/* Button Segment Component */
+.button-segment {
     height: 50px !important;
     border-top: 0 !important;
     display: flex;
     justify-content: center !important;
     padding: 0.5em !important;
+    background-color: lightgrey !important;
 }
 
-.CardSegment {
-    max-height: calc(100% - 80px)!important;
-    overflow-y: scroll !important;
-    border-top: 0 !important;
-    border-bottom: 0 !important;
-    padding: 0 0.5em !important;
-}
-
-.cards {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-}
-
+/* Card Component*/
 .card {
-    margin-top: 0.25em !important;
-    margin-bottom: 0.25em !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
 }
 
-.container {
-    padding-bottom: 15px !important;
-    padding-top: 15px !important;
+
+/* List Name Element */
+.list-name {
+    background-color: transparent !important;
+    width: 100% !important;
+    border: 0 !important;
+    height: 30px !important;
+    font-size: 20px !important;
+    resize: none !important;
+    padding: 5px !important;
+    overflow-y: hidden !important;
 }
 
-.segment {
-    background-color: lightblue !important;
+.list-name:focus {
+    background-color: white !important;
+    border-radius: 2px !important;
 }

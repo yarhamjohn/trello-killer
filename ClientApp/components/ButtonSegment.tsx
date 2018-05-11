@@ -8,7 +8,7 @@ export interface IButtonSegmentProps {
 export class ButtonSegment extends React.Component<IButtonSegmentProps, {}> {
     public render() {
         return (
-            <Segment className="ButtonSegment">
+            <Segment className="button-segment">
                 <Button compact primary onClick={this.props.addCard}>Add a card</Button>
             </Segment>
         );

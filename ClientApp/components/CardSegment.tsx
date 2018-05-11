@@ -18,10 +18,8 @@ export class CardSegment extends React.Component<ICardSegmentProps, {}> {
 
     public render() {
         return (
-            <Segment className="CardSegment">
-                <Card.Group>
-                    {this.createCards()}
-                </Card.Group>
+            <Segment className="cards-segment">
+                {this.createCards()}
             </Segment>
         );
     }

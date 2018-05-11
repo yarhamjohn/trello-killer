@@ -21,7 +21,7 @@ export class CardList extends React.Component<{}, ICardListState> {
 
     public render() {
         return (
-            <Segment.Group className="CardList">
+            <Segment.Group className="card-list">
                 <HeaderSegment />
                 <CardSegment numCards={this.state.numCards}/>
                 <ButtonSegment addCard={this.addCard} />

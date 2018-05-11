@@ -5,7 +5,7 @@ import { CardList } from "../CardList";
 export class Board extends React.Component<RouteComponentProps<{}>, {}> {
     public render() {
         return (
-            <div className="grid">
+            <div className="board">
                 <CardList/>
             </div>
         );
