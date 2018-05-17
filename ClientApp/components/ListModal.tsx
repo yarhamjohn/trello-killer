@@ -15,8 +15,8 @@ export class ListModal extends React.Component<IListModalProps, {}> {
     public handleOpen = () => this.setState({ modalOpen: true });
 
     public handleClose = () => {
-        this.setState({ modalOpen: false });
         this.props.addList(this.state.listName);
+        this.setState({ modalOpen: false, listName: "" });
     };
 
     public handleInput = (input: string) => {

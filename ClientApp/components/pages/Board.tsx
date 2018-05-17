@@ -22,6 +22,7 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
     public createLists = () => {
         let cards: Object[] = [];
         for (let i = 0; i < this.state.numLists; i++) {
+            console.log(this.state.listNames);
             cards.push(
                 <div className="board-column" key={i}>
                     <CardList listName={this.state.listNames[i]}/>
