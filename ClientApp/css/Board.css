@@ -1,0 +1,20 @@
+.board {
+    max-height: 100% !important;
+    display: flex !important;
+    padding-bottom: 1rem !important;
+}
+
+/* Board Column Element */
+.board-column {
+    padding: 0 1rem !important;
+    max-height: 100% !important;
+}
+
+.board-column:first-child {
+    padding-left: 0 !important;
+}
+
+.board-column:last-child {
+    padding-right: 0 !important;
+    min-width: 314px !important;
+} 

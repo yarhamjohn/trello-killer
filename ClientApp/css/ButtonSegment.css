@@ -1,0 +1,8 @@
+.button-segment {
+    min-height: 50px !important;
+    border-top: 0 !important;
+    display: flex;
+    justify-content: center !important;
+    padding: 0.5em !important;
+    background-color: RGB(200, 200, 200) !important;
+}

@@ -31,5 +31,9 @@
     "url-loader": "0.5.9",
     "webpack": "^2.5.1",
     "webpack-hot-middleware": "2.18.2"
+  },
+  "scripts": {
+    "build": "npm install && npm run webpack",
+    "webpack": "webpack --config webpack.config.vendor.js && webpack"
   }
 }

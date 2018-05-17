@@ -1,0 +1,23 @@
+.header-segment {
+    height: 40px !important;
+    border-bottom: 0 !important;
+    font-weight: bold !important;
+    padding: 0.5em 1.25em 0.5em 0.5em !important;
+    background-color: RGB(200, 200, 200) !important;
+}
+
+.list-name {
+    background-color: transparent !important;
+    width: 100% !important;
+    border: 0 !important;
+    height: 30px !important;
+    font-size: 20px !important;
+    resize: none !important;
+    padding: 5px !important;
+    overflow-y: hidden !important;
+}
+
+.list-name:focus {
+    background-color: white !important;
+    border-radius: 2px !important;
+}

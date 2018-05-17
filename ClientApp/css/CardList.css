@@ -1,0 +1,5 @@
+.card-list {
+    max-height: 100% !important;
+    display: flex !important;
+    width: 300px !important;
+}

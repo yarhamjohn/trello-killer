@@ -1,0 +1,15 @@
+.todo-card {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+}
+
+.todo-card:hover {
+    background-color: RGB(230, 230, 230) !important;
+    cursor: pointer !important;
+}
+
+
+/* Modal ELement */
+.list-modal {
+    margin-top: 0 !important;
+}

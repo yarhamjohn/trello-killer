@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Segment, Card } from "semantic-ui-react";
+import { Segment } from "semantic-ui-react";
 import { ToDoCard } from "./ToDoCard";
+import "../css/CardsSegment.css";
 
 interface ICardSegmentProps {
     numCards: number;

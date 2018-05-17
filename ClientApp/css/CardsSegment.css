@@ -1,0 +1,8 @@
+.cards-segment {
+    max-height: calc(100% - 90px) !important;
+    overflow-y: auto !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    padding: 0 0.5em !important;
+    background-color: RGB(200, 200, 200) !important;
+}

@@ -12,15 +12,25 @@
       <e p="ClientApp" t="Include">
         <e p="boot.tsx" t="Include" />
         <e p="components" t="Include">
-          <e p="Board.tsx" t="Include" />
-          <e p="Counter.tsx" t="Include" />
-          <e p="FetchData.tsx" t="Include" />
-          <e p="Home.tsx" t="Include" />
+          <e p="ButtonSegment.tsx" t="Include" />
+          <e p="CardList.tsx" t="Include" />
+          <e p="CardSegment.tsx" t="Include" />
+          <e p="HeaderSegment.tsx" t="Include" />
           <e p="Layout.tsx" t="Include" />
           <e p="NavMenu.tsx" t="Include" />
+          <e p="pages" t="Include">
+            <e p="Board.tsx" t="Include" />
+            <e p="Counter.tsx" t="Include" />
+            <e p="Forecast.tsx" t="Include" />
+            <e p="Home.tsx" t="Include" />
+          </e>
+          <e p="ToDoCard.tsx" t="Include" />
         </e>
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
+        </e>
+        <e p="images" t="Include">
+          <e p="trello_killer_icon.png" t="Include" />
         </e>
         <e p="routes.tsx" t="Include" />
       </e>
