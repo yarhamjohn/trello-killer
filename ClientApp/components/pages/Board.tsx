@@ -1,12 +1,10 @@
 ﻿import * as React from "react";
 import { RouteComponentProps } from "react-router";
 import { CardList } from "../CardList";
-import { Button } from "semantic-ui-react";
 import { ListModal } from "../ListModal";
 import "../../css/Board.css";
 
 interface IBoardState {
-    numLists: number;
     listNames: string[];
 }
 export class Board extends React.Component<RouteComponentProps<{}>, IBoardState> {
@@ -14,14 +12,13 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
     constructor() {
         super();
         this.state = {
-            numLists: 0,
             listNames: []
         }
     }
 
     public createLists = () => {
         let cards: Object[] = [];
-        for (let i = 0; i < this.state.numLists; i++) {
+        for (let i = 0; i < this.state.listNames.length; i++) {
             console.log(this.state.listNames);
             cards.push(
                 <div className="board-column" key={i}>
