@@ -1,8 +1,6 @@
 import * as React from "react";
-import { Segment } from "semantic-ui-react";
-import { ButtonSegment } from "./ButtonSegment";
-import { HeaderSegment } from "./HeaderSegment";
-import { CardSegment } from "./CardsSegment";
+import { Segment, Button } from "semantic-ui-react";
+import { ToDoCard } from "./ToDoCard";
 import "../css/CardList.css";
 
 interface ICardListState {
@@ -25,12 +23,26 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         this.setState((prevState) => ({ numCards: prevState.numCards + 1 }));
     }
 
+    public populateCardsSegment = () => {
+        let cards: Object[] = [];
+        for (let i = 0; i < this.state.numCards; i++) {
+            cards.push(<ToDoCard key={i} />);
+        }
+        return cards;
+    }
+
     public render() {
         return (
             <Segment.Group className="card-list">
-                <HeaderSegment listName={this.props.listName}/>
-                <CardSegment numCards={this.state.numCards}/>
-                <ButtonSegment addCard={this.addCard} />
+                <Segment className="header-segment">
+                    <textarea className="list-name" defaultValue={this.props.listName} />
+                </Segment>
+                <Segment className="cards-segment">
+                    {this.populateCardsSegment()}
+                </Segment>
+                <Segment className="button-segment">
+                    <Button compact primary onClick={this.addCard}>Add a card</Button>
+                </Segment>
             </Segment.Group>
         );
     }
