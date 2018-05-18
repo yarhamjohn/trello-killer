@@ -22,10 +22,14 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
             console.log(this.state.listNames);
             cards.push(
                 <div className="board-column" key={i}>
-                    <CardList listName={this.state.listNames[i]}/>
+                    <CardList listName={this.state.listNames[i]} deleteList={() => this.deleteList(i)}/>
                 </div>);
         }
         return cards;
+    }
+
+    public deleteList = (listIndex: number) => {
+        this.setState((prevState) => { prevState.listNames.splice(listIndex, 1) });
     }
 
     public addList = (listName: string) => {

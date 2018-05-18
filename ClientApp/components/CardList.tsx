@@ -9,6 +9,7 @@ interface ICardListState {
 
 interface ICardListProps {
     listName: string;
+    deleteList(): void;
 }
 
 export class CardList extends React.Component<ICardListProps, ICardListState> {
@@ -31,6 +32,12 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         return cards;
     }
 
+    public addDeleteListButton() {
+        if (this.state.numCards === 0) {
+            return <Button secondary onClick={this.props.deleteList}>Delete List</Button>
+        };
+    }
+
     public render() {
         return (
             <Segment.Group className="card-list">
@@ -42,8 +49,10 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
                 </Segment>
                 <Segment className="button-segment">
                     <Button compact primary onClick={this.addCard}>Add a card</Button>
+                    {this.addDeleteListButton()}
                 </Segment>
             </Segment.Group>
         );
     }
+
 }
