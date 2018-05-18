@@ -19,6 +19,10 @@ export class ListModal extends React.Component<IListModalProps, {}> {
         this.setState({ modalOpen: false, listName: "" });
     };
 
+    public handleCancel = () => {
+        this.setState({ modalOpen: false });
+    };
+
     public handleInput = (input: string) => {
         this.setState({ listName: input });
     };
@@ -38,7 +42,8 @@ export class ListModal extends React.Component<IListModalProps, {}> {
                                 <label>Enter list name</label>
                                 <input placeholder="List Name" onChange={(e: any) => this.handleInput(e.target.value)}/>
                             </Form.Field>
-                            <Button type="button" onClick={this.handleClose}>Create!</Button>
+                            <Button primary type="button" onClick={this.handleClose}>Create!</Button>
+                            <Button secondary type="button" onClick={this.handleCancel}>Cancel</Button>
                         </Form>
                     </Modal.Description>
                 </Modal.Content>
