@@ -48,7 +48,6 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
     public handleKeyPress = (event: any) => {
         if (event.key === "Enter") {
             event.preventDefault();
-            this.props.updateList(this.state.newListName);
             event.target.blur();
         }
     };
@@ -61,7 +60,12 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         return (
             <Segment.Group className="card-list">
                 <Segment className="header-segment">
-                    <textarea className="list-name" defaultValue={this.props.listName} onChange={(event: any) => this.changeListName(event.target.value)} onKeyPress={this.handleKeyPress} onBlur={this.handleOutsideClick}/>
+                    <textarea
+                        className="list-name"
+                        defaultValue={this.props.listName}
+                        onChange={(event: any) => this.changeListName(event.target.value)}
+                        onKeyPress={this.handleKeyPress}
+                        onBlur={this.handleOutsideClick} />
                 </Segment>
                 <Segment className="cards-segment">
                     {this.populateCardsSegment()}
