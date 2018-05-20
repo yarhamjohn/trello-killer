@@ -27,6 +27,13 @@ export class ListModal extends React.Component<IListModalProps, {}> {
         this.setState({ listName: input });
     };
 
+    public handleKeyPress = (event: any) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            this.handleClose();
+        }
+    };
+
     public render() {
         return (
             <Modal className="list-modal"
@@ -40,7 +47,7 @@ export class ListModal extends React.Component<IListModalProps, {}> {
                         <Form>
                             <Form.Field>
                                 <label>Enter list name</label>
-                                <input placeholder="List Name" onChange={(e: any) => this.handleInput(e.target.value)}/>
+                                <input autoFocus placeholder="List Name" onChange={(e: any) => this.handleInput(e.target.value)} onKeyPress={this.handleKeyPress}/>
                             </Form.Field>
                             <Button primary type="button" onClick={this.handleClose}>Create!</Button>
                             <Button secondary type="button" onClick={this.handleCancel}>Cancel</Button>
