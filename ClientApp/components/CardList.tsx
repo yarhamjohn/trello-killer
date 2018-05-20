@@ -5,18 +5,21 @@ import "../css/CardList.css";
 
 interface ICardListState {
     numCards: number;
+    newListName: string;
 }
 
 interface ICardListProps {
     listName: string;
     deleteList(): void;
+    updateList(listName: string): void;
 }
 
 export class CardList extends React.Component<ICardListProps, ICardListState> {
     constructor() {
         super();
         this.state = {
-            numCards: 0
+            numCards: 0,
+            newListName: ""
         }
     }
 
@@ -38,11 +41,23 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         };
     }
 
+    public changeListName = (input: string) => {
+        this.setState({ newListName: input });
+    };
+
+    public handleKeyPress = (event: any) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            this.props.updateList(this.state.newListName);
+            event.target.blur();
+        }
+    }
+
     public render() {
         return (
             <Segment.Group className="card-list">
                 <Segment className="header-segment">
-                    <textarea className="list-name" defaultValue={this.props.listName} />
+                    <textarea className="list-name" defaultValue={this.props.listName} onChange={(event: any) => this.changeListName(event.target.value)} onKeyPress={this.handleKeyPress}/>
                 </Segment>
                 <Segment className="cards-segment">
                     {this.populateCardsSegment()}

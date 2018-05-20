@@ -18,23 +18,37 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
 
     public createLists = () => {
         let cards: Object[] = [];
+        console.log("createLists: " + this.state.listNames);
         for (let i = 0; i < this.state.listNames.length; i++) {
-            console.log(this.state.listNames);
             cards.push(
                 <div className="board-column" key={i}>
-                    <CardList listName={this.state.listNames[i]} deleteList={() => this.deleteList(i)}/>
+                    <CardList listName={this.state.listNames[i]} deleteList={() => this.deleteList(i)} updateList={(listName) => this.updateList(i, listName)}/>
                 </div>);
         }
         return cards;
     }
 
+    public updateList = (listIndex: number, listName: string) => {
+        console.log(this.state.listNames);
+        let updatedListNames = this.state.listNames
+        console.log(this.state.listNames);
+        updatedListNames.splice(listIndex, 1, listName);
+
+        this.setState((prevState) => ({
+            listNames: prevState.listNames
+        }));
+
+        console.log(this.state.listNames);
+    };
+
     public deleteList = (listIndex: number) => {
-        this.setState((prevState) => { prevState.listNames.splice(listIndex, 1) });
+        this.setState((prevState) => ({
+            listNames: prevState.listNames.splice(listIndex, 1)
+        }));
     }
 
     public addList = (listName: string) => {
-        this.setState((prevState: any) => ({
-            numLists: prevState.numLists + 1,
+        this.setState((prevState) => ({
             listNames: [...prevState.listNames, listName]
         }));
     }
