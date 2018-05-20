@@ -35,7 +35,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         return cards;
     }
 
-    public addDeleteListButton() {
+    public addDeleteListButton = () => {
         if (this.state.numCards === 0) {
             return <Button secondary onClick={this.props.deleteList}>Delete List</Button>
         };
@@ -51,13 +51,17 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
             this.props.updateList(this.state.newListName);
             event.target.blur();
         }
-    }
+    };
+
+    public handleOutsideClick = () => {
+        this.props.updateList(this.state.newListName);
+    };
 
     public render() {
         return (
             <Segment.Group className="card-list">
                 <Segment className="header-segment">
-                    <textarea className="list-name" defaultValue={this.props.listName} onChange={(event: any) => this.changeListName(event.target.value)} onKeyPress={this.handleKeyPress}/>
+                    <textarea className="list-name" defaultValue={this.props.listName} onChange={(event: any) => this.changeListName(event.target.value)} onKeyPress={this.handleKeyPress} onBlur={this.handleOutsideClick}/>
                 </Segment>
                 <Segment className="cards-segment">
                     {this.populateCardsSegment()}

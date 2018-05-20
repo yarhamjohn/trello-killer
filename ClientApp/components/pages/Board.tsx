@@ -17,8 +17,8 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
     }
 
     public createLists = () => {
+        console.log(this.state.listNames);
         let cards: Object[] = [];
-        console.log("createLists: " + this.state.listNames);
         for (let i = 0; i < this.state.listNames.length; i++) {
             cards.push(
                 <div className="board-column" key={i}>
@@ -29,16 +29,12 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
     }
 
     public updateList = (listIndex: number, listName: string) => {
-        console.log(this.state.listNames);
-        let updatedListNames = this.state.listNames
-        console.log(this.state.listNames);
+        const updatedListNames = this.state.listNames;
         updatedListNames.splice(listIndex, 1, listName);
 
         this.setState((prevState) => ({
             listNames: prevState.listNames
         }));
-
-        console.log(this.state.listNames);
     };
 
     public deleteList = (listIndex: number) => {
