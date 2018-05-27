@@ -2,15 +2,21 @@ import * as React from "react";
 import { Segment, Button } from "semantic-ui-react";
 import { ToDoCard } from "./ToDoCard";
 import "../css/CardList.css";
-import { NewCardModal } from "./NewCardModal";
+import { CardModal } from "./CardModal";
 
-interface IList {
+interface ICardNameList {
     id: number;
     name: string;
 };
 
+interface ICardDescriptionList {
+    id: number;
+    description: string;
+};
+
 interface ICardListState {
-    cardNames: IList[];
+    cardNames: ICardNameList[];
+    cardDescriptions: ICardDescriptionList[];
     idCount: number;
     newListName: string;
 }
@@ -26,14 +32,16 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         super();
         this.state = {
             cardNames: [],
+            cardDescriptions: [],
             idCount: 0,
             newListName: ""
         }
     }
 
-    public addCard = (cardName: string) => {
+    public addCard = (cardName: string, cardDescription: string) => {
         this.setState((prevState: any) => ({
             cardNames: [...prevState.cardNames, { id: prevState.idCount, name: cardName }],
+            cardDescriptions: [...prevState.cardDescriptions, { id: prevState.idCount, description: cardDescription }],
             idCount: prevState.idCount + 1
         }));
     }
@@ -42,7 +50,10 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         let newCardNames = this.state.cardNames.filter((element) => {
             return element.id !== cardId;
         });
-        this.setState(() => ({ cardNames: newCardNames }));
+        let newCardDescriptions = this.state.cardDescriptions.filter((element) => {
+            return element.id !== cardId;
+        });
+        this.setState(() => ({ cardNames: newCardNames, cardDescriptions: newCardDescriptions }));
     };
 
     public createCards = () => {
@@ -50,7 +61,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         for (let i = 0; i < this.state.cardNames.length; i++) {
 
             const id = this.state.cardNames[i].id;
-            cards.push(<ToDoCard key={id} cardName={this.state.cardNames[i].name} deleteCard={() => this.deleteCard(id)} updateCard={(newCardName) => { this.updateCard(id, newCardName) }}/>);
+            cards.push(<ToDoCard key={id} cardName={this.state.cardNames[i].name} cardDescription={this.state.cardDescriptions[i].description} deleteCard={() => this.deleteCard(id)} updateCard={(newCardName) => { this.updateCard(id, newCardName) }}/>);
         }
 
         return cards;
@@ -108,7 +119,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
                     {this.createCards()}
                 </Segment>
                 <Segment className="button-segment">
-                    <NewCardModal addCard={(cardName) => this.addCard(cardName)}/>
+                    <CardModal addCard={(cardName, cardDescription) => this.addCard(cardName, cardDescription)}/>
                     {this.addDeleteListButton()}
                 </Segment>
             </Segment.Group>

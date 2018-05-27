@@ -4,6 +4,7 @@ import "../css/ToDoCard.css";
 
 interface IToDoCardProps {
     cardName: string;
+    cardDescription: string;
     updateCard(cardName: string): void;
     deleteCard(): void;
 }
@@ -48,7 +49,7 @@ export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
                             onBlur={this.changeCardNameOnOutsideClick} />
                     </Card.Header>
                     <Card.Description>
-                        I am a card
+                        <p>{this.props.cardDescription}</p>
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

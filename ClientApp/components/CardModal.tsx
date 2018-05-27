@@ -1,30 +1,41 @@
 import * as React from "react";
 import { Button, Modal, Form } from "semantic-ui-react"
-import "../css/newCardModal.css";
+import "../css/CardModal.css";
 
-interface INewCardModalProps {
-    addCard(cardName: string): void;
+interface ICardModalProps {
+    addCard(cardName: string, cardDescription: string): void;
 }
 
-export class NewCardModal extends React.Component<INewCardModalProps, {}> {
+interface ICardModalState {
+    modalOpen: boolean;
+    cardName: string;
+    cardDescription: string;
+}
+
+export class CardModal extends React.Component<ICardModalProps, ICardModalState> {
     public state = {
         modalOpen: false,
         cardName: "",
+        cardDescription: ""
     }
 
     public handleOpen = () => this.setState({ modalOpen: true });
 
     public handleClose = () => {
-        this.props.addCard(this.state.cardName);
-        this.setState({ modalOpen: false, cardName: "" });
+        this.props.addCard(this.state.cardName, this.state.cardDescription);
+        this.setState({ modalOpen: false, cardName: "", cardDescription: "" });
     };
 
     public handleCancel = () => {
         this.setState({ modalOpen: false });
     };
 
-    public handleInput = (input: string) => {
+    public handleNameInput = (input: string) => {
         this.setState({ cardName: input });
+    };
+
+    public handleDescriptionInput = (input: string) => {
+        this.setState({ cardDescription: input });
     };
 
     public handleKeyPress = (event: any) => {
@@ -47,7 +58,11 @@ export class NewCardModal extends React.Component<INewCardModalProps, {}> {
                         <Form>
                             <Form.Field>
                                 <label>Enter card name</label>
-                                <input autoFocus placeholder="card Name" onChange={(e: any) => this.handleInput(e.target.value)} onKeyPress={this.handleKeyPress} />
+                                <input autoFocus placeholder="card Name" onChange={(e: any) => this.handleNameInput(e.target.value)} onKeyPress={this.handleKeyPress} />
+                            </Form.Field>
+                            <Form.Field>
+                                <label>Enter card description</label>
+                                <input placeholder="card Description" onChange={(e: any) => this.handleDescriptionInput(e.target.value)} onKeyPress={this.handleKeyPress} />
                             </Form.Field>
                             <Button primary type="button" onClick={this.handleClose}>Create!</Button>
                             <Button secondary type="button" onClick={this.handleCancel}>Cancel</Button>
