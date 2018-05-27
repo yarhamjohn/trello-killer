@@ -5,19 +5,21 @@ import "../css/ToDoCard.css";
 interface IToDoCardProps {
     cardName: string;
     cardDescription: string;
-    updateCard(cardName: string): void;
+    updateCard(cardName: string, cardDescription: string): void;
     deleteCard(): void;
 }
 
 interface IToDoCardState {
     newCardName: string;
+    newCardDescription: string;
 }
 export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
 
     public constructor() {
         super();
         this.state = {
-            newCardName: ""
+            newCardName: "",
+            newCardDescription: ""
         }
     }
 
@@ -25,15 +27,19 @@ export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
         this.setState({ newCardName: input });
     };
 
-    public changeCardNameOnKeyPress = (event: any) => {
+    public changeCardDescription = (input: string) => {
+        this.setState({ newCardDescription: input });
+    };
+
+    public updateCardOnKeyPress = (event: any) => {
         if (event.key === "Enter") {
             event.preventDefault();
             event.target.blur();
         }
     };
 
-    public changeCardNameOnOutsideClick = () => {
-        this.props.updateCard(this.state.newCardName);
+    public updateCardOnOutsideClick = () => {
+        this.props.updateCard(this.state.newCardName, this.state.newCardDescription);
     };
 
     public render() {
@@ -45,11 +51,17 @@ export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
                             className="card-name"
                             defaultValue={this.props.cardName}
                             onChange={(event: any) => this.changeCardName(event.target.value)}
-                            onKeyPress={this.changeCardNameOnKeyPress}
-                            onBlur={this.changeCardNameOnOutsideClick} />
+                            onKeyPress={this.updateCardOnKeyPress}
+                            onBlur={this.updateCardOnOutsideClick} />
                     </Card.Header>
                     <Card.Description>
-                        <p>{this.props.cardDescription}</p>
+                        <textarea
+                            className="card-name"
+
+                            defaultValue={this.props.cardDescription}
+                            onChange={(event: any) => this.changeCardDescription(event.target.value)}
+                            onKeyPress={this.updateCardOnKeyPress}
+                            onBlur={this.updateCardOnOutsideClick} />
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

@@ -14,9 +14,16 @@ interface ICardDescriptionList {
     description: string;
 };
 
+interface ICardList {
+    id: number;
+    name: string;
+    description: string;
+}
+
 interface ICardListState {
     cardNames: ICardNameList[];
     cardDescriptions: ICardDescriptionList[];
+    card: ICardList[];
     idCount: number;
     newListName: string;
 }
@@ -33,6 +40,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         this.state = {
             cardNames: [],
             cardDescriptions: [],
+            card: [],
             idCount: 0,
             newListName: ""
         }
@@ -40,6 +48,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
 
     public addCard = (cardName: string, cardDescription: string) => {
         this.setState((prevState: any) => ({
+            card: [...prevState.card, { id: prevState.idCount, name: cardName, description: cardDescription }],
             cardNames: [...prevState.cardNames, { id: prevState.idCount, name: cardName }],
             cardDescriptions: [...prevState.cardDescriptions, { id: prevState.idCount, description: cardDescription }],
             idCount: prevState.idCount + 1
