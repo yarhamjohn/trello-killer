@@ -57,7 +57,6 @@ export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
                     <Card.Description>
                         <textarea
                             className="card-name"
-
                             defaultValue={this.props.cardDescription}
                             onChange={(event: any) => this.changeCardDescription(event.target.value)}
                             onKeyPress={this.updateCardOnKeyPress}
