@@ -55,7 +55,7 @@ export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Button size="small" negative onClick={this.props.deleteCard}>Delete</Button>
+                    <Button negative onClick={this.props.deleteCard}>Delete</Button>
                 </Card.Content>
             </Card>
         );

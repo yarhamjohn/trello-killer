@@ -64,19 +64,19 @@ export class CardModal extends React.Component<ICardModalProps, ICardModalState>
                 open={this.state.modalOpen}
                 onClose={this.handleClose}
             >
-                <Modal.Header>Add a new card</Modal.Header>
+                <Modal.Header>Update card</Modal.Header>
                 <Modal.Content>
                     <Modal.Description>
                         <Form>
                             <Form.Field>
-                                <label>Enter card name</label>
-                                <input autoFocus placeholder="card Name" onChange={(e: any) => this.handleNameInput(e.target.value)} onKeyPress={this.handleKeyPress} />
+                                <label>Card name</label>
+                                <input autoFocus placeholder="card Name" onChange={(e: any) => this.handleNameInput(e.target.value)} onKeyPress={this.handleKeyPress} defaultValue={this.props.cardName}/>
                             </Form.Field>
                             <Form.Field>
-                                <label>Enter card description</label>
-                                <input placeholder="card Description" onChange={(e: any) => this.handleDescriptionInput(e.target.value)} onKeyPress={this.handleKeyPress} />
+                                <label>Card description</label>
+                                <input placeholder="card Description" onChange={(e: any) => this.handleDescriptionInput(e.target.value)} onKeyPress={this.handleKeyPress} defaultValue={this.props.cardDescription}/>
                             </Form.Field>
-                            <Button primary type="button" onClick={this.handleClose}>Create!</Button>
+                            <Button primary type="button" onClick={this.handleClose}>Update!</Button>
                             <Button secondary type="button" onClick={this.handleCancel}>Cancel</Button>
                         </Form>
                     </Modal.Description>
