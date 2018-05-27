@@ -4,19 +4,47 @@ import "../css/ToDoCard.css";
 
 interface IToDoCardProps {
     cardName: string;
+    updateCard(cardName: string): void;
 }
 
-export class ToDoCard extends React.Component<IToDoCardProps, {}> {
+interface IToDoCardState {
+    newCardName: string;
+}
+export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
 
-    public doSomething = () => {
+    public constructor() {
+        super();
+        this.state = {
+            newCardName: ""
+        }
     }
+
+    public changeCardName = (input: string) => {
+        this.setState({ newCardName: input });
+    };
+
+    public changeCardNameOnKeyPress = (event: any) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            event.target.blur();
+        }
+    };
+
+    public changeCardNameOnOutsideClick = () => {
+        this.props.updateCard(this.state.newCardName);
+    };
 
     public render() {
         return (
-            <Card className="todo-card" as={"div"} raised onClick={this.doSomething}>
+            <Card className="todo-card" as={"div"} raised>
                 <Card.Content>
                     <Card.Header>
-                        {this.props.cardName}
+                        <textarea
+                            className="card-name"
+                            defaultValue={this.props.cardName}
+                            onChange={(event: any) => this.changeCardName(event.target.value)}
+                            onKeyPress={this.changeCardNameOnKeyPress}
+                            onBlur={this.changeCardNameOnOutsideClick} />
                     </Card.Header>
                     <Card.Description>
                         I am a card

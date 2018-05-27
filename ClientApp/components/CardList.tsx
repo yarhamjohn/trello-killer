@@ -10,7 +10,6 @@ interface IList {
 };
 
 interface ICardListState {
-    numCards: number;
     cardNames: IList[];
     idCount: number;
     newListName: string;
@@ -26,7 +25,6 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
     constructor() {
         super();
         this.state = {
-            numCards: 0,
             cardNames: [],
             idCount: 0,
             newListName: ""
@@ -45,17 +43,28 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         for (let i = 0; i < this.state.cardNames.length; i++) {
 
             const id = this.state.cardNames[i].id;
-            cards.push(<ToDoCard key={id} cardName={this.state.cardNames[i].name}/>);
+            cards.push(<ToDoCard key={id} cardName={this.state.cardNames[i].name} updateCard={(newCardName) => { this.updateCard(id, newCardName) }}/>);
         }
 
         return cards;
     };
 
     public addDeleteListButton = () => {
-        if (this.state.numCards === 0) {
+        if (this.state.cardNames.length === 0) {
             return <Button secondary onClick={this.props.deleteList}>Delete List</Button>;
         };
     }
+
+    public updateCard = (cardId: number, newCardName: string) => {
+        let newCardNames = [...this.state.cardNames];
+        let cardIndex = this.getIndexToUpdate(cardId);
+
+        newCardNames.splice(cardIndex, 1, { id: cardId, name: newCardName });
+
+        this.setState(() => ({
+            cardNames: newCardNames
+        }));
+    };
 
     public changeListName = (input: string) => {
         this.setState({ newListName: input });
@@ -70,6 +79,11 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
 
     public changeListNameOnOutsideClick = () => {
         this.props.updateList(this.state.newListName);
+    };
+
+    private getIndexToUpdate = (cardId: number) => {
+        let cardIndex = [...this.state.cardNames].map((element) => { return element.id; }).indexOf(cardId);
+        return cardIndex;
     };
 
     public render() {

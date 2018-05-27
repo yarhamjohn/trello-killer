@@ -23,10 +23,10 @@
     overflow-y: hidden !important;
 }
 
-    .list-name:focus {
-        background-color: white !important;
-        border-radius: 2px !important;
-    }
+.list-name:focus {
+    background-color: white !important;
+    border-radius: 2px !important;
+}
 
 .cards-segment {
     max-height: calc(100% - 90px) !important;

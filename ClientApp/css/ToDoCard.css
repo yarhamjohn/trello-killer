@@ -8,8 +8,13 @@
     cursor: pointer !important;
 }
 
-
-/* Modal ELement */
-.list-modal {
-    margin-top: 0 !important;
+.card-name {
+    background-color: transparent !important;
+    width: 100% !important;
+    border: 0 !important;
+    height: 30px !important;
+    font-size: 20px !important;
+    resize: none !important;
+    padding: 5px !important;
+    overflow-y: hidden !important;
 }
