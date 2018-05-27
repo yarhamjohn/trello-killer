@@ -2,7 +2,11 @@ import * as React from "react";
 import { Button, Card } from "semantic-ui-react";
 import "../css/ToDoCard.css";
 
-export class ToDoCard extends React.Component<{}, {}> {
+interface IToDoCardProps {
+    cardName: string;
+}
+
+export class ToDoCard extends React.Component<IToDoCardProps, {}> {
 
     public doSomething = () => {
     }
@@ -12,7 +16,7 @@ export class ToDoCard extends React.Component<{}, {}> {
             <Card className="todo-card" as={"div"} raised onClick={this.doSomething}>
                 <Card.Content>
                     <Card.Header>
-                        Header
+                        {this.props.cardName}
                     </Card.Header>
                     <Card.Description>
                         I am a card

@@ -45,7 +45,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         for (let i = 0; i < this.state.cardNames.length; i++) {
 
             const id = this.state.cardNames[i].id;
-            cards.push(<ToDoCard key={id} />);
+            cards.push(<ToDoCard key={id} cardName={this.state.cardNames[i].name}/>);
         }
 
         return cards;
@@ -53,7 +53,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
 
     public addDeleteListButton = () => {
         if (this.state.numCards === 0) {
-            return <Button secondary onClick={this.props.deleteList}>Delete List</Button>
+            return <Button secondary onClick={this.props.deleteList}>Delete List</Button>;
         };
     }
 
