@@ -2,7 +2,7 @@ import * as React from "react";
 import { Segment, Button } from "semantic-ui-react";
 import { ToDoCard } from "./ToDoCard";
 import "../css/CardList.css";
-import { CardModal } from "./CardModal";
+import { NewCardModal } from "./NewCardModal";
 
 interface IList {
     id: number;
@@ -38,12 +38,19 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         }));
     }
 
+    public deleteCard = (cardId: number) => {
+        let newCardNames = this.state.cardNames.filter((element) => {
+            return element.id !== cardId;
+        });
+        this.setState(() => ({ cardNames: newCardNames }));
+    };
+
     public createCards = () => {
         let cards: Object[] = [];
         for (let i = 0; i < this.state.cardNames.length; i++) {
 
             const id = this.state.cardNames[i].id;
-            cards.push(<ToDoCard key={id} cardName={this.state.cardNames[i].name} updateCard={(newCardName) => { this.updateCard(id, newCardName) }}/>);
+            cards.push(<ToDoCard key={id} cardName={this.state.cardNames[i].name} deleteCard={() => this.deleteCard(id)} updateCard={(newCardName) => { this.updateCard(id, newCardName) }}/>);
         }
 
         return cards;
@@ -101,7 +108,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
                     {this.createCards()}
                 </Segment>
                 <Segment className="button-segment">
-                    <CardModal addCard={(cardName) => this.addCard(cardName)}/>
+                    <NewCardModal addCard={(cardName) => this.addCard(cardName)}/>
                     {this.addDeleteListButton()}
                 </Segment>
             </Segment.Group>

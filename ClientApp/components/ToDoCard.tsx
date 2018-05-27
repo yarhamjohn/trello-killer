@@ -5,6 +5,7 @@ import "../css/ToDoCard.css";
 interface IToDoCardProps {
     cardName: string;
     updateCard(cardName: string): void;
+    deleteCard(): void;
 }
 
 interface IToDoCardState {
@@ -51,8 +52,7 @@ export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                    <Button size="small" positive>Edit</Button>
-                    <Button size="small" negative>Delete</Button>
+                    <Button size="small" negative onClick={this.props.deleteCard}>Delete</Button>
                 </Card.Content>
             </Card>
         );

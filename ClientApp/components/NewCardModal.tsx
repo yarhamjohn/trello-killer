@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Button, Modal, Form } from "semantic-ui-react"
-import "../css/cardModal.css";
+import "../css/newCardModal.css";
 
-interface ICardModalProps {
+interface INewCardModalProps {
     addCard(cardName: string): void;
 }
 
-export class CardModal extends React.Component<ICardModalProps, {}> {
+export class NewCardModal extends React.Component<INewCardModalProps, {}> {
     public state = {
         modalOpen: false,
         cardName: "",
