@@ -1,33 +1,29 @@
 import * as React from "react";
 import { Button, Modal, Form } from "semantic-ui-react"
-import "../css/CardModal.css";
-import { ToDoCard } from "./ToDoCard";
+import "../css/NewCardModal.css";
 
-interface ICardModalProps {
+interface INewCardModalProps {
+    addCard(cardName: string, cardDescription: string): void;
+}
+
+interface INewCardModalState {
+    modalOpen: boolean;
     cardName: string;
     cardDescription: string;
-    deleteCard(): void;
-    updateCard(cardName: string, cardDescription: string): void;
 }
 
-interface ICardModalState {
-    modalOpen: boolean;
-    currentCardName: string;
-    currentCardDescription: string;
-}
-
-export class CardModal extends React.Component<ICardModalProps, ICardModalState> {
+export class NewCardModal extends React.Component<INewCardModalProps, INewCardModalState> {
     public state = {
         modalOpen: false,
-        currentCardName: "",
-        currentCardDescription: ""
+        cardName: "",
+        cardDescription: ""
     }
 
     public handleOpen = () => this.setState({ modalOpen: true });
 
     public handleClose = () => {
-        this.props.updateCard(this.state.currentCardName, this.state.currentCardDescription);
-        this.setState({ modalOpen: false, currentCardName: "", currentCardDescription: "" });
+        this.props.addCard(this.state.cardName, this.state.cardDescription);
+        this.setState({ modalOpen: false, cardName: "", cardDescription: "" });
     };
 
     public handleCancel = () => {
@@ -35,11 +31,11 @@ export class CardModal extends React.Component<ICardModalProps, ICardModalState>
     };
 
     public handleNameInput = (input: string) => {
-        this.setState({ currentCardName: input });
+        this.setState({ cardName: input });
     };
 
     public handleDescriptionInput = (input: string) => {
-        this.setState({ currentCardDescription: input });
+        this.setState({ cardDescription: input });
     };
 
     public handleKeyPress = (event: any) => {
@@ -52,15 +48,7 @@ export class CardModal extends React.Component<ICardModalProps, ICardModalState>
     public render() {
         return (
             <Modal className="card-modal"
-                trigger={
-                    <ToDoCard
-                        cardName={this.props.cardName}
-                        cardDescription={this.props.cardDescription}
-                        deleteCard={() => this.props.deleteCard()}
-                        updateCard={(newCardName, newCardDescription) => { this.props.updateCard(newCardName, newCardDescription) }}
-                        handleOpen={() => this.handleOpen()}
-                    />
-                }
+                trigger={<Button positive fluid onClick={this.handleOpen}>Add New card</Button>}
                 open={this.state.modalOpen}
                 onClose={this.handleClose}
             >

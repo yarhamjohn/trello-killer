@@ -7,6 +7,7 @@ interface IToDoCardProps {
     cardDescription: string;
     updateCard(cardName: string, cardDescription: string): void;
     deleteCard(): void;
+    handleOpen(): void;
 }
 
 interface IToDoCardState {
@@ -44,23 +45,13 @@ export class ToDoCard extends React.Component<IToDoCardProps, IToDoCardState> {
 
     public render() {
         return (
-            <Card className="todo-card" as={"div"} raised>
+            <Card onClick={this.props.handleOpen} className="todo-card" as={"div"} raised>
                 <Card.Content>
-                    <Card.Header>
-                        <textarea
-                            className="card-name"
-                            defaultValue={this.props.cardName}
-                            onChange={(event: any) => this.changeCardName(event.target.value)}
-                            onKeyPress={this.updateCardOnKeyPress}
-                            onBlur={this.updateCardOnOutsideClick} />
+                    <Card.Header className="card-name">
+                        {this.props.cardName}
                     </Card.Header>
-                    <Card.Description>
-                        <textarea
-                            className="card-name"
-                            defaultValue={this.props.cardDescription}
-                            onChange={(event: any) => this.changeCardDescription(event.target.value)}
-                            onKeyPress={this.updateCardOnKeyPress}
-                            onBlur={this.updateCardOnOutsideClick} />
+                    <Card.Description className="card-name">
+                        {this.props.cardDescription}
                     </Card.Description>
                 </Card.Content>
                 <Card.Content extra>

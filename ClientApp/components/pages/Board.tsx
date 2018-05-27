@@ -70,7 +70,6 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
             listNames: [...prevState.listNames, { id: prevState.idCount, name: listName }],
             idCount: prevState.idCount + 1
         }));
-
     };
 
     private getIndexToUpdate = (listId: number) => {
