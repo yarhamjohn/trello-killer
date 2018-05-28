@@ -8,7 +8,7 @@
     cursor: pointer !important;
 }
 
-.card-name {
+.todo-card--name {
     background-color: transparent !important;
     width: 100% !important;
     border: 0 !important;

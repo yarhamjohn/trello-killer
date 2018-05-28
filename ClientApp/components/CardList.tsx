@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Segment, Button } from "semantic-ui-react";
+import { Image, Segment, Button } from "semantic-ui-react";
 import "../css/CardList.css";
 import { NewCardModal } from "./NewCardModal";
-import { CardModal } from "./CardModal";
+import { CardUpdateModal } from "./CardUpdateModal";
 
 interface ICardList {
     id: number;
@@ -52,7 +52,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
 
             const id = this.state.cards[i].id;
             cards.push(
-                <CardModal key={id}
+                <CardUpdateModal key={id}
                     cardName={this.state.cards[i].name}
                     cardDescription={this.state.cards[i].description}
                     deleteCard={() => this.deleteCard(id)}
@@ -63,12 +63,6 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
 
         return cards;
     };
-
-    public addDeleteListButton = () => {
-        if (this.state.cards.length === 0) {
-            return <Button secondary onClick={this.props.deleteList}>Delete List</Button>;
-        };
-    }
 
     public updateCard = (cardId: number, newCardName: string, newCardDescription: string) => {
 
@@ -112,13 +106,13 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
                         onChange={(event: any) => this.changeListName(event.target.value)}
                         onKeyPress={this.changeListNameOnKeyPress}
                         onBlur={this.changeListNameOnOutsideClick} />
+                    <Image mini inline onClick={this.props.deleteList} floated={"right"} src={require("../images/red_skull_icon.png")} className="delete-list--icon"/>
                 </Segment>
                 <Segment className="cards-segment">
                     {this.createCards()}
                 </Segment>
                 <Segment className="button-segment">
                     <NewCardModal addCard={(cardName, cardDescription) => this.addCard(cardName, cardDescription)}/>
-                    {this.addDeleteListButton()}
                 </Segment>
             </Segment.Group>
         );

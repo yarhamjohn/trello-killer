@@ -7,17 +7,17 @@ interface IToDoCardProps {
     cardDescription: string;
     updateCard(cardName: string, cardDescription: string): void;
     deleteCard(): void;
-    handleOpen(): void;
+    openCardUpdateModal(): void;
 }
 
 export const ToDoCard = (props: IToDoCardProps) => {
     return (
-        <Card onClick={props.handleOpen} className="todo-card" as={"div"} raised>
+        <Card onClick={props.openCardUpdateModal} className="todo-card" as={"div"} raised>
             <Card.Content>
-                <Card.Header className="card-name">
+                <Card.Header className="todo-card--name">
                     {props.cardName}
                 </Card.Header>
-                <Card.Description className="card-name">
+                <Card.Description className="todo-card--name">
                     {props.cardDescription}
                 </Card.Description>
             </Card.Content>
