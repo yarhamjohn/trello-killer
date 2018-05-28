@@ -17,17 +17,31 @@ interface ICardModalState {
 }
 
 export class CardModal extends React.Component<ICardModalProps, ICardModalState> {
-    public state = {
-        modalOpen: false,
-        currentCardName: "",
-        currentCardDescription: ""
+    constructor() {
+        super();
+        this.state = {
+            modalOpen: false,
+            currentCardName: "",
+            currentCardDescription: ""
+        }
     }
+
+    public componentDidMount() {
+        this.initialiseCardModal();
+    };
+
+    private initialiseCardModal = () => {
+        this.setState({
+            currentCardName: this.props.cardName,
+            currentCardDescription: this.props.cardDescription,
+        });
+    };
 
     public handleOpen = () => this.setState({ modalOpen: true });
 
     public handleClose = () => {
         this.props.updateCard(this.state.currentCardName, this.state.currentCardDescription);
-        this.setState({ modalOpen: false, currentCardName: "", currentCardDescription: "" });
+        this.setState({ modalOpen: false });
     };
 
     public handleCancel = () => {

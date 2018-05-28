@@ -72,15 +72,10 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
 
     public updateCard = (cardId: number, newCardName: string, newCardDescription: string) => {
 
-        console.log(newCardName + ", " + newCardDescription);
-        console.log(this.state.cards);
-
         let newCards = [...this.state.cards];
         let cardIndex = this.getIndexToUpdate(cardId);
 
         newCards.splice(cardIndex, 1, { id: cardId, name: newCardName, description: newCardDescription });
-
-        console.log(newCards);
 
         this.setState(() => ({
             cards: newCards
