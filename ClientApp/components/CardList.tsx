@@ -93,6 +93,8 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
 
     addCard = (cardName: string, cardDescription: string) => {
         let newCards = [...this.state.cards, { id: this.state.idCount, name: cardName, description: cardDescription }];
+
+        this.setState((prevState: any) => ({ idCount: prevState.idCount + 1 }));
         this.props.updateListCards(newCards);
     };
 

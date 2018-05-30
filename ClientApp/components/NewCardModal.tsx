@@ -25,7 +25,7 @@ export class NewCardModal extends React.Component<INewCardModalProps, INewCardMo
     render() {
         return (
             <Modal className="card-modal"
-                   trigger={<Button positive fluid onClick={this.openModal} className="new-card--button">Add New card</Button>}
+                   trigger={<Button positive fluid onClick={this.openModal} className="new-card--button">Add new card</Button>}
                    open={this.state.modalIsOpen}
                    onClose={this.closeModal}
             >
@@ -35,11 +35,11 @@ export class NewCardModal extends React.Component<INewCardModalProps, INewCardMo
                         <Form>
                             <Form.Field>
                                 <label>Card name</label>
-                                <input autoFocus placeholder="card Name" onChange={(e: any) => this.handleNameInput(e.target.value)} onKeyPress={this.handleKeyPress} />
+                                <input autoFocus placeholder="Card name" onChange={(e: any) => this.handleNameInput(e.target.value)} onKeyPress={this.handleKeyPress} />
                             </Form.Field>
                             <Form.Field>
                                 <label>Card description</label>
-                                <input placeholder="card Description" onChange={(e: any) => this.handleDescriptionInput(e.target.value)} onKeyPress={this.handleKeyPress} />
+                                <input placeholder="Card description" onChange={(e: any) => this.handleDescriptionInput(e.target.value)} onKeyPress={this.handleKeyPress} />
                             </Form.Field>
                             <Button primary type="button" onClick={this.closeModal}>Ok!</Button>
                             <Button secondary type="button" onClick={this.cancel}>Cancel</Button>

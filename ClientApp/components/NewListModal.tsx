@@ -23,7 +23,7 @@ export class NewListModal extends React.Component<INewListModalProps, INewListMo
     render() {
         return (
             <Modal className="list-modal"
-                   trigger={<Button positive fluid onClick={this.openModal}>Add New List</Button>}
+                   trigger={<Button positive fluid onClick={this.openModal}>Add new List</Button>}
                    open={this.state.modalIsOpen}
                    onClose={this.closeModal}
             >
