@@ -1,45 +1,51 @@
 import * as React from "react";
 import { Button, Modal, Form } from "semantic-ui-react"
-import "../css/CardUpdateModal.css";
 import { ToDoCard } from "./ToDoCard";
+import { ICard } from "./common/Interfaces";
+import "../css/CardUpdateModal.css";
 
 interface ICardModalProps {
-    cardName: string;
-    cardDescription: string;
+    card: ICard;
     deleteCard(): void;
     updateCard(cardName: string, cardDescription: string): void;
 }
 
 interface ICardModalState {
-    modalOpen: boolean;
-    currentCardName: string;
-    currentCardDescription: string;
+    modalIsOpen: boolean;
+    cardName: string;
+    cardDescription: string;
 }
 
 export class CardUpdateModal extends React.Component<ICardModalProps, ICardModalState> {
     constructor() {
         super();
         this.state = {
-            modalOpen: false,
-            currentCardName: "",
-            currentCardDescription: ""
+            modalIsOpen: false,
+            cardName: "",
+            cardDescription: ""
         }
     }
 
-    public render() {
+    componentDidMount() {
+        this.setState({
+            cardName: this.props.card.name,
+            cardDescription: this.props.card.description
+        });
+    };
+
+    render() {
         return (
             <Modal className="card-update-modal"
                 trigger={
                     <ToDoCard
-                        cardName={this.props.cardName}
-                        cardDescription={this.props.cardDescription}
+                        card={this.props.card}
                         deleteCard={() => this.props.deleteCard()}
-                        updateCard={(newCardName, newCardDescription) => { this.props.updateCard(newCardName, newCardDescription) }}
-                        openCardUpdateModal={() => this.openCardUpdateModal()}
+                        updateCard={(cardName, cardDescription) => { this.props.updateCard(cardName, cardDescription) }}
+                        openModal={() => this.openModal()}
                     />
                 }
-                open={this.state.modalOpen}
-                onClose={this.handleClose}
+                open={this.state.modalIsOpen}
+                onClose={this.closeModal}
             >
                 <Modal.Header>Update card</Modal.Header>
                 <Modal.Content>
@@ -51,17 +57,17 @@ export class CardUpdateModal extends React.Component<ICardModalProps, ICardModal
                                     placeholder="Card Name"
                                     onChange={(e: any) => this.handleNameInput(e.target.value)}
                                     onKeyPress={this.handleKeyPress}
-                                    defaultValue={this.props.cardName} />
+                                    defaultValue={this.state.cardName} />
                             </Form.Field>
                             <Form.Field>
                                 <label>Card description</label>
                                 <input placeholder="Card Description"
                                     onChange={(e: any) => this.handleDescriptionInput(e.target.value)}
                                     onKeyPress={this.handleKeyPress}
-                                    defaultValue={this.props.cardDescription} />
+                                    defaultValue={this.state.cardDescription} />
                             </Form.Field>
-                            <Button primary type="button" onClick={this.handleClose}>Ok!</Button>
-                            <Button secondary type="button" onClick={this.handleCancel}>Cancel</Button>
+                            <Button primary type="button" onClick={this.closeModal}>Ok!</Button>
+                            <Button secondary type="button" onClick={this.cancel}>Cancel</Button>
                         </Form>
                     </Modal.Description>
                 </Modal.Content>
@@ -69,35 +75,29 @@ export class CardUpdateModal extends React.Component<ICardModalProps, ICardModal
         );
     };
 
-    public componentDidMount() {
-        this.initialiseCardModal();
+    openModal = () => this.setState({ modalIsOpen: true });
+
+    closeModal = () => {
+        this.props.updateCard(this.state.cardName, this.state.cardDescription);
+        this.setState({ modalIsOpen: false });
     };
 
-    public initialiseCardModal = () => {
+    cancel = () => {
         this.setState({
-            modalOpen: false,
-            currentCardName: this.props.cardName,
-            currentCardDescription: this.props.cardDescription,
+            modalIsOpen: false,
+            cardName: this.props.card.name,
+            cardDescription: this.props.card.description
         });
     };
 
-    public openCardUpdateModal = () => this.setState({ modalOpen: true });
+    handleNameInput = (input: string) => this.setState({ cardName: input });
 
-    public handleClose = () => {
-        this.props.updateCard(this.state.currentCardName, this.state.currentCardDescription);
-        this.setState({ modalOpen: false });
-    };
+    handleDescriptionInput = (input: string) => this.setState({ cardDescription: input });
 
-    public handleCancel = () => this.initialiseCardModal();
-
-    public handleNameInput = (input: string) => this.setState({ currentCardName: input });
-
-    public handleDescriptionInput = (input: string) => this.setState({ currentCardDescription: input });
-
-    public handleKeyPress = (event: any) => {
+    handleKeyPress = (event: any) => {
         if (event.key === "Enter") {
             event.preventDefault();
-            this.handleClose();
+            this.closeModal();
         }
     };
 }

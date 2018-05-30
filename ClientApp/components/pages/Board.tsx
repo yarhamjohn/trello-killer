@@ -1,79 +1,107 @@
 ﻿import * as React from "react";
 import { RouteComponentProps } from "react-router";
 import { CardList } from "../CardList";
-import { ListModal } from "../ListModal";
+import { NewListModal } from "../NewListModal";
+import { IList, ICard } from "../common/Interfaces";
 import "../../css/Board.css";
 
-interface IList {
-    id: number;
-    name: string;
+interface IBoardState {
+    lists: IList[];
+    idCount: number;
 };
 
-interface IBoardState {
-    listNames: IList[];
-    idCount: number;
-}
 export class Board extends React.Component<RouteComponentProps<{}>, IBoardState> {
     constructor() {
         super();
         this.state = {
-            listNames: [],
-            idCount: 0
+            lists: [],
+            idCount: 0 //Use key generator
         };
     }
 
-    public render() {
+    componentDidMount() {
+        let storedLists = this.retrieveLocalStorage();
+        if (storedLists.length === 0) {
+            return;
+        };
+
+        let list = [...storedLists].sort((list: IList) => list.id).pop();
+        this.setState({
+            lists: storedLists,
+            idCount: list.id + 1
+        });
+    };
+
+    render() {
         return (
             <div className="board">
-                {this.createLists()}
+                {this.getLists()}
                 <div className="board-column">
-                    <ListModal addList={(listName) => this.addList(listName)} />
+                    <NewListModal addList={(listName) => this.addList(listName)} />
                 </div>
             </div>
         );
     };
 
-    public createLists = () => {
+    getLists = () => {
         let lists: Object[] = [];
-        for (let i = 0; i < this.state.listNames.length; i++) {
+        for (let i = 0; i < this.state.lists.length; i++) {
 
-            const id = this.state.listNames[i].id;
+            const list = this.state.lists[i];
+            const id = list.id;
             lists.push(
                 <div className="board-column" key={id}>
-                    <CardList listName={this.state.listNames[i].name} deleteList={() => this.deleteList(id)} updateList={(newListName) => {this.updateList(id, newListName)}}/>
-                </div>);
+                    <CardList
+                        list={list}
+                        deleteList={() => this.deleteList(id)}
+                        updateListName={(listName) => { this.updateList(id, listName, list.cards) }}
+                        updateListCards={(listCards) => { this.updateList(id, list.name, listCards) }}
+                    />
+                </div>
+            );
         }
 
         return lists;
     };
-    
-    public updateList = (listId: number, newListName: string) => {
-        let newListNames = [...this.state.listNames];
-        let listIndex = this.getIndexToUpdate(listId);
 
-        newListNames.splice(listIndex, 1, { id: listId, name: newListName });
-
-        this.setState(() => ({
-            listNames: newListNames
-        }));
-    };
-
-    public deleteList = (listId: number) => {
-        let newListNames = this.state.listNames.filter((element) => {
-            return element.id !== listId;
-        });
-        this.setState(() => ({ listNames: newListNames }));
-    };
-
-    public addList = (listName: string) => {
+    addList = (listName: string) => {
+        let newLists = [...this.state.lists, { id: this.state.idCount, name: listName, cards: [] }];
         this.setState((prevState: any) => ({
-            listNames: [...prevState.listNames, { id: prevState.idCount, name: listName }],
+            lists: newLists,
             idCount: prevState.idCount + 1
         }));
+        this.setLocalStorage("lists", newLists);
+    };
+
+    deleteList = (listId: number) => {
+        let newLists = this.state.lists.filter((element) => {
+            return element.id !== listId;
+        });
+
+        this.setState({ lists: newLists });
+        this.setLocalStorage("lists", newLists);
+    };
+
+    updateList = (listId: number, listName: string, listCards: ICard[]) => {
+        let newLists = [...this.state.lists];
+        let listIndex = this.getIndexToUpdate(listId);
+
+        newLists.splice(listIndex, 1, { id: listId, name: listName, cards: listCards });
+
+        this.setState({ lists: newLists });
+        this.setLocalStorage("lists", newLists);
     };
 
     private getIndexToUpdate = (listId: number) => {
-        let listIndex = [...this.state.listNames].map((element) => { return element.id; }).indexOf(listId);
-        return listIndex;
+        return [...this.state.lists].map((element) => { return element.id; }).indexOf(listId);
+    };
+
+    private setLocalStorage(key: string, value: IList[]) {
+        localStorage.setItem(key, JSON.stringify(value));
+    };
+
+    private retrieveLocalStorage = () => {
+        let storedLists = localStorage.getItem("lists");
+        return storedLists == null ? [] : JSON.parse(storedLists);
     };
 }

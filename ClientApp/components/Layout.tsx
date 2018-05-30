@@ -6,14 +6,13 @@ export interface ILayoutProps {
     children?: React.ReactNode;
 }
 
-export class Layout extends React.Component<ILayoutProps, {}> {
-    public render() {
-        return (
-            <div>
-                <NavMenu />
-                <div className="layout">
-                    {this.props.children}
-                </div>
-            </div>);
-    }
+export function Layout(props: ILayoutProps) {
+    return (
+        <div>
+            <NavMenu />
+            <div className="layout">
+                {props.children}
+            </div>
+        </div>
+    );
 }
