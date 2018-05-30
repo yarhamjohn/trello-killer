@@ -1,4 +1,5 @@
 ﻿import * as React from "react";
+import { generate } from "shortid";
 import { RouteComponentProps } from "react-router";
 import { CardList } from "../CardList";
 import { NewListModal } from "../NewListModal";
@@ -7,15 +8,13 @@ import "../../css/Board.css";
 
 interface IBoardState {
     lists: IList[];
-    idCount: number;
 };
 
 export class Board extends React.Component<RouteComponentProps<{}>, IBoardState> {
     constructor() {
         super();
         this.state = {
-            lists: [],
-            idCount: 0 //Use key generator
+            lists: []
         };
     }
 
@@ -25,10 +24,8 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
             return;
         };
 
-        let list = [...storedLists].sort((list: IList) => list.id).pop();
         this.setState({
             lists: storedLists,
-            idCount: list.id + 1
         });
     };
 
@@ -65,15 +62,12 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
     };
 
     addList = (listName: string) => {
-        let newLists = [...this.state.lists, { id: this.state.idCount, name: listName, cards: [] }];
-        this.setState((prevState: any) => ({
-            lists: newLists,
-            idCount: prevState.idCount + 1
-        }));
+        let newLists = [...this.state.lists, { id: generate(), name: listName, cards: [] }];
+        this.setState({ lists: newLists });
         this.setLocalStorage("lists", newLists);
     };
 
-    deleteList = (listId: number) => {
+    deleteList = (listId: string) => {
         let newLists = this.state.lists.filter((element) => {
             return element.id !== listId;
         });
@@ -82,7 +76,7 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
         this.setLocalStorage("lists", newLists);
     };
 
-    updateList = (listId: number, listName: string, listCards: ICard[]) => {
+    updateList = (listId: string, listName: string, listCards: ICard[]) => {
         let newLists = [...this.state.lists];
         let listIndex = this.getIndexToUpdate(listId);
 
@@ -92,7 +86,7 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
         this.setLocalStorage("lists", newLists);
     };
 
-    private getIndexToUpdate = (listId: number) => {
+    private getIndexToUpdate = (listId: string) => {
         return [...this.state.lists].map((element) => { return element.id; }).indexOf(listId);
     };
 

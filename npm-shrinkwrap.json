@@ -79,6 +79,12 @@
         "@types/react-router": "4.0.12"
       }
     },
+    "@types/shortid": {
+      "version": "0.0.29",
+      "resolved": "https://registry.npmjs.org/@types/shortid/-/shortid-0.0.29.tgz",
+      "integrity": "sha1-gJPuBBam4r8qpjOBCRFLP7/6Dps=",
+      "dev": true
+    },
     "@types/webpack-env": {
       "version": "1.13.0",
       "resolved": "https://registry.npmjs.org/@types/webpack-env/-/webpack-env-1.13.0.tgz",
@@ -4267,6 +4273,12 @@
         "inherits": "2.0.3",
         "safe-buffer": "5.1.1"
       }
+    },
+    "shortid": {
+      "version": "2.2.8",
+      "resolved": "https://registry.npmjs.org/shortid/-/shortid-2.2.8.tgz",
+      "integrity": "sha1-AzsRfWoul1gE9vCWnb59PQs1UTE=",
+      "dev": true
     },
     "snapdragon": {
       "version": "0.8.1",

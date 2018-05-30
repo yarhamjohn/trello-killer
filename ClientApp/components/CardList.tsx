@@ -130,7 +130,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         return cardIndex;
     };
 
-    retrieveLocalStorage = (listId: number) => {
+    retrieveLocalStorage = (listId: string) => {
         let storedLists = localStorage.getItem("lists");
         let lists = storedLists == null ? [] : JSON.parse(storedLists);
 

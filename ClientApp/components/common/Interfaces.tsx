@@ -7,7 +7,7 @@ export interface ICard {
 }
 
 export interface IList {
-    id: number;
+    id: string;
     name: string;
     cards: ICard[];
 };
