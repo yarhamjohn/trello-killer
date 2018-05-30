@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Image, Segment } from "semantic-ui-react";
+import { generate } from "shortid";
 import { NewCardModal } from "./NewCardModal";
 import { CardUpdateModal } from "./CardUpdateModal";
 import { ICard, IList } from "./common/Interfaces";
@@ -7,7 +8,6 @@ import "../css/CardList.css";
 
 interface ICardListState {
     cards: ICard[];
-    idCount: number;
     listName: string;
 }
 
@@ -23,7 +23,6 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
         super();
         this.state = {
             cards: [],
-            idCount: 0, // Use id generator
             listName: ""
         }
     }
@@ -34,11 +33,9 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
             return;
         };
 
-        let card = list[0].cards.length === 0 ? { id: 0 } : [...list[0].cards].sort((card: ICard) => card.id).pop();
         this.setState({
             listName: list[0].name,
-            cards: list[0].cards,
-            idCount: card.id + 1
+            cards: list[0].cards
         });
     };
 
@@ -92,20 +89,20 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
     };
 
     addCard = (cardName: string, cardDescription: string) => {
-        let newCards = [...this.state.cards, { id: this.state.idCount, name: cardName, description: cardDescription }];
+        let newCards = [...this.state.cards, { id: generate(), name: cardName, description: cardDescription }];
 
         this.setState((prevState: any) => ({ idCount: prevState.idCount + 1 }));
         this.props.updateListCards(newCards);
     };
 
-    deleteCard = (cardId: number) => {
+    deleteCard = (cardId: string) => {
         let newCards = this.state.cards.filter((element) => {
             return element.id !== cardId;
         });
         this.props.updateListCards(newCards);
     };
 
-    updateCard = (cardId: number, cardName: string, cardDescription: string) => {
+    updateCard = (cardId: string, cardName: string, cardDescription: string) => {
         let newCards = [...this.state.cards];
         let cardIndex = this.getIndexToUpdate(cardId);
 
@@ -125,9 +122,8 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
 
     updateListNameOnBlur = () => this.props.updateListName(this.state.listName);
 
-    getIndexToUpdate = (cardId: number) => {
-        let cardIndex = [...this.state.cards].map((element) => { return element.id; }).indexOf(cardId);
-        return cardIndex;
+    getIndexToUpdate = (cardId: string) => {
+        return [...this.state.cards].map((element) => { return element.id; }).indexOf(cardId);
     };
 
     retrieveLocalStorage = (listId: string) => {
