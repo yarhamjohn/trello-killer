@@ -62,9 +62,12 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
     };
 
     addList = (listName: string) => {
-        let newLists = [...this.state.lists, { id: generate(), name: listName, cards: [] }];
+        let newList: IList = { id: generate(), name: listName, cards: [] };
+        let newLists = [...this.state.lists, newList];
+
         this.setState({ lists: newLists });
         this.setLocalStorage("lists", newLists);
+        this.saveList(newList);
     };
 
     deleteList = (listId: string) => {
@@ -86,16 +89,30 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
         this.setLocalStorage("lists", newLists);
     };
 
-    private getIndexToUpdate = (listId: string) => {
+    getIndexToUpdate = (listId: string) => {
         return [...this.state.lists].map((element) => { return element.id; }).indexOf(listId);
     };
 
-    private setLocalStorage(key: string, value: IList[]) {
+    setLocalStorage(key: string, value: IList[]) {
         localStorage.setItem(key, JSON.stringify(value));
     };
 
-    private retrieveLocalStorage = () => {
+    retrieveLocalStorage = () => {
         let storedLists = localStorage.getItem("lists");
         return storedLists == null ? [] : JSON.parse(storedLists);
+    };
+
+    saveList = (newList: IList) => {
+        fetch("api/Board/AddList", {
+            method: "POST",
+            headers: {
+                'Accept': "application/json",
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify({
+                ListId: newList.id,
+                ListName: newList.name
+            })
+        });
     };
 }
