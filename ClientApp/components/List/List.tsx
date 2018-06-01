@@ -1,24 +1,24 @@
 import * as React from "react";
 import { Image, Segment } from "semantic-ui-react";
 import { generate } from "shortid";
-import { NewCardModal } from "./NewCardModal";
-import { CardUpdateModal } from "./CardUpdateModal";
-import { ICard, IList } from "./common/Interfaces";
-import "../css/CardList.css";
+import { AddCardModal } from "../AddCard/Modal";
+import { UpdateCardModal } from "../UpdateCard/Modal";
+import { ICard, IList } from "../Common/Interfaces";
+import "./List.css";
 
-interface ICardListState {
+interface ITrelloListState {
     cards: ICard[];
     listName: string;
 }
 
-interface ICardListProps {
+interface ITrelloListProps {
     list: IList;
     deleteList(): void;
     updateListName(listName: string): void;
     updateListCards(listCards: ICard[]): void;
 }
 
-export class CardList extends React.Component<ICardListProps, ICardListState> {
+export class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
     constructor() {
         super();
         this.state = {
@@ -58,13 +58,13 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
                         onChange={(event: any) => this.changeListName(event.target.value)}
                         onKeyPress={this.updateListNameOnKeyPress}
                         onBlur={this.updateListNameOnBlur} />
-                    <Image inline onClick={this.props.deleteList} floated={"right"} src={require("../images/red_skull_icon.png")} className="delete-list--icon" />
+                    <Image inline onClick={this.props.deleteList} floated={"right"} src={require("./red_skull_icon.png")} className="delete-list--icon" />
                 </Segment>
                 <Segment className="cards-segment">
                     {this.getCards()}
                 </Segment>
                 <Segment className="button-segment">
-                    <NewCardModal addCard={(cardName, cardDescription) => this.addCard(cardName, cardDescription)} />
+                    <AddCardModal addCard={(cardName, cardDescription) => this.addCard(cardName, cardDescription)} />
                 </Segment>
             </Segment.Group>
         );
@@ -77,7 +77,7 @@ export class CardList extends React.Component<ICardListProps, ICardListState> {
             const card = this.state.cards[i];
             const id = card.id;
             cards.push(
-                <CardUpdateModal key={id}
+                <UpdateCardModal key={id}
                     card={card}
                     deleteCard={() => this.deleteCard(id)}
                     updateCard={(cardName, cardDescription) => { this.updateCard(id, cardName, cardDescription) }}

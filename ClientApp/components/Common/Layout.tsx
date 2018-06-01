@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavMenu } from "./NavMenu";
-import "../css/Layout.css";
+import "./Layout.css";
 
 export interface ILayoutProps {
     children?: React.ReactNode;

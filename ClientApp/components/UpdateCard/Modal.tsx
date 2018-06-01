@@ -1,22 +1,22 @@
 import * as React from "react";
 import { Button, Modal, Form } from "semantic-ui-react"
-import { ToDoCard } from "./ToDoCard";
-import { ICard } from "./common/Interfaces";
-import "../css/CardUpdateModal.css";
+import { TrelloCard } from "../Card/Card";
+import { ICard } from "../Common/Interfaces";
+import "./Modal.css";
 
-interface ICardModalProps {
+interface IUpdateCardModalProps {
     card: ICard;
     deleteCard(): void;
     updateCard(cardName: string, cardDescription: string): void;
 }
 
-interface ICardModalState {
+interface IUpdateCardModalState {
     modalIsOpen: boolean;
     cardName: string;
     cardDescription: string;
 }
 
-export class CardUpdateModal extends React.Component<ICardModalProps, ICardModalState> {
+export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpdateCardModalState> {
     constructor() {
         super();
         this.state = {
@@ -37,7 +37,7 @@ export class CardUpdateModal extends React.Component<ICardModalProps, ICardModal
         return (
             <Modal className="card-update-modal"
                 trigger={
-                    <ToDoCard
+                    <TrelloCard
                         card={this.props.card}
                         deleteCard={() => this.props.deleteCard()}
                         updateCard={(cardName, cardDescription) => { this.props.updateCard(cardName, cardDescription) }}

@@ -1,17 +1,17 @@
 import * as React from "react";
 import { Button, Modal, Form } from "semantic-ui-react"
-import "../css/NewListModal.css";
+import "./Modal.css";
 
-interface INewListModalProps {
+interface IAddListModalProps {
     addList(listName : string): void;
 }
 
-interface INewListModalState {
+interface IAddListModalState {
     modalIsOpen: boolean;
     listName: string;
 }
 
-export class NewListModal extends React.Component<INewListModalProps, INewListModalState> {
+export class AddListModal extends React.Component<IAddListModalProps, IAddListModalState> {
     constructor() {
         super();
         this.state = {

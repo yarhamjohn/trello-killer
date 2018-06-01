@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Button, Card } from "semantic-ui-react";
-import { ICard } from "./common/Interfaces";
-import "../css/ToDoCard.css";
+import { ICard } from "../Common/Interfaces";
+import "./Card.css";
 
-interface IToDoCardProps {
+interface ITrelloCardProps {
     card: ICard;
     updateCard(cardName: string, cardDescription: string): void;
     deleteCard(): void;
     openModal(): void;
 }
 
-export function ToDoCard(props: IToDoCardProps) {
+export function TrelloCard(props: ITrelloCardProps) {
     return (
         <Card onClick={props.openModal} className="todo-card" as={"div"} raised>
             <Card.Content>

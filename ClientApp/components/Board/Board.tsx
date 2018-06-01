@@ -1,16 +1,15 @@
 ﻿import * as React from "react";
 import { generate } from "shortid";
-import { RouteComponentProps } from "react-router";
-import { CardList } from "../CardList";
-import { NewListModal } from "../NewListModal";
-import { IList, ICard } from "../common/Interfaces";
-import "../../css/Board.css";
+import { TrelloList } from "../List/List";
+import { AddListModal } from "../AddList/Modal";
+import { IList, ICard } from "../Common/Interfaces";
+import "./Board.css";
 
-interface IBoardState {
+interface ITrelloBoardState {
     lists: IList[];
 };
 
-export class Board extends React.Component<RouteComponentProps<{}>, IBoardState> {
+export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     constructor() {
         super();
         this.state = {
@@ -34,7 +33,7 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
             <div className="board">
                 {this.getLists()}
                 <div className="board-column">
-                    <NewListModal addList={(listName) => this.addList(listName)} />
+                    <AddListModal addList={(listName) => this.addList(listName)} />
                 </div>
             </div>
         );
@@ -48,7 +47,7 @@ export class Board extends React.Component<RouteComponentProps<{}>, IBoardState>
             const id = list.id;
             lists.push(
                 <div className="board-column" key={id}>
-                    <CardList
+                    <TrelloList
                         list={list}
                         deleteList={() => this.deleteList(id)}
                         updateListName={(listName) => { this.updateList(id, listName, list.cards) }}
