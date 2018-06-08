@@ -1,6 +1,6 @@
 ﻿using MongoDB.Driver;
 
-namespace aspnetreact.Server
+namespace aspnetreact.Server.DomainServices
 {
     public class DatabaseConnection : IDatabaseConnection
     {

@@ -1,31 +1,23 @@
 using aspnetreact.Server;
+using aspnetreact.Server.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Driver;
 
 namespace aspnetreact.Controllers
 {
     [Route("api/[controller]")]
     public class BoardController : Controller
     {
-        public readonly IMongoDatabase Database;
+        private readonly ITrelloKillerRepository _repository;
 
-        public BoardController(IDatabaseConnection databaseConnection)
+        public BoardController(ITrelloKillerRepository trelloKillerRepository)
         {
-            Database = databaseConnection.GetDatabase("TrelloKiller");
+            _repository = trelloKillerRepository;
         }
 
         [HttpPost("[action]")]
         public void AddList([FromBody] TrelloKillerList list)
         {
-            var collection = Database.GetCollection<TrelloKillerList>("Lists");
-            collection.InsertOneAsync(list);
+            _repository.AddList(list);
         }        
-
-        [HttpPost("[action]")]
-        public void AddCard([FromBody] TrelloKillerCard card)
-        {
-            var collection = Database.GetCollection<TrelloKillerCard>("Cards");
-            collection.InsertOneAsync(card);
-        }
     }
 }
