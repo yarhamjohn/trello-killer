@@ -1,13 +1,15 @@
 ﻿import * as React from "react";
 
-export interface ICard {
+interface ICard {
     id: string;
     name: string;
     description: string;
 }
 
-export interface IList {
+interface IList {
     id: string;
     name: string;
     cards: ICard[];
 };
+
+export {ICard, IList}

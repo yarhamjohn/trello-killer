@@ -2,6 +2,7 @@
 {
     public interface ITrelloKillerRepository
     {
-        void AddList(TrelloKillerList trelloKillerList);
+        void SaveList(TrelloKillerList trelloKillerList);
+        void RemoveList(string listId);
     }
 }

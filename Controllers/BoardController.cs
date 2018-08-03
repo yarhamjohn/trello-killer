@@ -15,9 +15,15 @@ namespace aspnetreact.Controllers
         }
 
         [HttpPost("[action]")]
-        public void AddList([FromBody] TrelloKillerList list)
+        public void SaveList([FromBody] TrelloKillerList list)
         {
-            _repository.AddList(list);
-        }        
+            _repository.SaveList(list);
+        }
+
+        [HttpPost("[action]")]
+        public void RemoveList([FromBody] string listId)
+        {
+            _repository.RemoveList(listId);
+        }
     }
 }

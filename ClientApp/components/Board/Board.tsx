@@ -76,6 +76,9 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
 
         this.setState({ lists: newLists });
         this.setLocalStorage("lists", newLists);
+
+        console.log(listId);
+        this.removeList(listId);
     };
 
     updateList = (listId: string, listName: string, listCards: ICard[]) => {
@@ -102,7 +105,7 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     };
 
     saveList = (newList: IList) => {
-        fetch("api/Board/AddList", {
+        fetch("api/Board/SaveList", {
             method: "POST",
             headers: {
                 'Accept': "application/json",
@@ -112,6 +115,17 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
                 ListId: newList.id,
                 ListName: newList.name
             })
+        });
+    };
+
+    removeList = (listId: string) => {
+        fetch("api/Board/RemoveList", {
+            method: "POST",
+            headers: {
+                'Accept': "application/json",
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify(listId)
         });
     };
 }
