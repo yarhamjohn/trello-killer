@@ -97,6 +97,12 @@
       "integrity": "sha512-DlIvvYDpcFgM1Ny1uzUBGb+0UMejhPEzDGxJ2By75ndMVDa82OUzPlV+v6NOsjA7HRvB4oj/Jqsscv6eJvLxeQ==",
       "dev": true
     },
+    "@types/node": {
+      "version": "10.5.5",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-10.5.5.tgz",
+      "integrity": "sha512-6Qnb1gXbp3g1JX9QVJj3A6ORzc9XCyhokxUKaoonHgNXcQhmk8adhotxfkeK8El9TnFeUuH72yI6jQ5nDJKS6w==",
+      "dev": true
+    },
     "@types/react": {
       "version": "15.0.35",
       "resolved": "https://registry.npmjs.org/@types/react/-/react-15.0.35.tgz",
