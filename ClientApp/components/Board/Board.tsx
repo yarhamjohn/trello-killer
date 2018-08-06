@@ -44,7 +44,7 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         for (let i = 0; i < this.state.lists.length; i++) {
 
             const list = this.state.lists[i];
-            const id = list.id;
+            const id = list.listId;
             lists.push(
                 <div className="board-column" key={id}>
                     <TrelloList
@@ -61,23 +61,21 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     };
 
     addList = (listName: string) => {
-        let newList: IList = { id: generate(), name: listName, cards: [] };
+        let newList: IList = { listId: generate(), name: listName, cards: [] };
         let newLists = [...this.state.lists, newList];
 
         this.setState({ lists: newLists });
         this.setLocalStorage("lists", newLists);
-        this.saveList(newList);
+        this.addNewList(newList);
     };
 
     deleteList = (listId: string) => {
         let newLists = this.state.lists.filter((element) => {
-            return element.id !== listId;
+            return element.listId !== listId;
         });
 
         this.setState({ lists: newLists });
         this.setLocalStorage("lists", newLists);
-
-        console.log(listId);
         this.removeList(listId);
     };
 
@@ -85,14 +83,17 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         let newLists = [...this.state.lists];
         let listIndex = this.getIndexToUpdate(listId);
 
-        newLists.splice(listIndex, 1, { id: listId, name: listName, cards: listCards });
+        let newList = { listId: listId, name: listName, cards: listCards };
+        console.log(listCards);
+        newLists.splice(listIndex, 1, newList);
 
         this.setState({ lists: newLists });
         this.setLocalStorage("lists", newLists);
+        this.modifyList(newList);
     };
 
     getIndexToUpdate = (listId: string) => {
-        return [...this.state.lists].map((element) => { return element.id; }).indexOf(listId);
+        return [...this.state.lists].map((element) => { return element.listId; }).indexOf(listId);
     };
 
     setLocalStorage(key: string, value: IList[]) {
@@ -104,16 +105,31 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         return storedLists == null ? [] : JSON.parse(storedLists);
     };
 
-    saveList = (newList: IList) => {
-        fetch("api/Board/SaveList", {
+    addNewList = (newList: IList) => {
+        fetch("api/Board/AddList", {
             method: "POST",
             headers: {
                 'Accept': "application/json",
                 'Content-Type': "application/json"
             },
             body: JSON.stringify({
-                ListId: newList.id,
-                ListName: newList.name
+                ListId: newList.listId,
+                Name: newList.name
+            })
+        });
+    };
+
+    modifyList = (newList: IList) => {
+        fetch("api/Board/ModifyList", {
+            method: "POST",
+            headers: {
+                'Accept': "application/json",
+                'Content-Type': "application/json"
+            },
+            body: JSON.stringify({
+                ListId: newList.listId,
+                Name: newList.name,
+                Cards: newList.cards
             })
         });
     };

@@ -1,3 +1,5 @@
+using System;
+using System.Diagnostics;
 using aspnetreact.Server;
 using aspnetreact.Server.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +17,15 @@ namespace aspnetreact.Controllers
         }
 
         [HttpPost("[action]")]
-        public void SaveList([FromBody] TrelloKillerList list)
+        public void AddList([FromBody] TrelloKillerList list)
         {
-            _repository.SaveList(list);
+            _repository.AddList(list);
+        }
+
+        [HttpPost("[action]")]
+        public void ModifyList([FromBody] TrelloKillerList list)
+        {
+            _repository.ModifyList(list);
         }
 
         [HttpPost("[action]")]

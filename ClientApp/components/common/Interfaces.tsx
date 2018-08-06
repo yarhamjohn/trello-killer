@@ -1,13 +1,13 @@
 ﻿import * as React from "react";
 
 interface ICard {
-    id: string;
+    cardId: string;
     name: string;
     description: string;
 }
 
 interface IList {
-    id: string;
+    listId: string;
     name: string;
     cards: ICard[];
 };

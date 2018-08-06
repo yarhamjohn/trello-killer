@@ -28,7 +28,7 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
     }
 
     componentDidMount() {
-        let list = this.retrieveLocalStorage(this.props.list.id);
+        let list = this.retrieveLocalStorage(this.props.list.listId);
         if (list.length === 0) {
             return;
         };
@@ -75,7 +75,7 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
         for (let i = 0; i < this.state.cards.length; i++) {
 
             const card = this.state.cards[i];
-            const id = card.id;
+            const id = card.cardId;
             cards.push(
                 <UpdateCardModal key={id}
                     card={card}
@@ -89,7 +89,7 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
     };
 
     addCard = (cardName: string, cardDescription: string) => {
-        let newCards = [...this.state.cards, { id: generate(), name: cardName, description: cardDescription }];
+        let newCards = [...this.state.cards, { cardId: generate(), name: cardName, description: cardDescription }];
 
         this.setState((prevState: any) => ({ idCount: prevState.idCount + 1 }));
         this.props.updateListCards(newCards);
@@ -97,7 +97,7 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
 
     deleteCard = (cardId: string) => {
         let newCards = this.state.cards.filter((element) => {
-            return element.id !== cardId;
+            return element.cardId !== cardId;
         });
         this.props.updateListCards(newCards);
     };
@@ -106,7 +106,7 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
         let newCards = [...this.state.cards];
         let cardIndex = this.getIndexToUpdate(cardId);
 
-        newCards.splice(cardIndex, 1, { id: cardId, name: cardName, description: cardDescription });
+        newCards.splice(cardIndex, 1, { cardId: cardId, name: cardName, description: cardDescription });
 
         this.props.updateListCards(newCards);
     };
@@ -123,13 +123,13 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
     updateListNameOnBlur = () => this.props.updateListName(this.state.listName);
 
     getIndexToUpdate = (cardId: string) => {
-        return [...this.state.cards].map((element) => { return element.id; }).indexOf(cardId);
+        return [...this.state.cards].map((element) => { return element.cardId; }).indexOf(cardId);
     };
 
     retrieveLocalStorage = (listId: string) => {
         let storedLists = localStorage.getItem("lists");
         let lists = storedLists == null ? [] : JSON.parse(storedLists);
 
-        return lists.filter((list: IList) => list.id === listId);
+        return lists.filter((list: IList) => list.listId === listId);
     };
 }
