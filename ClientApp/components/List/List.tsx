@@ -14,8 +14,7 @@ interface ITrelloListState {
 interface ITrelloListProps {
     list: IList;
     deleteList(): void;
-    updateListName(listName: string): void;
-    updateListCards(listCards: ICard[]): void;
+    updateList(listName: string, listCards: ICard[]): void;
 }
 
 export class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
@@ -92,14 +91,14 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
         let newCards = [...this.state.cards, { cardId: generate(), name: cardName, description: cardDescription }];
 
         this.setState((prevState: any) => ({ idCount: prevState.idCount + 1 }));
-        this.props.updateListCards(newCards);
+        this.props.updateList(this.state.listName, newCards);
     };
 
     deleteCard = (cardId: string) => {
         let newCards = this.state.cards.filter((element) => {
             return element.cardId !== cardId;
         });
-        this.props.updateListCards(newCards);
+        this.props.updateList(this.state.listName, newCards);
     };
 
     updateCard = (cardId: string, cardName: string, cardDescription: string) => {
@@ -108,7 +107,7 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
 
         newCards.splice(cardIndex, 1, { cardId: cardId, name: cardName, description: cardDescription });
 
-        this.props.updateListCards(newCards);
+        this.props.updateList(this.state.listName, newCards);
     };
 
     changeListName = (input: string) => this.setState({ listName: input });
@@ -120,7 +119,7 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
         }
     };
 
-    updateListNameOnBlur = () => this.props.updateListName(this.state.listName);
+    updateListNameOnBlur = () => this.props.updateList(this.state.listName, this.state.cards);
 
     getIndexToUpdate = (cardId: string) => {
         return [...this.state.cards].map((element) => { return element.cardId; }).indexOf(cardId);

@@ -50,8 +50,7 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
                     <TrelloList
                         list={list}
                         deleteList={() => this.deleteList(id)}
-                        updateListName={(listName) => { this.updateList(id, listName, list.cards) }}
-                        updateListCards={(listCards) => { this.updateList(id, list.name, listCards) }}
+                        updateList={(listName, listCards) => { this.updateList(id, listName, listCards) }}
                     />
                 </div>
             );
