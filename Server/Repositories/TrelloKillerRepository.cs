@@ -1,4 +1,4 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
 using aspnetreact.Server.DomainServices;
 using MongoDB.Driver;
 
@@ -17,6 +17,11 @@ namespace aspnetreact.Server.Repositories
             TrelloKillerCollection = Database.GetCollection<TrelloKillerList>("Lists");
             FilterBuilder = Builders<TrelloKillerList>.Filter;
             UpdateBuilder = Builders<TrelloKillerList>.Update;
+        }
+
+        public List<TrelloKillerList> RetrieveLists()
+        {
+            return TrelloKillerCollection.Find(FilterDefinition<TrelloKillerList>.Empty).ToList();
         }
 
         public void AddList(TrelloKillerList list)

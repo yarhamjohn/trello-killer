@@ -7,6 +7,7 @@ interface ICard {
 }
 
 interface IList {
+    //_id: string;
     listId: string;
     name: string;
     cards: ICard[];

@@ -1,5 +1,3 @@
-using System;
-using System.Diagnostics;
 using aspnetreact.Server;
 using aspnetreact.Server.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +12,12 @@ namespace aspnetreact.Controllers
         public BoardController(ITrelloKillerRepository trelloKillerRepository)
         {
             _repository = trelloKillerRepository;
+        }
+
+        [HttpPost("[action]")]
+        public JsonResult RetrieveLists()
+        {
+            return Json(_repository.RetrieveLists());
         }
 
         [HttpPost("[action]")]

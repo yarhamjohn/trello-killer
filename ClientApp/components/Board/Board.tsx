@@ -3,32 +3,29 @@ import { generate } from "shortid";
 import { TrelloList } from "../List/List";
 import { AddListModal } from "../AddList/Modal";
 import { IList, ICard } from "../Common/Interfaces";
+import { Loader } from "semantic-ui-react";
 import "./Board.css";
 
 interface ITrelloBoardState {
+    isLoading: Boolean;
     lists: IList[];
 };
 
 export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     constructor() {
         super();
-        this.state = {
-            lists: []
-        };
+        this.state = { isLoading: false, lists: [] };
     }
 
     componentDidMount() {
-        let storedLists = this.retrieveLocalStorage();
-        if (storedLists.length === 0) {
-            return;
-        };
-
-        this.setState({
-            lists: storedLists,
-        });
+        this.setState({ isLoading: true });
+        this.retrieveLists();
     };
 
     render() {
+        if (this.state.isLoading) {
+            return <Loader active />;
+        }
         return (
             <div className="board">
                 {this.getLists()}
@@ -40,7 +37,7 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     };
 
     getLists = () => {
-        let lists: Object[] = [];
+        const lists: Object[] = [];
         for (let i = 0; i < this.state.lists.length; i++) {
 
             const list = this.state.lists[i];
@@ -60,34 +57,31 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     };
 
     addList = (listName: string) => {
-        let newList: IList = { listId: generate(), name: listName, cards: [] };
-        let newLists = [...this.state.lists, newList];
+        const newList: IList = { listId: generate(), name: listName, cards: [] };
+        const newLists = [...this.state.lists, newList];
 
         this.setState({ lists: newLists });
-        this.setLocalStorage("lists", newLists);
         this.addNewList(newList);
     };
 
     deleteList = (listId: string) => {
-        let newLists = this.state.lists.filter((element) => {
+        const newLists = this.state.lists.filter((element) => {
             return element.listId !== listId;
         });
 
         this.setState({ lists: newLists });
-        this.setLocalStorage("lists", newLists);
         this.removeList(listId);
     };
 
     updateList = (listId: string, listName: string, listCards: ICard[]) => {
-        let newLists = [...this.state.lists];
-        let listIndex = this.getIndexToUpdate(listId);
+        const newLists = [...this.state.lists];
+        const listIndex = this.getIndexToUpdate(listId);
 
-        let newList = { listId: listId, name: listName, cards: listCards };
+        const newList = { listId: listId, name: listName, cards: listCards };
         console.log(listCards);
         newLists.splice(listIndex, 1, newList);
 
         this.setState({ lists: newLists });
-        this.setLocalStorage("lists", newLists);
         this.modifyList(newList);
     };
 
@@ -95,13 +89,18 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         return [...this.state.lists].map((element) => { return element.listId; }).indexOf(listId);
     };
 
-    setLocalStorage(key: string, value: IList[]) {
-        localStorage.setItem(key, JSON.stringify(value));
-    };
-
-    retrieveLocalStorage = () => {
-        let storedLists = localStorage.getItem("lists");
-        return storedLists == null ? [] : JSON.parse(storedLists);
+    retrieveLists = () => {
+        fetch("api/Board/RetrieveLists",
+            {
+                method: "POST",
+                headers: {
+                    'Accept': "application/json",
+                    'Content-Type': "application/json"
+                }
+            }
+        )
+        .then(response => response.json())
+        .then(data => this.setState({ isLoading: false, lists: data }));
     };
 
     addNewList = (newList: IList) => {
@@ -113,7 +112,8 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
             },
             body: JSON.stringify({
                 ListId: newList.listId,
-                Name: newList.name
+                Name: newList.name,
+                Cards: []
             })
         });
     };

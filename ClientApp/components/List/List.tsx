@@ -91,14 +91,14 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
         let newCards = [...this.state.cards, { cardId: generate(), name: cardName, description: cardDescription }];
 
         this.setState((prevState: any) => ({ idCount: prevState.idCount + 1 }));
-        this.props.updateList(this.state.listName, newCards);
+        this.props.updateList(this.props.list.name, newCards);
     };
 
     deleteCard = (cardId: string) => {
         let newCards = this.state.cards.filter((element) => {
             return element.cardId !== cardId;
         });
-        this.props.updateList(this.state.listName, newCards);
+        this.props.updateList(this.props.list.name, newCards);
     };
 
     updateCard = (cardId: string, cardName: string, cardDescription: string) => {
@@ -107,7 +107,7 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
 
         newCards.splice(cardIndex, 1, { cardId: cardId, name: cardName, description: cardDescription });
 
-        this.props.updateList(this.state.listName, newCards);
+        this.props.updateList(this.props.list.name, newCards);
     };
 
     changeListName = (input: string) => this.setState({ listName: input });
