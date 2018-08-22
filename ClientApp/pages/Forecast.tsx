@@ -1,6 +1,6 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router";
-import "isomorphic-fetch/fetch-npm-node";
+// import "isomorphic-fetch/fetch-npm-node";
 
 interface IForecastExampleState {
     forecasts: WeatherForecast[];

@@ -2,18 +2,12 @@ import * as React from "react";
 import { Image, Menu } from "semantic-ui-react";
 import { NavLink } from "react-router-dom";
 
-export class NavMenu extends React.Component<{}, {}> {
-
-    constructor() {
-        super();
-    }
-
-    public render() {
-        return <div>
+export function NavMenu() {
+    return (
+        <div>
             <Menu pointing={true}>
                 <Menu.Item header>
-                    <Image src={require("../images/trello_killer_icon.png")} avatar />
-
+                    <Image src={require("./trello_killer_icon.png")} avatar />
                     Trello Killer</Menu.Item>
                 <NavLink exact to={"/"} className={"item"}>
                     Home
@@ -21,12 +15,13 @@ export class NavMenu extends React.Component<{}, {}> {
                 <NavLink to={"/counter"} className={"item"}>
                     Counter
                 </NavLink>
-                <NavLink to={"/board"} className={"item"}>
-                    Board
+                <NavLink to={"/trellokiller"} className={"item"}>
+                    Trello Killer
                 </NavLink>
                 <NavLink to={"/forecast"} className={"item"}>
                     Forecast
                 </NavLink>
-            </Menu></div>;
-    }
+            </Menu>
+        </div>
+    );
 }

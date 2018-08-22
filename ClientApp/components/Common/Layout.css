@@ -1,0 +1,5 @@
+.layout {
+    height: calc(100vh - 56px - 3rem) !important;
+    overflow-x: auto !important;
+    margin: 2rem 2rem 1rem 2rem !important;
+}
