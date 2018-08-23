@@ -34,12 +34,14 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
     };
 
     render() {
+        const { card, deleteCard } = this.props;
+
         return (
             <Modal className="card-update-modal"
                 trigger={
                     <TrelloCard
-                        card={this.props.card}
-                        deleteCard={() => this.props.deleteCard()}
+                        card={card}
+                        deleteCard={() => deleteCard()}
                         openModal={() => this.openModal()}
                     />
                 }
@@ -82,10 +84,12 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
     };
 
     cancel = () => {
+        const card = this.props.card;
+
         this.setState({
             modalIsOpen: false,
-            cardName: this.props.card.name,
-            cardDescription: this.props.card.description
+            cardName: card.name,
+            cardDescription: card.description
         });
     };
 
