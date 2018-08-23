@@ -1,6 +1,6 @@
 ﻿import { IList } from "../components/Common/Interfaces";
 
-export function retrieveLists() {
+function retrieveLists() {
     return fetch("api/Board/RetrieveLists",
         {
             method: "POST",
@@ -12,7 +12,7 @@ export function retrieveLists() {
     );
 };
 
-export function addNewList(newList: IList) {
+function addNewList(newList: IList) {
     fetch("api/Board/AddList", {
         method: "POST",
         headers: {
@@ -27,7 +27,7 @@ export function addNewList(newList: IList) {
     });
 };
 
-export function modifyList(newList: IList) {
+function modifyList(newList: IList) {
     fetch("api/Board/ModifyList", {
         method: "POST",
         headers: {
@@ -42,7 +42,7 @@ export function modifyList(newList: IList) {
     });
 };
 
-export function removeList(listId: string) {
+function removeList(listId: string) {
     fetch("api/Board/RemoveList", {
         method: "POST",
         headers: {
@@ -52,3 +52,5 @@ export function removeList(listId: string) {
         body: JSON.stringify(listId)
     });
 };
+
+export {retrieveLists, addNewList, modifyList, removeList};
