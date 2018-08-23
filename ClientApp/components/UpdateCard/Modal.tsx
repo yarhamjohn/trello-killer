@@ -40,7 +40,6 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
                     <TrelloCard
                         card={this.props.card}
                         deleteCard={() => this.props.deleteCard()}
-                        updateCard={(cardName, cardDescription) => { this.props.updateCard(cardName, cardDescription) }}
                         openModal={() => this.openModal()}
                     />
                 }
