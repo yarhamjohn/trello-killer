@@ -7,7 +7,6 @@ import { ICard, IList } from "../Common/Interfaces";
 import "./List.css";
 
 interface ITrelloListState {
-    cards: ICard[];
     listName: string;
 }
 
@@ -20,33 +19,9 @@ interface ITrelloListProps {
 export class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
     constructor() {
         super();
-        this.state = {
-            cards: [],
-            listName: ""
-        }
+        this.state = { listName: "" }
     }
-
-    componentDidMount() {
-        let list = this.retrieveLocalStorage(this.props.list.listId);
-        if (list.length === 0) {
-            return;
-        };
-
-        this.setState({
-            listName: list[0].name,
-            cards: list[0].cards
-        });
-    };
-
-    componentDidUpdate(prevProps: any) {
-        if (prevProps.list !== this.props.list) {
-            this.setState({
-                listName: this.props.list.name,
-                cards: this.props.list.cards,
-            });
-        }
-    };
-
+    
     render() {
         return (
             <Segment.Group className="card-list">
@@ -71,15 +46,15 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
 
     getCards = () => {
         let cards: Object[] = [];
-        for (let i = 0; i < this.state.cards.length; i++) {
+        for (let i = 0; i < this.props.list.cards.length; i++) {
 
-            const card = this.state.cards[i];
-            const id = card.cardId;
+            const card = this.props.list.cards[i];
+            const cardId = card.cardId;
             cards.push(
-                <UpdateCardModal key={id}
+                <UpdateCardModal key={cardId}
                     card={card}
-                    deleteCard={() => this.deleteCard(id)}
-                    updateCard={(cardName, cardDescription) => { this.updateCard(id, cardName, cardDescription) }}
+                    deleteCard={() => this.deleteCard(cardId)}
+                    updateCard={(cardName, cardDescription) => { this.updateCard(cardId, cardName, cardDescription) }}
                 />
             );
         }
@@ -88,26 +63,25 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
     };
 
     addCard = (cardName: string, cardDescription: string) => {
-        let newCards = [...this.state.cards, { cardId: generate(), name: cardName, description: cardDescription }];
+        const newCard = { cardId: generate(), name: cardName, description: cardDescription }
+        const cards = [...this.props.list.cards, newCard];
 
-        this.setState((prevState: any) => ({ idCount: prevState.idCount + 1 }));
-        this.props.updateList(this.props.list.name, newCards);
+        this.props.updateList(this.props.list.name, cards);
     };
 
     deleteCard = (cardId: string) => {
-        let newCards = this.state.cards.filter((element) => {
-            return element.cardId !== cardId;
-        });
-        this.props.updateList(this.props.list.name, newCards);
+        const filteredCards = this.props.list.cards.filter((element) => element.cardId !== cardId);
+        this.props.updateList(this.props.list.name, filteredCards);
     };
 
     updateCard = (cardId: string, cardName: string, cardDescription: string) => {
-        let newCards = [...this.state.cards];
-        let cardIndex = this.getIndexToUpdate(cardId);
+        const cards = [...this.props.list.cards];
+        const cardIndex = this.getIndexToUpdate(cardId);
 
-        newCards.splice(cardIndex, 1, { cardId: cardId, name: cardName, description: cardDescription });
+        const newCard = { cardId: cardId, name: cardName, description: cardDescription };
+        cards.splice(cardIndex, 1, newCard);
 
-        this.props.updateList(this.props.list.name, newCards);
+        this.props.updateList(this.props.list.name, cards);
     };
 
     changeListName = (input: string) => this.setState({ listName: input });
@@ -119,16 +93,10 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
         }
     };
 
-    updateListNameOnBlur = () => this.props.updateList(this.state.listName, this.state.cards);
+    updateListNameOnBlur = () => this.props.updateList(this.state.listName, this.props.list.cards);
 
     getIndexToUpdate = (cardId: string) => {
-        return [...this.state.cards].map((element) => { return element.cardId; }).indexOf(cardId);
-    };
-
-    retrieveLocalStorage = (listId: string) => {
-        let storedLists = localStorage.getItem("lists");
-        let lists = storedLists == null ? [] : JSON.parse(storedLists);
-
-        return lists.filter((list: IList) => list.listId === listId);
+        const cardIds = [...this.props.list.cards].map((element) => { return element.cardId; });
+        return cardIds.indexOf(cardId);
     };
 }
