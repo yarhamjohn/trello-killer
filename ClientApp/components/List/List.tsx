@@ -21,7 +21,11 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
         super();
         this.state = { listName: "" }
     }
-    
+
+    componentDidMount() {
+        this.setState({ listName: this.props.list.name });
+    };
+
     render() {
         const { list, deleteList } = this.props;
         return (
