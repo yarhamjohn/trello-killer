@@ -1,22 +1,41 @@
 import * as React from "react";
 import { Image, Segment } from "semantic-ui-react";
 import { generate } from "shortid";
+import { DropTarget, DropTargetMonitor, DropTargetConnector } from "react-dnd";
 import { AddCardModal } from "../AddCard/Modal";
 import { UpdateCardModal } from "../UpdateCard/Modal";
 import { ICard, IList } from "../Common/Interfaces";
 import "./List.css";
+import ConnectDropTarget = __ReactDnd.ConnectDropTarget;
 
 interface ITrelloListState {
     listName: string;
 }
 
-interface ITrelloListProps {
+interface ITrelloListDropProps {
+    connectDropTarget: ConnectDropTarget;
+}
+
+interface ITrelloListProps extends ITrelloListDropProps {
     list: IList;
     deleteList(): void;
     updateList(listName: string, listCards: ICard[]): void;
 }
 
-export class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
+const listTarget = {
+    drop(props: ITrelloListProps, monitor: DropTargetMonitor) {
+        const card = monitor.getItem();
+        console.log(card);
+    }
+};
+
+const collect = (connect: DropTargetConnector, monitor: DropTargetMonitor) => {
+    return {
+        connectDropTarget: connect.dropTarget(),
+    }
+};
+
+class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
     constructor() {
         super();
         this.state = { listName: "" }
@@ -27,25 +46,27 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
     };
 
     render() {
-        const { list, deleteList } = this.props;
-        return (
-            <Segment.Group className="card-list">
-                <Segment className="header-segment">
-                    <textarea
-                        className="list-name"
-                        defaultValue={list.name}
-                        onChange={(event: any) => this.changeListName(event.target.value)}
-                        onKeyPress={this.updateListNameOnKeyPress}
-                        onBlur={this.updateListNameOnBlur} />
-                    <Image inline onClick={deleteList} floated={"right"} src={require("./red_skull_icon.png")} className="delete-list--icon" />
-                </Segment>
-                <Segment className="cards-segment">
-                    {this.getCards()}
-                </Segment>
-                <Segment className="button-segment">
-                    <AddCardModal addCard={(cardName, cardDescription) => this.addCard(cardName, cardDescription)} />
-                </Segment>
-            </Segment.Group>
+        const { connectDropTarget, list, deleteList } = this.props;
+        return connectDropTarget(
+            <div>
+                <Segment.Group className="card-list">
+                    <Segment className="header-segment">
+                        <textarea
+                            className="list-name"
+                            defaultValue={list.name}
+                            onChange={(event: any) => this.changeListName(event.target.value)}
+                            onKeyPress={this.updateListNameOnKeyPress}
+                            onBlur={this.updateListNameOnBlur} />
+                        <Image inline onClick={deleteList} floated={"right"} src={require("./red_skull_icon.png")} className="delete-list--icon" />
+                    </Segment>
+                    <Segment className="cards-segment">
+                        {this.getCards()}
+                    </Segment>
+                    <Segment className="button-segment">
+                        <AddCardModal addCard={(cardName, cardDescription) => this.addCard(cardName, cardDescription)} />
+                    </Segment>
+                </Segment.Group>
+            </div>
         );
     };
 
@@ -117,3 +138,5 @@ export class TrelloList extends React.Component<ITrelloListProps, ITrelloListSta
         return cardIds.indexOf(cardId);
     };
 }
+
+export default DropTarget("card", listTarget, collect)(TrelloList);

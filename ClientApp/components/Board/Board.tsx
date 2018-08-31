@@ -3,7 +3,7 @@ import { Loader } from "semantic-ui-react";
 import { generate } from "shortid";
 import { DragDropContext } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
-import { TrelloList } from "../List/List";
+import TrelloList from "../List/List";
 import { AddListModal } from "../AddList/Modal";
 import { IList, ICard } from "../Common/Interfaces";
 import { retrieveLists, addNewList, modifyList, removeList } from "../../api/api";
@@ -52,7 +52,8 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
                     <TrelloList
                         list={list}
                         deleteList={() => this.deleteList(listId)}
-                        updateList={(listName, listCards) => { this.updateList(listId, listName, listCards) }}
+                        updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, listName, listCards) }}
+                        connectDropTarget={null as any}
                     />
                 </div>
             );
