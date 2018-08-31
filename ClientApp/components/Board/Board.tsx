@@ -1,6 +1,8 @@
 ﻿import * as React from "react";
 import { Loader } from "semantic-ui-react";
 import { generate } from "shortid";
+import { DragDropContext } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
 import { TrelloList } from "../List/List";
 import { AddListModal } from "../AddList/Modal";
 import { IList, ICard } from "../Common/Interfaces";
@@ -12,7 +14,7 @@ interface ITrelloBoardState {
     lists: IList[];
 };
 
-export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
+class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     constructor() {
         super();
         this.state = { isLoading: false, lists: [] };
@@ -90,3 +92,5 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         return listIds.indexOf(listId);
     };
 }
+
+export default DragDropContext(HTML5Backend)(TrelloBoard);
