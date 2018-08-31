@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Button, Modal, Form } from "semantic-ui-react"
-import { TrelloCard } from "../Card/Card";
+import TrelloCard from "../Card/Card";
 import { ICard } from "../Common/Interfaces";
 import "./Modal.css";
 
@@ -43,6 +43,7 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
                         card={card}
                         deleteCard={() => deleteCard()}
                         openModal={() => this.openModal()}
+                        connectDragSource={null as any}
                     />
                 }
                 open={this.state.modalIsOpen}

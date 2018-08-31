@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27e758d0-4ca0-4023-9a3c-1e5ee22a20e7" name="Default" comment="Make it work with rider">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="27e758d0-4ca0-4023-9a3c-1e5ee22a20e7" name="Default" comment="Use DragDropContext">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/components/Board/Board.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/components/Board/Board.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/npm-shrinkwrap.json" beforeDir="false" afterPath="$PROJECT_DIR$/npm-shrinkwrap.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/components/Card/Card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <ignored path="D:\repositories\dotnet\aspnetreact\.idea\.idea.aspnetreact\.idea\shelf/" />
@@ -26,29 +24,29 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="json" value="102" />
-          <entry key="tsx" value="85" />
-          <entry key="txt" value="89" />
+          <entry key="json" value="116" />
+          <entry key="tsx" value="926" />
+          <entry key="txt" value="128" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="102" />
-          <entry key="PLAIN_TEXT" value="89" />
-          <entry key="TypeScript JSX" value="85" />
+          <entry key="JSON" value="116" />
+          <entry key="PLAIN_TEXT" value="128" />
+          <entry key="TypeScript JSX" value="926" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="json" value="2" />
-          <entry key="tsx" value="1" />
+          <entry key="tsx" value="5" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="2" />
-          <entry key="TypeScript JSX" value="1" />
+          <entry key="TypeScript JSX" value="5" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -61,11 +59,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+            <state relative-caret-position="240">
+              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="7" column="22" selection-start-line="7" selection-end-line="8" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -73,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state relative-caret-position="120">
+              <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -121,6 +163,9 @@
         <option value="$PROJECT_DIR$/Server/DomainServices/DatabaseConnection.cs" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/ClientApp/components/Board/Board.tsx" />
+        <option value="$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx" />
+        <option value="$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx" />
+        <option value="$PROJECT_DIR$/ClientApp/components/Card/Card.tsx" />
       </list>
     </option>
   </component>
@@ -182,6 +227,37 @@
               <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
               <item name="components" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Board" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="components" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Card" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="components" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="List" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="components" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="UpdateCard" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="pages" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -277,7 +353,7 @@
       <workItem from="1526480620332" duration="1892000" />
       <workItem from="1533303041106" duration="1172000" />
       <workItem from="1533758293432" duration="2649000" />
-      <workItem from="1535734370233" duration="2620000" />
+      <workItem from="1535734370233" duration="6670000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1525441010858</created>
@@ -335,11 +411,25 @@
       <option name="project" value="LOCAL" />
       <updated>1535734721244</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Import old version of react-dnd which might actually work">
+      <created>1535737707811</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1535737707811</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Use DragDropContext">
+      <created>1535740104342</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1535740104342</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15241000" />
+    <option name="totallyTimeSpent" value="19291000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -422,7 +512,8 @@
     <MESSAGE value="Kick off mongo server automatically on start" />
     <MESSAGE value="Make it work with rider" />
     <MESSAGE value="Import old version of react-dnd which might actually work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Import old version of react-dnd which might actually work" />
+    <MESSAGE value="Use DragDropContext" />
+    <option name="LAST_COMMIT_MESSAGE" value="Use DragDropContext" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -453,13 +544,6 @@
     <entry file="file://$PROJECT_DIR$/ClientApp/components/CardSegment.tsx" />
     <entry file="file://$PROJECT_DIR$/ClientApp/components/pages/Board.tsx" />
     <entry file="file://$PROJECT_DIR$/ClientApp/components/pages/Forecast.tsx" />
-    <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/test.test.tsx">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -530,17 +614,53 @@
         <state relative-caret-position="-2565" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        <state relative-caret-position="30">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        <state relative-caret-position="240">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="22" selection-start-line="7" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
