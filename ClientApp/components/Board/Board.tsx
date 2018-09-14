@@ -5,7 +5,7 @@ import { DragDropContext } from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
 import TrelloList from "../List/List";
 import { AddListModal } from "../AddList/Modal";
-import { IList, ICard } from "../Common/Interfaces";
+import { IList, ICard } from "../../shared/Interfaces";
 import { retrieveLists, addNewList, modifyList, removeList } from "../../api/api";
 import "./Board.css";
 

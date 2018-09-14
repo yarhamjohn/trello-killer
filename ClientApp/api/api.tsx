@@ -1,4 +1,4 @@
-﻿import { IList } from "../components/Common/Interfaces";
+﻿import { IList } from "../shared/Interfaces";
 
 function retrieveLists() {
     return fetch("api/Board/RetrieveLists",

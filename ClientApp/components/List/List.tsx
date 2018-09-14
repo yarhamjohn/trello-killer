@@ -4,7 +4,7 @@ import { generate } from "shortid";
 import { DropTarget, DropTargetMonitor, DropTargetConnector } from "react-dnd";
 import { AddCardModal } from "../AddCard/Modal";
 import { UpdateCardModal } from "../UpdateCard/Modal";
-import { ICard, IList } from "../Common/Interfaces";
+import { ICard, IList } from "../../shared/Interfaces";
 import "./List.css";
 import ConnectDropTarget = __ReactDnd.ConnectDropTarget;
 
@@ -57,7 +57,7 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
                             onChange={(event: any) => this.changeListName(event.target.value)}
                             onKeyPress={this.updateListNameOnKeyPress}
                             onBlur={this.updateListNameOnBlur} />
-                        <Image inline onClick={deleteList} floated={"right"} src={require("./red_skull_icon.png")} className="delete-list--icon" />
+                        <Image inline onClick={deleteList} floated={"right"} src={require("../../shared/images/red_skull_icon.png")} className="delete-list--icon" />
                     </Segment>
                     <Segment className="cards-segment">
                         {this.getCards()}

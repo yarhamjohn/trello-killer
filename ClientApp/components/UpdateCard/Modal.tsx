@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button, Modal, Form } from "semantic-ui-react"
 import TrelloCard from "../Card/Card";
-import { ICard } from "../Common/Interfaces";
+import { ICard } from "../../shared/Interfaces";
 import "./Modal.css";
 
 interface IUpdateCardModalProps {

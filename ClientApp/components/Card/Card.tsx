@@ -1,7 +1,7 @@
 import * as React from "react";
 import { DragSource, DragSourceCollector, DragSourceConnector, ConnectDragSource } from "react-dnd";
 import { Button, Card } from "semantic-ui-react";
-import { ICard } from "../Common/Interfaces";
+import { ICard } from "../../shared/Interfaces";
 import "./Card.css";
 
 interface ITrelloCardDragProps {
