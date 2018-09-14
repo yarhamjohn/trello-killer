@@ -1,4 +1,4 @@
-﻿import { IList } from "../components/Common/Interfaces";
+﻿import {ICard, IList} from "../shared/Interfaces";
 
 function retrieveLists() {
     return fetch("api/Board/RetrieveLists",
@@ -10,7 +10,7 @@ function retrieveLists() {
             }
         }
     );
-};
+}
 
 function addNewList(newList: IList) {
     fetch("api/Board/AddList", {
@@ -25,7 +25,7 @@ function addNewList(newList: IList) {
             Cards: []
         })
     });
-};
+}
 
 function modifyList(newList: IList) {
     fetch("api/Board/ModifyList", {
@@ -40,7 +40,7 @@ function modifyList(newList: IList) {
             Cards: newList.cards
         })
     });
-};
+}
 
 function removeList(listId: string) {
     fetch("api/Board/RemoveList", {
@@ -51,6 +51,21 @@ function removeList(listId: string) {
         },
         body: JSON.stringify(listId)
     });
-};
+}
 
-export {retrieveLists, addNewList, modifyList, removeList};
+function moveCard(card: ICard, sourceListId: string, targetListId: string) {
+    fetch("api/Board/MoveCard", {
+        method: "POST",
+        headers: {
+            'Accept': "application/json",
+            'Content-Type': "application/json"
+        },
+        body: JSON.stringify({
+            card: card,
+            sourceListId: sourceListId,
+            targetListId: targetListId
+        })
+    });
+}
+
+export {retrieveLists, addNewList, modifyList, removeList, moveCard};
