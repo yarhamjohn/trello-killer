@@ -38,18 +38,16 @@
             <e p="Card.css" t="Include" />
             <e p="Card.tsx" t="Include" />
           </e>
-          <e p="Common" t="Include">
-            <e p="Interfaces.tsx" t="Include" />
+          <e p="Layout" t="Include">
             <e p="Layout.css" t="Include" />
             <e p="Layout.tsx" t="Include" />
-            <e p="NavMenu.tsx" t="Include" />
-            <e p="site.css" t="Include" />
-            <e p="trello_killer_icon.png" t="Include" />
           </e>
           <e p="List" t="Include">
             <e p="List.css" t="Include" />
             <e p="List.tsx" t="Include" />
-            <e p="red_skull_icon.png" t="Include" />
+          </e>
+          <e p="NavMenu" t="Include">
+            <e p="NavMenu.tsx" t="Include" />
           </e>
           <e p="UpdateCard" t="Include">
             <e p="Modal.css" t="Include" />
@@ -63,6 +61,16 @@
           <e p="TrelloKiller.tsx" t="Include" />
         </e>
         <e p="routes.tsx" t="Include" />
+        <e p="Shared" t="Include">
+          <e p="drap-and-drop" t="Include">
+            <e p="DragAndDrop.ts" t="Include" />
+          </e>
+          <e p="images" t="Include">
+            <e p="red_skull_icon.png" t="Include" />
+            <e p="trello_killer_icon.png" t="Include" />
+          </e>
+          <e p="Interfaces.tsx" t="Include" />
+        </e>
         <e p="test.test.tsx" t="Include" />
       </e>
       <e p="Controllers" t="Include">
@@ -160,6 +168,7 @@
           <e p="DatabaseConnection.cs" t="Include" />
           <e p="IDatabaseConnection.cs" t="Include" />
         </e>
+        <e p="MovedCard.cs" t="Include" />
         <e p="repositories" t="Include">
           <e p="ITrelloKillerRepository.cs" t="Include" />
           <e p="TrelloKillerRepository.cs" t="Include" />
