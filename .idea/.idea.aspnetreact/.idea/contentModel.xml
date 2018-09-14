@@ -78,6 +78,7 @@
           <e p="node" t="IncludeRecursive" />
           <e p="react" t="IncludeRecursive" />
           <e p="react-dnd" t="IncludeRecursive" />
+          <e p="react-dnd-html5-backend" t="IncludeRecursive" />
           <e p="react-dom" t="IncludeRecursive" />
           <e p="react-hot-loader" t="IncludeRecursive" />
           <e p="react-router" t="IncludeRecursive" />
