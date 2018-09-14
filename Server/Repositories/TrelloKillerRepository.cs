@@ -10,7 +10,7 @@ namespace aspnetreact.Server.Repositories
         public IMongoCollection<TrelloKillerList> TrelloKillerCollection;
         public FilterDefinitionBuilder<TrelloKillerList> FilterBuilder;
         public UpdateDefinitionBuilder<TrelloKillerList> UpdateBuilder;
-        
+
         public TrelloKillerRepository(IDatabaseConnection databaseConnection)
         {
             Database = databaseConnection.GetDatabase("TrelloKiller");
@@ -40,6 +40,26 @@ namespace aspnetreact.Server.Repositories
         {
             var filter = FilterBuilder.Eq(list => list.ListId, listId);
             TrelloKillerCollection.DeleteOneAsync(filter);
+        }
+
+        public void MoveCard(MovedCard movedCard)
+        {
+            RemoveCard(movedCard.Card.CardId, movedCard.SourceListId);
+            AddCard(movedCard.Card, movedCard.TargetListId);
+        }
+
+        private void RemoveCard(string cardId, string sourceListId)
+        {
+            var filter = FilterBuilder.Eq(list => list.ListId, sourceListId);
+            var update = UpdateBuilder.PullFilter(list => list.Cards, card => card.CardId == cardId);
+            TrelloKillerCollection.UpdateOneAsync(filter, update);
+        }
+
+        private void AddCard(TrelloKillerCard card, string targetListId)
+        {
+            var filter = FilterBuilder.Eq(list => list.ListId, targetListId);
+            var update = UpdateBuilder.Push(list => list.Cards, card);
+            TrelloKillerCollection.UpdateOneAsync(filter, update);
         }
     }
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
-import { DragSource, DragSourceCollector, DragSourceConnector, ConnectDragSource } from "react-dnd";
-import { Button, Card } from "semantic-ui-react";
-import { ICard } from "../../shared/Interfaces";
+import {ConnectDragSource, DragSource, DragSourceConnector} from "react-dnd";
+import {Button, Card} from "semantic-ui-react";
+import {ICard} from "../../shared/Interfaces";
 import "./Card.css";
 
 interface ITrelloCardDragProps {
@@ -9,6 +9,7 @@ interface ITrelloCardDragProps {
 }
 
 interface ITrelloCardProps extends ITrelloCardDragProps {
+    listId: string;
     card: ICard;
     deleteCard(): void;
     openModal(): void;
@@ -16,7 +17,7 @@ interface ITrelloCardProps extends ITrelloCardDragProps {
 
 const cardSource = {
     beginDrag(props: ITrelloCardProps) {
-        return {id: props.card.cardId}
+        return {card: props.card, listId: props.listId};
     }
 };
 

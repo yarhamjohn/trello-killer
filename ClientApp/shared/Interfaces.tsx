@@ -11,6 +11,6 @@ interface IList {
     listId: string;
     name: string;
     cards: ICard[];
-};
+}
 
 export {ICard, IList}

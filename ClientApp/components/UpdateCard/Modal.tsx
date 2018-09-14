@@ -5,6 +5,7 @@ import { ICard } from "../../shared/Interfaces";
 import "./Modal.css";
 
 interface IUpdateCardModalProps {
+    listId: string;
     card: ICard;
     deleteCard(): void;
     updateCard(cardName: string, cardDescription: string): void;
@@ -34,12 +35,13 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
     };
 
     render() {
-        const { card, deleteCard } = this.props;
+        const { card, deleteCard, listId } = this.props;
 
         return (
             <Modal className="card-update-modal"
                 trigger={
                     <TrelloCard
+                        listId={listId}
                         card={card}
                         deleteCard={() => deleteCard()}
                         openModal={() => this.openModal()}
