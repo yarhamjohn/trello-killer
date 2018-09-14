@@ -48,8 +48,8 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
     render() {
         const { connectDropTarget, list, deleteList } = this.props;
         return connectDropTarget(
-            <div>
-                <Segment.Group className="card-list">
+            <div className="card-list">
+                <Segment.Group>
                     <Segment className="header-segment">
                         <textarea
                             className="list-name"
