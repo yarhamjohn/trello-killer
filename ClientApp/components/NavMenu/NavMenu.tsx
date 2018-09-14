@@ -7,7 +7,7 @@ export function NavMenu() {
         <div>
             <Menu pointing={true}>
                 <Menu.Item header>
-                    <Image src={require("./trello_killer_icon.png")} avatar />
+                    <Image src={require("../../shared/images/trello_killer_icon.png")} avatar />
                     Trello Killer</Menu.Item>
                 <NavLink exact to={"/"} className={"item"}>
                     Home

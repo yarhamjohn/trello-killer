@@ -1,9 +1,11 @@
 ﻿import * as React from "react";
 import { Loader } from "semantic-ui-react";
 import { generate } from "shortid";
-import { TrelloList } from "../List/List";
+import { DragDropContext } from "react-dnd";
+import HTML5Backend from "react-dnd-html5-backend";
+import TrelloList from "../List/List";
 import { AddListModal } from "../AddList/Modal";
-import { IList, ICard } from "../Common/Interfaces";
+import { IList, ICard } from "../../shared/Interfaces";
 import { retrieveLists, addNewList, modifyList, removeList } from "../../api/api";
 import "./Board.css";
 
@@ -12,7 +14,7 @@ interface ITrelloBoardState {
     lists: IList[];
 };
 
-export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
+class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     constructor() {
         super();
         this.state = { isLoading: false, lists: [] };
@@ -50,7 +52,8 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
                     <TrelloList
                         list={list}
                         deleteList={() => this.deleteList(listId)}
-                        updateList={(listName, listCards) => { this.updateList(listId, listName, listCards) }}
+                        updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, listName, listCards) }}
+                        connectDropTarget={null as any}
                     />
                 </div>
             );
@@ -90,3 +93,5 @@ export class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         return listIds.indexOf(listId);
     };
 }
+
+export default DragDropContext(HTML5Backend)(TrelloBoard);
