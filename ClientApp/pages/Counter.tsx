@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
+import * as React from "react";
+import { RouteComponentProps } from "react-router";
 import {Button, Label} from "semantic-ui-react";
 
-interface CounterState {
+interface ICounterState {
     currentCount: number;
 }
 
-export class Counter extends React.Component<RouteComponentProps<{}>, CounterState> {
+export class Counter extends React.Component<RouteComponentProps<{}>, ICounterState> {
     constructor() {
         super();
         this.state = { currentCount: 0 };
@@ -18,9 +18,9 @@ export class Counter extends React.Component<RouteComponentProps<{}>, CounterSta
 
             <p>This is a simple example of a React component.</p>
 
-            <p>Current count: <Label color={'blue'} size={'huge'} circular={true}> { this.state.currentCount }</Label></p>
+            <p>Current count: <Label color={"blue"} size={"huge"} circular={true}> { this.state.currentCount }</Label></p>
 
-            <Button color={'red'} size={'huge'} onClick={ () => { this.incrementCounter() } }>Increment</Button>
+            <Button color={"red"} size={"huge"} onClick={ () => { this.incrementCounter() } }>Increment</Button>
         </div>;
     }
 

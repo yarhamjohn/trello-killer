@@ -1,0 +1,56 @@
+.card-list {
+    max-height: 100% !important;
+    display: flex !important;
+    width: 300px !important;
+    border: 0 !important;
+}
+
+.header-segment {
+    height: 40px !important;
+    border-bottom: 0 !important;
+    font-weight: bold !important;
+    padding: 0.5em !important;
+    background-color: RGB(200, 200, 200) !important;
+}
+
+.list-name {
+    background-color: transparent !important;
+    width: calc(100% - 30px - 0.5em) !important;
+    margin-right: 0.5em !important;
+    border: 0 !important;
+    height: 30px !important;
+    font-size: 20px !important;
+    resize: none !important;
+    padding: 5px !important;
+    overflow-y: hidden !important;
+}
+
+.list-name:focus {
+    background-color: white !important;
+    border-radius: 2px !important;
+}
+
+.cards-segment {
+    max-height: calc(100% - 90px) !important;
+    overflow-y: auto !important;
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    padding: 0 0.5em !important;
+    background-color: RGB(200, 200, 200) !important;
+}
+
+.button-segment {
+    min-height: 50px !important;
+    border-top: 0 !important;
+    display: flex;
+    justify-content: center !important;
+    padding: 0.5em !important;
+    background-color: RGB(200, 200, 200) !important;
+}
+
+.delete-list--icon {
+    width: 30px !important;
+    height: 30px !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+}

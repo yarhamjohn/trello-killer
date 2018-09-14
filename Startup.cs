@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using aspnetreact.Server.DomainServices;
+using aspnetreact.Server.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -23,6 +21,8 @@ namespace aspnetreact
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSingleton<IDatabaseConnection, DatabaseConnection>();
+            services.AddSingleton<ITrelloKillerRepository, TrelloKillerRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

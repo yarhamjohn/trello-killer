@@ -1,0 +1,20 @@
+.todo-card {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+}
+
+.todo-card:hover {
+    background-color: RGB(230, 230, 230) !important;
+    cursor: pointer !important;
+}
+
+.todo-card--name {
+    background-color: transparent !important;
+    width: 100% !important;
+    border: 0 !important;
+    height: 30px !important;
+    font-size: 20px !important;
+    resize: none !important;
+    padding: 5px !important;
+    overflow-y: hidden !important;
+}
