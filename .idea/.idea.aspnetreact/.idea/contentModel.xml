@@ -62,9 +62,6 @@
         </e>
         <e p="routes.tsx" t="Include" />
         <e p="Shared" t="Include">
-          <e p="drap-and-drop" t="Include">
-            <e p="DragAndDrop.ts" t="Include" />
-          </e>
           <e p="images" t="Include">
             <e p="red_skull_icon.png" t="Include" />
             <e p="trello_killer_icon.png" t="Include" />

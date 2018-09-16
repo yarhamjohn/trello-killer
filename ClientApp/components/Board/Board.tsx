@@ -6,7 +6,7 @@ import HTML5Backend from "react-dnd-html5-backend";
 import TrelloList from "../List/List";
 import { AddListModal } from "../AddList/Modal";
 import { IList, ICard } from "../../shared/Interfaces";
-import { retrieveLists, addNewList, modifyList, removeList } from "../../api/api";
+import {retrieveLists, addNewList, modifyList, removeList, moveCard} from "../../api/api";
 import "./Board.css";
 
 interface ITrelloBoardState {
@@ -53,6 +53,7 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
                         list={list}
                         deleteList={() => this.deleteList(listId)}
                         updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, listName, listCards) }}
+                        moveCard={(card: ICard, sourceListId: string, targetListId: string) => { this.moveCardBetweenLists(card, sourceListId, targetListId)}}
                         connectDropTarget={null as any}
                     />
                 </div>
@@ -79,7 +80,7 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
 
     updateList = (listId: string, listName: string, listCards: ICard[]) => {
         const lists = [...this.state.lists];
-        const listIndex = this.getIndexToUpdate(listId);
+        const listIndex = this.getListIndexToUpdate(listId);
 
         const newList = { listId: listId, name: listName, cards: listCards };
         lists.splice(listIndex, 1, newList);
@@ -88,9 +89,31 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         modifyList(newList);
     };
 
-    getIndexToUpdate = (listId: string) => {
-        const listIds = [...this.state.lists].map((element) => { return element.listId; })
+    moveCardBetweenLists = (card: ICard, sourceListId: string, targetListId: string) => {
+        const lists = [...this.state.lists];
+
+        const sourceListIndex = this.getListIndexToUpdate(sourceListId);
+        const targetListIndex = this.getListIndexToUpdate(targetListId);
+
+        const sourceList = lists[sourceListIndex];
+        const sourceListCardIndex = this.getCardIndexToUpdate(sourceList, card.cardId);
+
+        sourceList.cards.splice(sourceListCardIndex, 1);
+        lists[targetListIndex].cards.push(card);
+
+        this.setState({ lists: lists });
+        moveCard(card, sourceListId, targetListId);
+    };
+
+    getListIndexToUpdate = (listId: string) => {
+        const listIds = [...this.state.lists].map((element) => { return element.listId; });
         return listIds.indexOf(listId);
+    };
+
+
+    getCardIndexToUpdate = (list: IList, cardId: string) => {
+        const cardIds = [...list.cards].map((element) => { return element.cardId; });
+        return cardIds.indexOf(cardId);
     };
 }
 

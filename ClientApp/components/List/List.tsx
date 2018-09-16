@@ -7,7 +7,6 @@ import { UpdateCardModal } from "../UpdateCard/Modal";
 import { ICard, IList } from "../../shared/Interfaces";
 import "./List.css";
 import ConnectDropTarget = __ReactDnd.ConnectDropTarget;
-import { moveCardBetweenLists } from '../../shared/drap-and-drop/DragAndDrop';
 
 interface ITrelloListState {
     listName: string;
@@ -21,13 +20,14 @@ interface ITrelloListProps extends ITrelloListDropProps {
     list: IList;
     deleteList(): void;
     updateList(listName: string, listCards: ICard[]): void;
+    moveCard(card: ICard, sourceList: string, targetList: string): void;
 }
 
 const listTarget = {
     drop(props: ITrelloListProps, monitor: DropTargetMonitor) {
-        const card = monitor.getItem();
+        const card: any = monitor.getItem();
         const targetListId = props.list.listId;
-        moveCardBetweenLists(card, targetListId);
+        props.moveCard(card.card, card.listId, targetListId);
     }
 };
 
