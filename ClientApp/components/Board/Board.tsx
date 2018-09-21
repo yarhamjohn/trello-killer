@@ -80,10 +80,11 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
 
     updateBoardIndexes = (lists: IList[]) => {
         lists.forEach(list => {
-            const newIndex = lists.indexOf(list);
-            if (list.boardIndex > newIndex) {
-                this.updateList(list.listId, newIndex, list.name, list.cards);
-            }
+            list.boardIndex = lists.indexOf(list);
+            list.cards.forEach(card => {
+                card.listIndex = list.cards.indexOf(card);
+            });
+            this.updateList(list.listId, list.boardIndex, list.name, list.cards);
         });
     };
 
@@ -101,18 +102,26 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     moveCardBetweenLists = (card: ICard, sourceListId: string, targetListId: string) => {
         const lists = [...this.state.lists];
 
-        const sourceListIndex = this.getListIndexToUpdate(sourceListId);
-        const targetListIndex = this.getListIndexToUpdate(targetListId);
-
-        const sourceList = lists[sourceListIndex];
-        const sourceListCardIndex = this.getCardIndexToUpdate(sourceList, card.cardId);
-
-        sourceList.cards.splice(sourceListCardIndex, 1);
-        lists[targetListIndex].cards.push(card);
+        this.removeCard(card, sourceListId, lists);
+        this.addCard(card, targetListId, lists);
+        this.updateBoardIndexes(lists);
 
         this.setState({ lists: lists });
-        removeCard(card.cardId, sourceListId);
+    };
+
+    addCard = (card: ICard, targetListId: string, lists: IList[]) => {
+        const targetListIndex = this.getListIndexToUpdate(targetListId);
+        lists[targetListIndex].cards.push(card);
+
         addCard(card, targetListId);
+    };
+
+    removeCard = (card: ICard, sourceListId: string, lists: IList[]) => {
+        const sourceListIndex = this.getListIndexToUpdate(sourceListId);
+        const sourceListCardIndex = this.getCardIndexToUpdate(lists[sourceListIndex], card.cardId);
+
+        lists[sourceListIndex].cards.splice(sourceListCardIndex, 1);
+        removeCard(card.cardId, sourceListId);
     };
 
     getListIndexToUpdate = (listId: string) => {
