@@ -55,8 +55,22 @@ function removeList(listId: string) {
     });
 }
 
-function moveCard(card: ICard, sourceListId: string, targetListId: string) {
-    fetch("api/Board/MoveCard", {
+function removeCard(cardId: string, sourceListId: string) {
+    fetch("api/Board/RemoveCard", {
+        method: "POST",
+        headers: {
+            'Accept': "application/json",
+            'Content-Type': "application/json"
+        },
+        body: JSON.stringify({
+            cardId: cardId,
+            sourceListId: sourceListId
+        })
+    });
+}
+
+function addCard(card: ICard, targetListId: string) {
+    fetch("api/Board/AddCard", {
         method: "POST",
         headers: {
             'Accept': "application/json",
@@ -64,10 +78,9 @@ function moveCard(card: ICard, sourceListId: string, targetListId: string) {
         },
         body: JSON.stringify({
             card: card,
-            sourceListId: sourceListId,
             targetListId: targetListId
         })
     });
 }
 
-export {retrieveLists, addNewList, modifyList, removeList, moveCard};
+export {retrieveLists, addNewList, modifyList, removeList, removeCard, addCard};

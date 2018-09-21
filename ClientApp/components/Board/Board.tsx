@@ -6,7 +6,7 @@ import HTML5Backend from "react-dnd-html5-backend";
 import TrelloList from "../List/List";
 import { AddListModal } from "../AddList/Modal";
 import { IList, ICard } from "../../shared/Interfaces";
-import {retrieveLists, addNewList, modifyList, removeList, moveCard} from "../../api/api";
+import {retrieveLists, addNewList, modifyList, removeList, removeCard, addCard} from "../../api/api";
 import "./Board.css";
 
 interface ITrelloBoardState {
@@ -111,7 +111,8 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         lists[targetListIndex].cards.push(card);
 
         this.setState({ lists: lists });
-        moveCard(card, sourceListId, targetListId);
+        removeCard(card.cardId, sourceListId);
+        addCard(card, targetListId);
     };
 
     getListIndexToUpdate = (listId: string) => {

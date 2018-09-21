@@ -45,20 +45,14 @@ namespace aspnetreact.Server.Repositories
             TrelloKillerCollection.DeleteOneAsync(filter);
         }
 
-        public void MoveCard(MovedCard movedCard)
-        {
-            RemoveCard(movedCard.Card.CardId, movedCard.SourceListId);
-            AddCard(movedCard.Card, movedCard.TargetListId);
-        }
-
-        private void RemoveCard(string cardId, string sourceListId)
+        public void RemoveCard(string cardId, string sourceListId)
         {
             var filter = FilterBuilder.Eq(list => list.ListId, sourceListId);
             var update = UpdateBuilder.PullFilter(list => list.Cards, card => card.CardId == cardId);
             TrelloKillerCollection.UpdateOneAsync(filter, update);
         }
 
-        private void AddCard(TrelloKillerCard card, string targetListId)
+        public void AddCard(TrelloKillerCard card, string targetListId)
         {
             var filter = FilterBuilder.Eq(list => list.ListId, targetListId);
             var update = UpdateBuilder.Push(list => list.Cards, card);
