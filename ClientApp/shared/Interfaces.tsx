@@ -2,6 +2,7 @@
 
 interface ICard {
     cardId: string;
+    listIndex: number;
     name: string;
     description: string;
 }

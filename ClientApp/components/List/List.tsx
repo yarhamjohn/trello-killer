@@ -86,7 +86,7 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
                     listId={list.listId}
                     card={card}
                     deleteCard={() => this.deleteCard(cardId)}
-                    updateCard={(cardName, cardDescription) => { this.updateCard(cardId, cardName, cardDescription) }}
+                    updateCard={(cardName, cardDescription) => { this.updateCard(cardId, card.listIndex, cardName, cardDescription) }}
                 />
             );
         }
@@ -96,8 +96,8 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
 
     addCard = (cardName: string, cardDescription: string) => {
         const { list, updateList } = this.props;
-
-        const newCard = { cardId: generate(), name: cardName, description: cardDescription }
+        const targetIndex = list.cards.length;
+        const newCard = { cardId: generate(), listIndex: targetIndex, name: cardName, description: cardDescription };
         const cards = [...list.cards, newCard];
 
         updateList(list.name, cards);
@@ -107,16 +107,23 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
         const { list, updateList } = this.props;
 
         const filteredCards = list.cards.filter((element) => element.cardId !== cardId);
+        this.updateListIndexes(filteredCards);
         updateList(list.name, filteredCards);
     };
 
-    updateCard = (cardId: string, cardName: string, cardDescription: string) => {
+    updateListIndexes = (cards: ICard[]) => {
+        cards.forEach(card => {
+            card.listIndex = cards.indexOf(card);
+        });
+    };
+
+    updateCard = (cardId: string, cardListIndex: number, cardName: string, cardDescription: string) => {
         const { list, updateList } = this.props;
 
         const cards = [...list.cards];
         const cardIndex = this.getIndexToUpdate(cardId);
 
-        const newCard = { cardId: cardId, name: cardName, description: cardDescription };
+        const newCard = { cardId: cardId, listIndex: cardListIndex, name: cardName, description: cardDescription };
         cards.splice(cardIndex, 1, newCard);
 
         updateList(list.name, cards);
