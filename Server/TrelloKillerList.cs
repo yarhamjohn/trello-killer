@@ -6,6 +6,7 @@ namespace aspnetreact.Server
     {
         public ObjectId _id { get; set; }
         public string ListId { get; set; }
+        public int BoardIndex { get; set; }
         public string Name { get; set; }
         public TrelloKillerCard[] Cards { get; set; }
     }

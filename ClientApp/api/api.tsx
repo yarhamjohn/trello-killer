@@ -21,6 +21,7 @@ function addNewList(newList: IList) {
         },
         body: JSON.stringify({
             ListId: newList.listId,
+            BoardIndex: newList.boardIndex,
             Name: newList.name,
             Cards: []
         })
@@ -36,6 +37,7 @@ function modifyList(newList: IList) {
         },
         body: JSON.stringify({
             ListId: newList.listId,
+            BoardIndex: newList.boardIndex,
             Name: newList.name,
             Cards: newList.cards
         })

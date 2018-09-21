@@ -9,6 +9,7 @@ interface ICard {
 interface IList {
     //_id: string;
     listId: string;
+    boardIndex: number;
     name: string;
     cards: ICard[];
 }

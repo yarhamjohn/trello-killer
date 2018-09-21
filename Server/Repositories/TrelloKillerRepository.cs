@@ -32,7 +32,10 @@ namespace aspnetreact.Server.Repositories
         public void ModifyList(TrelloKillerList trelloKillerList)
         {
             var filter = FilterBuilder.Eq(list => list.ListId, trelloKillerList.ListId);
-            var update = UpdateBuilder.Set(list => list.Name, trelloKillerList.Name).Set(list => list.Cards, trelloKillerList.Cards);
+            var update = UpdateBuilder
+                .Set(list => list.BoardIndex, trelloKillerList.BoardIndex)
+                .Set(list => list.Name, trelloKillerList.Name)
+                .Set(list => list.Cards, trelloKillerList.Cards);
             TrelloKillerCollection.UpdateOneAsync(filter, update);
         }
 

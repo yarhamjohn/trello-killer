@@ -52,7 +52,7 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
                     <TrelloList
                         list={list}
                         deleteList={() => this.deleteList(listId)}
-                        updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, listName, listCards) }}
+                        updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, list.boardIndex, listName, listCards) }}
                         moveCard={(card: ICard, sourceListId: string, targetListId: string) => { this.moveCardBetweenLists(card, sourceListId, targetListId)}}
                         connectDropTarget={null as any}
                     />
@@ -64,7 +64,8 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     };
 
     addList = (listName: string) => {
-        const newList: IList = { listId: generate(), name: listName, cards: [] };
+        const targetIndex = this.state.lists.length;
+        const newList: IList = { listId: generate(), boardIndex: targetIndex, name: listName, cards: [] };
         const lists = [...this.state.lists, newList];
 
         this.setState({ lists: lists });
@@ -73,16 +74,24 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
 
     deleteList = (listId: string) => {
         const filteredLists = this.state.lists.filter((element) => element.listId !== listId);
-
-        this.setState({ lists: filteredLists });
+        this.setState({ lists: filteredLists }, () => this.updateBoardIndexes(filteredLists));
         removeList(listId);
     };
 
-    updateList = (listId: string, listName: string, listCards: ICard[]) => {
+    updateBoardIndexes = (lists: IList[]) => {
+        lists.forEach(list => {
+            const newIndex = lists.indexOf(list);
+            if (list.boardIndex > newIndex) {
+                this.updateList(list.listId, newIndex, list.name, list.cards);
+            }
+        });
+    };
+
+    updateList = (listId: string, listBoardIndex: number, listName: string, listCards: ICard[]) => {
         const lists = [...this.state.lists];
         const listIndex = this.getListIndexToUpdate(listId);
 
-        const newList = { listId: listId, name: listName, cards: listCards };
+        const newList = { listId: listId, boardIndex: listBoardIndex, name: listName, cards: listCards };
         lists.splice(listIndex, 1, newList);
 
         this.setState({ lists: lists });
