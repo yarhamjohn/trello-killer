@@ -27,7 +27,7 @@ const listTarget = {
     drop(props: ITrelloListProps, monitor: DropTargetMonitor) {
         const card: any = monitor.getItem();
         const targetListId = props.list.listId;
-        props.moveCard(card.card, card.listId, targetListId);
+        props.moveCard(card.card, card.sourceListId, targetListId);
     }
 };
 
@@ -49,10 +49,10 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
 
     render() {
         const { connectDropTarget, list, deleteList } = this.props;
-        return connectDropTarget(
+        return (
             <div className="card-list">
                 <Segment.Group>
-                    <Segment className="header-segment">
+                    {connectDropTarget(<div><Segment className="header-segment">
                         <textarea
                             className="list-name"
                             defaultValue={list.name}
@@ -60,7 +60,7 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
                             onKeyPress={this.updateListNameOnKeyPress}
                             onBlur={this.updateListNameOnBlur} />
                         <Image inline onClick={deleteList} floated={"right"} src={require("../../shared/images/red_skull_icon.png")} className="delete-list--icon" />
-                    </Segment>
+                    </Segment></div>)}
                     <Segment className="cards-segment">
                         {this.getCards()}
                     </Segment>
@@ -87,6 +87,7 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
                     card={card}
                     deleteCard={() => this.deleteCard(cardId)}
                     updateCard={(cardName, cardDescription) => { this.updateCard(cardId, card.listIndex, cardName, cardDescription) }}
+                    moveCard={(card, sourceListId, targetListId) => this.props.moveCard(card, sourceListId, targetListId)}
                 />
             );
         }

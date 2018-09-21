@@ -80,6 +80,7 @@
         <e p="@types" t="IncludeRecursive">
           <e p="history" t="IncludeRecursive" />
           <e p="jest" t="IncludeRecursive" />
+          <e p="lodash" t="IncludeRecursive" />
           <e p="node" t="IncludeRecursive" />
           <e p="react" t="IncludeRecursive" />
           <e p="react-dnd" t="IncludeRecursive" />
@@ -102,6 +103,7 @@
         <e p="jest" t="IncludeRecursive" />
         <e p="jquery" t="IncludeRecursive" />
         <e p="json-loader" t="IncludeRecursive" />
+        <e p="lodash" t="IncludeRecursive" />
         <e p="react" t="IncludeRecursive" />
         <e p="react-dnd" t="IncludeRecursive" />
         <e p="react-dnd-html5-backend" t="IncludeRecursive" />

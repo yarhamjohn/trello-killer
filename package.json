@@ -5,6 +5,7 @@
   "devDependencies": {
     "@types/history": "4.6.0",
     "@types/jest": "^23.1.0",
+    "@types/lodash": "^4.14.116",
     "@types/node": "^10.5.5",
     "@types/react": "15.0.35",
     "@types/react-dnd": "^2",
@@ -26,6 +27,7 @@
     "jest": "^23.1.0",
     "jquery": "3.2.1",
     "json-loader": "0.5.4",
+    "lodash": "^4.17.11",
     "react": "15.6.1",
     "react-dnd": "^2",
     "react-dnd-html5-backend": "^2",
