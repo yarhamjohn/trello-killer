@@ -1,7 +1,14 @@
 ﻿import * as React from "react";
+import * as _ from "lodash";
 import { Loader } from "semantic-ui-react";
 import { generate } from "shortid";
-import { DragDropContext } from "react-dnd";
+import {
+    ConnectDropTarget,
+    DragDropContext,
+    DropTarget,
+    DropTargetConnector,
+    DropTargetMonitor
+} from "react-dnd";
 import HTML5Backend from "react-dnd-html5-backend";
 import TrelloList from "../List/List";
 import { AddListModal } from "../AddList/Modal";
@@ -14,7 +21,24 @@ interface ITrelloBoardState {
     lists: IList[];
 };
 
-class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
+interface ITrelloListDropProps {
+    connectDropTarget: ConnectDropTarget;
+};
+
+const listTarget = {
+    drop(props: ITrelloListDropProps, monitor: DropTargetMonitor, component: TrelloBoard) {
+        const draggedItem: any = monitor.getItem();
+        component.moveList(draggedItem.ListIndex, -1);
+    }
+};
+
+const collect = (connect: DropTargetConnector) => {
+    return {
+        connectDropTarget: connect.dropTarget()
+    }
+};
+
+class TrelloBoard extends React.Component<ITrelloListDropProps, ITrelloBoardState> {
     constructor() {
         super();
         this.state = { isLoading: false, lists: [] };
@@ -34,9 +58,9 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         return (
             <div className="board">
                 {this.getLists()}
-                <div className="board-column">
+                {this.props.connectDropTarget(<div className="board-column">
                     <AddListModal addList={(listName) => this.addList(listName)} />
-                </div>
+                </div>)}
             </div>
         );
     };
@@ -85,7 +109,12 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         const sourceList = lists[sourceListIndex];
 
         lists.splice(sourceListIndex, 1);
-        lists.splice(targetListIndex, 0, sourceList);
+
+        if (targetListIndex === -1) {
+            lists.push(sourceList);
+        } else {
+            lists.splice(targetListIndex, 0, sourceList);
+        }
 
         this.updateIndexes(lists);
     };
@@ -153,4 +182,6 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     };
 }
 
-export default DragDropContext(HTML5Backend)(TrelloBoard);
+export default _.flow(
+    DropTarget("list", listTarget, collect),
+    DragDropContext(HTML5Backend))(TrelloBoard);

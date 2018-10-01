@@ -3,5 +3,5 @@ import { RouteComponentProps } from "react-router";
 import TrelloBoard from "../components/Board/Board";
 
 export function TrelloKiller(props: RouteComponentProps <{}>) {
-    return ( <TrelloBoard /> );
+    return ( <TrelloBoard connectDropTarget={null as any}/> );
 }

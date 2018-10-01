@@ -31,7 +31,6 @@ const listTarget = {
         if (monitor.getItemType() === "card") {
             props.moveCard(draggedItem.card, draggedItem.sourceListId, props.list.listId, "");
         } else {
-            console.log(draggedItem.ListIndex, props.list);
             props.moveList(draggedItem.ListIndex, props.list.boardIndex);
         }
     }

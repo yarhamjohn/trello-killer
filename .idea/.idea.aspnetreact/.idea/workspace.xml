@@ -31,7 +31,7 @@
         <counts>
           <entry key="cs" value="485" />
           <entry key="json" value="166" />
-          <entry key="tsx" value="7813" />
+          <entry key="tsx" value="7949" />
           <entry key="txt" value="310" />
         </counts>
       </usages-collector>
@@ -40,7 +40,7 @@
           <entry key="C#" value="485" />
           <entry key="JSON" value="166" />
           <entry key="PLAIN_TEXT" value="310" />
-          <entry key="TypeScript JSX" value="7813" />
+          <entry key="TypeScript JSX" value="7949" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,11 +80,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+            <state relative-caret-position="441">
+              <caret line="116" selection-start-line="116" selection-end-line="116" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -168,11 +168,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="72" column="49" lean-forward="true" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="49" />
+            <state relative-caret-position="484">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -465,7 +465,7 @@
       <workItem from="1537186798723" duration="30000" />
       <workItem from="1537535731926" duration="2108000" />
       <workItem from="1537538072401" duration="7869000" />
-      <workItem from="1538418831112" duration="5536000" />
+      <workItem from="1538418831112" duration="6325000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1525441010858</created>
@@ -590,7 +590,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40857000" />
+    <option name="totallyTimeSpent" value="41646000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -935,20 +935,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+        <state relative-caret-position="484">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="72" column="49" lean-forward="true" selection-start-line="72" selection-start-column="49" selection-end-line="72" selection-end-column="49" />
+        <state relative-caret-position="441">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
