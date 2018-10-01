@@ -79,7 +79,8 @@ class TrelloBoard extends React.Component<ITrelloListDropProps, ITrelloBoardStat
                         updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, list.boardIndex, listName, listCards) }}
                         moveCard={(card: ICard, sourceListId: string, targetListId: string, targetCardId: string) => { this.moveCardBetweenLists(card, sourceListId, targetListId, targetCardId)}}
                         moveList={(sourceListIndex: number, targetListIndex: number) => { this.moveList(sourceListIndex, targetListIndex)}}
-                        connectDropTarget={null as any}
+                        connectDropTopTarget={null as any}
+                        connectDropBottomTarget={null as any}
                         connectDragSource={null as any}
                     />
                 </div>
@@ -125,8 +126,16 @@ class TrelloBoard extends React.Component<ITrelloListDropProps, ITrelloBoardStat
             list.cards.forEach(card => {
                 card.listIndex = list.cards.indexOf(card);
             });
-            this.updateList(list.listId, list.boardIndex, list.name, list.cards);
+
+            const listIndex = this.getListIndexToUpdate(list.listId);
+            const newList = { listId: list.listId, boardIndex: list.boardIndex, name: list.name, cards: list.cards };
+
+            lists.splice(listIndex, 1, newList);
+
+            modifyList(newList);
         });
+
+        this.setState({ lists: lists });
     };
 
     updateList = (listId: string, listBoardIndex: number, listName: string, listCards: ICard[]) => {
@@ -152,7 +161,9 @@ class TrelloBoard extends React.Component<ITrelloListDropProps, ITrelloBoardStat
 
     addCard = (card: ICard, targetListId: string, lists: IList[], targetCardId: string) => {
         const targetListIndex = this.getListIndexToUpdate(targetListId);
-        if (targetCardId === "") {
+        if (targetCardId === "top") {
+            lists[targetListIndex].cards.splice(0, 0, card);
+        } else if (targetCardId === "bottom") {
             lists[targetListIndex].cards.push(card);
         } else {
             const targetCardIndex = this.getCardIndexToUpdate(lists[targetListIndex], targetCardId);

@@ -13,7 +13,8 @@ interface ITrelloListState {
 }
 
 interface ITrelloListDropProps {
-    connectDropTarget: ConnectDropTarget;
+    connectDropTopTarget: ConnectDropTarget;
+    connectDropBottomTarget: ConnectDropTarget;
     connectDragSource: ConnectDragSource;
 }
 
@@ -25,20 +26,37 @@ interface ITrelloListProps extends ITrelloListDropProps {
     moveList(sourceListIndex: number, targetListIndex: number): void;
 }
 
-const listTarget = {
+const listTopTarget = {
     drop(props: ITrelloListProps, monitor: DropTargetMonitor) {
         const draggedItem: any = monitor.getItem();
         if (monitor.getItemType() === "card") {
-            props.moveCard(draggedItem.card, draggedItem.sourceListId, props.list.listId, "");
+            props.moveCard(draggedItem.card, draggedItem.sourceListId, props.list.listId, "top");
         } else {
             props.moveList(draggedItem.ListIndex, props.list.boardIndex);
         }
     }
 };
 
-const targetCollect = (connect: DropTargetConnector) => {
+const listBottomTarget = {
+    drop(props: ITrelloListProps, monitor: DropTargetMonitor) {
+        const draggedItem: any = monitor.getItem();
+        if (monitor.getItemType() === "card") {
+            props.moveCard(draggedItem.card, draggedItem.sourceListId, props.list.listId, "bottom");
+        } else {
+            props.moveList(draggedItem.ListIndex, props.list.boardIndex);
+        }
+    }
+};
+
+const targetTopCollect = (connect: DropTargetConnector) => {
     return {
-        connectDropTarget: connect.dropTarget()
+        connectDropTopTarget: connect.dropTarget(),
+    }
+};
+
+const targetBottomCollect = (connect: DropTargetConnector) => {
+    return {
+        connectDropBottomTarget: connect.dropTarget()
     }
 };
 
@@ -63,11 +81,11 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
     };
 
     render() {
-        const { connectDragSource, connectDropTarget, list, deleteList } = this.props;
+        const { connectDragSource, connectDropTopTarget, connectDropBottomTarget, list, deleteList } = this.props;
         return (
             connectDragSource(<div className="card-list">
                 <Segment.Group>
-                    {connectDropTarget(<div><Segment className="header-segment">
+                    {connectDropTopTarget(<div><Segment className="header-segment">
                         <textarea
                             className="list-name"
                             defaultValue={list.name}
@@ -79,9 +97,9 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
                     <Segment className="cards-segment">
                         {this.getCards()}
                     </Segment>
-                    <Segment className="button-segment">
+                    {connectDropBottomTarget(<div><Segment className="button-segment">
                         <AddCardModal addCard={(cardName, cardDescription) => this.addCard(cardName, cardDescription)} />
-                    </Segment>
+                    </Segment></div>)}
                 </Segment.Group>
             </div>)
         );
@@ -167,5 +185,6 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
 }
 
 export default _.flow(
-    DropTarget(["card", "list"], listTarget, targetCollect),
+    DropTarget(["card", "list"], listTopTarget, targetTopCollect),
+    DropTarget(["card", "list"], listBottomTarget, targetBottomCollect),
     DragSource("list", listSource, sourceCollect))(TrelloList);
