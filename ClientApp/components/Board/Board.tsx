@@ -42,25 +42,27 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
     };
 
     getLists = () => {
-        const lists: Object[] = [];
-        for (let i = 0; i < this.state.lists.length; i++) {
-
-            const list = this.state.lists[i];
+        const listsList: Object[] = [];
+        const lists = this.state.lists.sort((a: IList, b: IList) => { return a.boardIndex - b.boardIndex });
+        for (let i = 0; i < lists.length; i++) {
+            const list = lists[i];
             const listId = list.listId;
-            lists.push(
+            listsList.push(
                 <div className="board-column" key={listId}>
                     <TrelloList
                         list={list}
                         deleteList={() => this.deleteList(listId)}
                         updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, list.boardIndex, listName, listCards) }}
                         moveCard={(card: ICard, sourceListId: string, targetListId: string, targetCardId: string) => { this.moveCardBetweenLists(card, sourceListId, targetListId, targetCardId)}}
+                        moveList={(sourceListIndex: number, targetListIndex: number) => { this.moveList(sourceListIndex, targetListIndex)}}
                         connectDropTarget={null as any}
+                        connectDragSource={null as any}
                     />
                 </div>
             );
         }
 
-        return lists;
+        return listsList;
     };
 
     addList = (listName: string) => {
@@ -76,6 +78,16 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         const filteredLists = this.state.lists.filter((element) => element.listId !== listId);
         this.setState({ lists: filteredLists }, () => this.updateIndexes(filteredLists));
         removeList(listId);
+    };
+
+    moveList = (sourceListIndex: number, targetListIndex: number) => {
+        const lists = [...this.state.lists];
+        const sourceList = lists[sourceListIndex];
+
+        lists.splice(sourceListIndex, 1);
+        lists.splice(targetListIndex, 0, sourceList);
+
+        this.updateIndexes(lists);
     };
 
     updateIndexes = (lists: IList[]) => {
