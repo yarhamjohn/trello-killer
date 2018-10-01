@@ -20,14 +20,13 @@ interface ITrelloListProps extends ITrelloListDropProps {
     list: IList;
     deleteList(): void;
     updateList(listName: string, listCards: ICard[]): void;
-    moveCard(card: ICard, sourceList: string, targetList: string): void;
+    moveCard(card: ICard, sourceList: string, targetList: string, targetCardId: string): void;
 }
 
 const listTarget = {
     drop(props: ITrelloListProps, monitor: DropTargetMonitor) {
         const card: any = monitor.getItem();
-        const targetListId = props.list.listId;
-        props.moveCard(card.card, card.sourceListId, targetListId);
+        props.moveCard(card.card, card.sourceListId, props.list.listId, "");
     }
 };
 
@@ -87,7 +86,7 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
                     card={card}
                     deleteCard={() => this.deleteCard(cardId)}
                     updateCard={(cardName, cardDescription) => { this.updateCard(cardId, card.listIndex, cardName, cardDescription) }}
-                    moveCard={(card, sourceListId, targetListId) => this.props.moveCard(card, sourceListId, targetListId)}
+                    moveCard={(card, sourceListId, targetListId, targetCardId) => this.props.moveCard(card, sourceListId, targetListId, targetCardId)}
                 />
             );
         }

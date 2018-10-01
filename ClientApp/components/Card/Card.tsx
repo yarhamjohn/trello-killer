@@ -15,14 +15,13 @@ interface ITrelloCardProps extends ITrelloCardDragDropProps {
     card: ICard;
     deleteCard(): void;
     openModal(): void;
-    moveCard(card: ICard, sourceListId: string, targetListId: string): void;
+    moveCard(card: ICard, sourceListId: string, targetListId: string, targetCardId: string): void;
 }
 
 const cardTarget = {
     drop(props: ITrelloCardProps, monitor: DropTargetMonitor) {
         const dropped: any = monitor.getItem();
-        const targetListId = props.listId;
-        props.moveCard(dropped.card, dropped.sourceListId, targetListId);
+        props.moveCard(dropped.card, dropped.sourceListId, props.listId, props.card.cardId);
     }
 };
 

@@ -53,7 +53,7 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
                         list={list}
                         deleteList={() => this.deleteList(listId)}
                         updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, list.boardIndex, listName, listCards) }}
-                        moveCard={(card: ICard, sourceListId: string, targetListId: string) => { this.moveCardBetweenLists(card, sourceListId, targetListId)}}
+                        moveCard={(card: ICard, sourceListId: string, targetListId: string, targetCardId: string) => { this.moveCardBetweenLists(card, sourceListId, targetListId, targetCardId)}}
                         connectDropTarget={null as any}
                     />
                 </div>
@@ -74,11 +74,11 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
 
     deleteList = (listId: string) => {
         const filteredLists = this.state.lists.filter((element) => element.listId !== listId);
-        this.setState({ lists: filteredLists }, () => this.updateBoardIndexes(filteredLists));
+        this.setState({ lists: filteredLists }, () => this.updateIndexes(filteredLists));
         removeList(listId);
     };
 
-    updateBoardIndexes = (lists: IList[]) => {
+    updateIndexes = (lists: IList[]) => {
         lists.forEach(list => {
             list.boardIndex = lists.indexOf(list);
             list.cards.forEach(card => {
@@ -99,19 +99,24 @@ class TrelloBoard extends React.Component<{}, ITrelloBoardState> {
         modifyList(newList);
     };
 
-    moveCardBetweenLists = (card: ICard, sourceListId: string, targetListId: string) => {
+    moveCardBetweenLists = (card: ICard, sourceListId: string, targetListId: string, targetCardId: string) => {
         const lists = [...this.state.lists];
 
         this.removeCard(card, sourceListId, lists);
-        this.addCard(card, targetListId, lists);
-        this.updateBoardIndexes(lists);
+        this.addCard(card, targetListId, lists, targetCardId);
+        this.updateIndexes(lists);
 
         this.setState({ lists: lists });
     };
 
-    addCard = (card: ICard, targetListId: string, lists: IList[]) => {
+    addCard = (card: ICard, targetListId: string, lists: IList[], targetCardId: string) => {
         const targetListIndex = this.getListIndexToUpdate(targetListId);
-        lists[targetListIndex].cards.push(card);
+        if (targetCardId === "") {
+            lists[targetListIndex].cards.push(card);
+        } else {
+            const targetCardIndex = this.getCardIndexToUpdate(lists[targetListIndex], targetCardId);
+            lists[targetListIndex].cards.splice(targetCardIndex, 0, card);
+        }
 
         addCard(card, targetListId);
     };

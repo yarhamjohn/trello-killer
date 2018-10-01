@@ -9,7 +9,7 @@ interface IUpdateCardModalProps {
     card: ICard;
     deleteCard(): void;
     updateCard(cardName: string, cardDescription: string): void;
-    moveCard(card: ICard, sourceListId: string, targetListId: string): void;
+    moveCard(card: ICard, sourceListId: string, targetListId: string, targetCardId: string): void;
 }
 
 interface IUpdateCardModalState {
@@ -46,7 +46,7 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
                         card={card}
                         deleteCard={() => deleteCard()}
                         openModal={() => this.openModal()}
-                        moveCard={(card, sourceListId, targetListId) => moveCard(card, sourceListId, targetListId)}
+                        moveCard={(card, sourceListId, targetListId, targetCardId) => moveCard(card, sourceListId, targetListId, targetCardId)}
                         connectDragSource={null as any}
                         connectDropTarget={null as any}
                     />
