@@ -82,6 +82,9 @@ class TrelloBoard extends React.Component<ITrelloListDropProps, ITrelloBoardStat
                         connectDropTopTarget={null as any}
                         connectDropBottomTarget={null as any}
                         connectDragSource={null as any}
+                        isDragging={null as any}
+                        isOver={null as any}
+                        itemType={null as any}
                     />
                 </div>
             );
