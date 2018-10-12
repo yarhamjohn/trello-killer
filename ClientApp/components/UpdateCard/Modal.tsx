@@ -49,6 +49,9 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
                         moveCard={(card, sourceListId, targetListId, targetCardId) => moveCard(card, sourceListId, targetListId, targetCardId)}
                         connectDragSource={null as any}
                         connectDropTarget={null as any}
+                        isDragging={null as any}
+                        isOver={null as any}
+                        draggedItem={null as any}
                     />
                 }
                 open={this.state.modalIsOpen}

@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as _ from "lodash";
-import {ConnectDropTarget, DropTargetMonitor, DropTargetConnector, DropTarget, ConnectDragSource, DragSource, DragSourceConnector} from "react-dnd";
+import {DragLayer, DragLayerMonitor, ConnectDropTarget, DropTargetMonitor, DropTargetConnector, DropTarget, ConnectDragSource, DragSource, DragSourceConnector} from "react-dnd";
 import {Button, Card} from "semantic-ui-react";
 import {ICard} from "../../shared/Interfaces";
 import "./Card.css";
@@ -8,6 +8,9 @@ import "./Card.css";
 interface ITrelloCardDragDropProps {
     connectDragSource: ConnectDragSource;
     connectDropTarget: ConnectDropTarget;
+    isDragging: boolean;
+    isOver: boolean;
+    draggedItem: any;
 }
 
 interface ITrelloCardProps extends ITrelloCardDragDropProps {
@@ -28,6 +31,8 @@ const cardTarget = {
 const targetCollect = (connect: DropTargetConnector, monitor: DropTargetMonitor) => {
     return {
         connectDropTarget: connect.dropTarget(),
+        isOver: monitor.isOver(),
+        draggedItem: monitor.getItem()
     }
 };
 
@@ -45,8 +50,10 @@ class TrelloCard extends React.Component<ITrelloCardProps, {}> {
     render() {
         const { connectDropTarget, connectDragSource, openModal, deleteCard, card } = this.props;
 
-            return connectDropTarget(connectDragSource(
-                <div>
+        const newCardSpace = this.props.isDragging && this.props.isOver && this.props.card.cardId != this.props.draggedItem.card.cardId ? <div style={{height: 100}}></div> : null;
+        return connectDropTarget(connectDragSource(
+            <div>
+                {newCardSpace}
                 <Card onClick={openModal} className="todo-card" as={"div"} raised>
                     <Card.Content>
                         <Card.Header className="todo-card--name">
@@ -60,11 +67,18 @@ class TrelloCard extends React.Component<ITrelloCardProps, {}> {
                         <Button negative onClick={deleteCard}>Delete</Button>
                     </Card.Content>
                 </Card>
-                </div>
-            ));
-            }
+            </div>
+        ));
+    }
 }
+
+const collect = (monitor: DragLayerMonitor) => {
+    return {
+        isDragging: monitor.isDragging()
+    }
+};
 
 export default _.flow(
     DropTarget("card", cardTarget, targetCollect),
-    DragSource("card", cardSource, sourceCollect))(TrelloCard);
+    DragSource("card", cardSource, sourceCollect),
+    DragLayer(collect))(TrelloCard);
