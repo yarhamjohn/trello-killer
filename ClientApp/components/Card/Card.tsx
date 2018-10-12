@@ -10,6 +10,7 @@ interface ITrelloCardDragDropProps {
     connectDropTarget: ConnectDropTarget;
     isDragging: boolean;
     isOver: boolean;
+    draggedItem: any;
 }
 
 interface ITrelloCardProps extends ITrelloCardDragDropProps {
@@ -30,7 +31,8 @@ const cardTarget = {
 const targetCollect = (connect: DropTargetConnector, monitor: DropTargetMonitor) => {
     return {
         connectDropTarget: connect.dropTarget(),
-        isOver: monitor.isOver()
+        isOver: monitor.isOver(),
+        draggedItem: monitor.getItem()
     }
 };
 
@@ -48,7 +50,7 @@ class TrelloCard extends React.Component<ITrelloCardProps, {}> {
     render() {
         const { connectDropTarget, connectDragSource, openModal, deleteCard, card } = this.props;
 
-        const newCardSpace = this.props.isDragging && this.props.isOver ? <div style={{height: 150}}></div> : null;
+        const newCardSpace = this.props.isDragging && this.props.isOver && this.props.card.cardId != this.props.draggedItem.card.cardId ? <div style={{height: 100}}></div> : null;
         return connectDropTarget(connectDragSource(
             <div>
                 {newCardSpace}
