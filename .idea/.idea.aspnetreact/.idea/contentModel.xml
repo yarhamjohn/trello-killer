@@ -201,6 +201,7 @@
           <e p="b87b9ba532ace76ae9f6edfe9f72ded2.ttf" t="Include" />
           <e p="main.js" t="Include" />
           <e p="main.js.map" t="Include" />
+          <e p="site.css" t="Include" />
           <e p="vendor-manifest.json" t="Include" />
           <e p="vendor.css" t="Include" />
           <e p="vendor.js" t="Include" />
