@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27e758d0-4ca0-4023-9a3c-1e5ee22a20e7" name="Default" comment="Add drag layer for cards">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/components/Card/Card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/components/Card/Card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <ignored path="D:\repositories\dotnet\aspnetreact\.idea\.idea.aspnetreact\.idea\shelf/" />
@@ -49,22 +46,22 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cs" value="36" />
-          <entry key="css" value="6" />
+          <entry key="css" value="8" />
           <entry key="js" value="1" />
           <entry key="json" value="7" />
           <entry key="ts" value="2" />
-          <entry key="tsx" value="37" />
+          <entry key="tsx" value="42" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="C#" value="36" />
-          <entry key="CSS" value="6" />
+          <entry key="CSS" value="8" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="1" />
           <entry key="TypeScript" value="2" />
-          <entry key="TypeScript JSX" value="37" />
+          <entry key="TypeScript JSX" value="42" />
           <entry key="XML" value="1" />
           <entry key="tsconfig" value="1" />
         </counts>
@@ -76,7 +73,7 @@
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
-          <entry key="git.branch.checkout.local" value="2" />
+          <entry key="git.branch.checkout.local" value="3" />
           <entry key="git.branch.create.new" value="1" />
           <entry key="git.branch.delete.local" value="2" />
           <entry key="git.branch.delete.remote" value="2" />
@@ -87,146 +84,72 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/Repositories/TrelloKillerRepository.cs">
+        <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+            <state relative-caret-position="60">
+              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
               <folding>
-                <marker date="1537539448044" expanded="false" signature="6:96" ph="..." />
-                <marker date="1537539448044" expanded="true" signature="139:2503" ph="{...}" />
-                <marker date="1537539448044" expanded="true" signature="207:2501" ph="{...}" />
-                <marker date="1537539448044" expanded="true" signature="559:864" ph="{...}" />
-                <marker date="1537539448044" expanded="true" signature="919:1038" ph="{...}" />
-                <marker date="1537539448044" expanded="true" signature="1090:1167" ph="{...}" />
-                <marker date="1537539448044" expanded="true" signature="1234:1653" ph="{...}" />
-                <marker date="1537539448044" expanded="true" signature="1700:1851" ph="{...}" />
-                <marker date="1537539448044" expanded="true" signature="1919:2186" ph="{...}" />
-                <marker date="1537539448044" expanded="true" signature="2259:2495" ph="{...}" />
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Server/DomainServices/DatabaseConnection.cs">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+            <state relative-caret-position="421">
+              <caret line="112" column="34" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
               <folding>
-                <marker date="1534973062248" expanded="true" signature="66:400" ph="{...}" />
-                <marker date="1534973062248" expanded="true" signature="126:398" ph="{...}" />
-                <marker date="1534973062248" expanded="true" signature="195:392" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Program.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="10" column="24" selection-start-line="10" selection-end-line="11" />
-              <folding>
-                <marker date="1534973062247" expanded="false" signature="6:89" ph="..." />
-                <marker date="1534973062247" expanded="true" signature="112:837" ph="{...}" />
-                <marker date="1534973062247" expanded="true" signature="139:835" ph="{...}" />
-                <marker date="1534973062247" expanded="true" signature="192:283" ph="{...}" />
-                <marker date="1534973062247" expanded="true" signature="505:829" ph="{...}" />
-                <marker date="1534973062247" expanded="true" signature="573:783" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webpack.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="365">
-              <caret line="33" column="48" lean-forward="true" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tsconfig.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Startup.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-              <folding>
-                <marker date="1534973062262" expanded="false" signature="6:289" ph="..." />
-                <marker date="1534973062262" expanded="true" signature="312:1953" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="339:1951" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="398:461" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="684:899" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1087:1945" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1134:1427" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1290:1411" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1444:1528" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1597:1933" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/TrelloKillerCard.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-              <folding>
-                <marker date="1537538097849" expanded="true" signature="28:257" ph="{...}" />
-                <marker date="1537538097849" expanded="true" signature="64:254" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controllers/BoardController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-              <folding>
-                <marker date="1537540460258" expanded="false" signature="6:96" ph="..." />
-                <marker date="1537540460258" expanded="true" signature="131:1400" ph="{...}" />
-                <marker date="1537540460258" expanded="true" signature="211:1398" ph="{...}" />
-                <marker date="1537540460258" expanded="true" signature="359:429" ph="{...}" />
-                <marker date="1537540460258" expanded="true" signature="503:577" ph="{...}" />
-                <marker date="1537540460258" expanded="true" signature="671:730" ph="{...}" />
-                <marker date="1537540460258" expanded="true" signature="827:889" ph="{...}" />
-                <marker date="1537540460258" expanded="true" signature="978:1042" ph="{...}" />
-                <marker date="1537540460258" expanded="true" signature="1134:1222" ph="{...}" />
-                <marker date="1537540460258" expanded="true" signature="1309:1392" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/DomainServices/IDatabaseConnection.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <marker date="1534973062249" expanded="true" signature="66:180" ph="{...}" />
-                <marker date="1534973062249" expanded="true" signature="109:178" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/Repositories/ITrelloKillerRepository.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-              <folding>
-                <marker date="1537539650172" expanded="true" signature="76:469" ph="{...}" />
-                <marker date="1537539650172" expanded="true" signature="123:467" ph="{...}" />
+                <element signature="e#0#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -354,13 +277,6 @@
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="api" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
               <item name="components" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
@@ -406,12 +322,6 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Controllers" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Server" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
@@ -427,53 +337,6 @@
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Server" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Repositories" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="TrelloKillerTests" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="TrelloKillerTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="TrelloKillerTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
-              <item name=".NETCoreApp 2" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="TrelloKillerTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Dependencies" type="24d0babc:SolutionExplorerModelNode" />
-              <item name=".NETCoreApp 2" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Packages" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="TrelloKillerTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Tests" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="TrelloKillerTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Tests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="UnitTests" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="TrelloKillerTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Tests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="UnitTests" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Server" type="24d0babc:SolutionExplorerModelNode" />
             </path>
           </expand>
           <select />
@@ -710,7 +573,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48556000" />
+    <option name="totallyTimeSpent" value="49408000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -723,8 +586,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-14" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1391258" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14072494" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -742,7 +606,7 @@
       <window_info anchor="bottom" id="REST Client" order="12" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="13" visible="true" weight="0.37310195" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50053304" side_tool="true" weight="0.32897604" />
-      <window_info anchor="bottom" x="0" y="23" width="1920" height="1017" id="Version Control" order="15" type="WINDOWED" weight="0.1583514" />
+      <window_info active="true" anchor="bottom" x="0" y="23" width="1920" height="1017" id="Version Control" order="15" type="WINDOWED" visible="true" weight="0.1583514" />
       <window_info anchor="bottom" id="Build" order="16" weight="0.3275488" />
       <window_info anchor="bottom" id="Messages" order="17" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -932,64 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="116" column="32" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1170">
-          <caret line="82" column="32" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="82" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="36" column="2" lean-forward="true" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="164" column="11" selection-start-line="164" selection-start-column="8" selection-end-line="164" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/api/api.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -1011,10 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <marker date="1537539650172" expanded="true" signature="76:469" ph="{...}" />
-            <marker date="1537539650172" expanded="true" signature="123:467" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1022,10 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
-          <folding>
-            <marker date="1537538097849" expanded="true" signature="28:257" ph="{...}" />
-            <marker date="1537538097849" expanded="true" signature="64:254" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1033,18 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
           <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-          <folding>
-            <marker date="1537540460258" expanded="false" signature="6:96" ph="..." />
-            <marker date="1537540460258" expanded="true" signature="131:1400" ph="{...}" />
-            <marker date="1537540460258" expanded="true" signature="211:1398" ph="{...}" />
-            <marker date="1537540460258" expanded="true" signature="359:429" ph="{...}" />
-            <marker date="1537540460258" expanded="true" signature="503:577" ph="{...}" />
-            <marker date="1537540460258" expanded="true" signature="671:730" ph="{...}" />
-            <marker date="1537540460258" expanded="true" signature="827:889" ph="{...}" />
-            <marker date="1537540460258" expanded="true" signature="978:1042" ph="{...}" />
-            <marker date="1537540460258" expanded="true" signature="1134:1222" ph="{...}" />
-            <marker date="1537540460258" expanded="true" signature="1309:1392" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1052,18 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-          <folding>
-            <marker date="1537539448044" expanded="false" signature="6:96" ph="..." />
-            <marker date="1537539448044" expanded="true" signature="139:2503" ph="{...}" />
-            <marker date="1537539448044" expanded="true" signature="207:2501" ph="{...}" />
-            <marker date="1537539448044" expanded="true" signature="559:864" ph="{...}" />
-            <marker date="1537539448044" expanded="true" signature="919:1038" ph="{...}" />
-            <marker date="1537539448044" expanded="true" signature="1090:1167" ph="{...}" />
-            <marker date="1537539448044" expanded="true" signature="1234:1653" ph="{...}" />
-            <marker date="1537539448044" expanded="true" signature="1700:1851" ph="{...}" />
-            <marker date="1537539448044" expanded="true" signature="1919:2186" ph="{...}" />
-            <marker date="1537539448044" expanded="true" signature="2259:2495" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1100,14 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="118">
           <caret line="10" column="24" selection-start-line="10" selection-end-line="11" />
-          <folding>
-            <marker date="1534973062247" expanded="false" signature="6:89" ph="..." />
-            <marker date="1534973062247" expanded="true" signature="112:837" ph="{...}" />
-            <marker date="1534973062247" expanded="true" signature="139:835" ph="{...}" />
-            <marker date="1534973062247" expanded="true" signature="192:283" ph="{...}" />
-            <marker date="1534973062247" expanded="true" signature="505:829" ph="{...}" />
-            <marker date="1534973062247" expanded="true" signature="573:783" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1115,10 +881,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
           <folding>
-            <marker date="1534973062248" expanded="true" signature="66:400" ph="{...}" />
-            <marker date="1534973062248" expanded="true" signature="126:398" ph="{...}" />
-            <marker date="1534973062248" expanded="true" signature="195:392" ph="{...}" />
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="112" column="34" selection-start-line="112" selection-start-column="34" selection-end-line="112" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
