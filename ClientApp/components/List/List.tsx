@@ -1,41 +1,74 @@
 import * as React from "react";
+import * as _ from "lodash";
 import { Image, Segment } from "semantic-ui-react";
 import { generate } from "shortid";
-import { DropTarget, DropTargetMonitor, DropTargetConnector } from "react-dnd";
+import {DropTarget, DragSource, ConnectDropTarget, ConnectDragSource, DropTargetMonitor, DropTargetConnector, DragSourceConnector} from "react-dnd";
 import { AddCardModal } from "../AddCard/Modal";
 import { UpdateCardModal } from "../UpdateCard/Modal";
 import { ICard, IList } from "../../shared/Interfaces";
 import "./List.css";
-import ConnectDropTarget = __ReactDnd.ConnectDropTarget;
-import { moveCardBetweenLists } from '../../shared/drap-and-drop/DragAndDrop';
 
 interface ITrelloListState {
     listName: string;
 }
 
 interface ITrelloListDropProps {
-    connectDropTarget: ConnectDropTarget;
+    connectDropTopTarget: ConnectDropTarget;
+    connectDropBottomTarget: ConnectDropTarget;
+    connectDragSource: ConnectDragSource;
 }
 
 interface ITrelloListProps extends ITrelloListDropProps {
     list: IList;
     deleteList(): void;
     updateList(listName: string, listCards: ICard[]): void;
+    moveCard(card: ICard, sourceListId: string, targetListId: string, targetCardId: string): void;
+    moveList(sourceListIndex: number, targetListIndex: number): void;
 }
 
-const listTarget = {
+const listTopTarget = {
     drop(props: ITrelloListProps, monitor: DropTargetMonitor) {
-        const card = monitor.getItem();
-        const targetListId = props.list.listId;
-        moveCardBetweenLists(card, targetListId);
+        const draggedItem: any = monitor.getItem();
+        if (monitor.getItemType() === "card") {
+            props.moveCard(draggedItem.card, draggedItem.sourceListId, props.list.listId, "top");
+        } else {
+            props.moveList(draggedItem.ListIndex, props.list.boardIndex);
+        }
     }
 };
 
-const collect = (connect: DropTargetConnector, monitor: DropTargetMonitor) => {
-    return {
-        connectDropTarget: connect.dropTarget(),
+const listBottomTarget = {
+    drop(props: ITrelloListProps, monitor: DropTargetMonitor) {
+        const draggedItem: any = monitor.getItem();
+        if (monitor.getItemType() === "card") {
+            props.moveCard(draggedItem.card, draggedItem.sourceListId, props.list.listId, "bottom");
+        } else {
+            props.moveList(draggedItem.ListIndex, props.list.boardIndex);
+        }
     }
 };
+
+const targetTopCollect = (connect: DropTargetConnector) => {
+    return {
+        connectDropTopTarget: connect.dropTarget(),
+    }
+};
+
+const targetBottomCollect = (connect: DropTargetConnector) => {
+    return {
+        connectDropBottomTarget: connect.dropTarget()
+    }
+};
+
+const listSource = {
+    beginDrag(props: ITrelloListProps) {
+        return {ListIndex: props.list.boardIndex};
+    }
+};
+
+const sourceCollect = (connect: DragSourceConnector) => ({
+    connectDragSource: connect.dragSource()
+});
 
 class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
     constructor() {
@@ -48,11 +81,11 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
     };
 
     render() {
-        const { connectDropTarget, list, deleteList } = this.props;
-        return connectDropTarget(
-            <div className="card-list">
+        const { connectDragSource, connectDropTopTarget, connectDropBottomTarget, list, deleteList } = this.props;
+        return (
+            connectDragSource(<div className="card-list">
                 <Segment.Group>
-                    <Segment className="header-segment">
+                    {connectDropTopTarget(<div><Segment className="header-segment">
                         <textarea
                             className="list-name"
                             defaultValue={list.name}
@@ -60,21 +93,21 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
                             onKeyPress={this.updateListNameOnKeyPress}
                             onBlur={this.updateListNameOnBlur} />
                         <Image inline onClick={deleteList} floated={"right"} src={require("../../shared/images/red_skull_icon.png")} className="delete-list--icon" />
-                    </Segment>
+                    </Segment></div>)}
                     <Segment className="cards-segment">
                         {this.getCards()}
                     </Segment>
-                    <Segment className="button-segment">
+                    {connectDropBottomTarget(<div><Segment className="button-segment">
                         <AddCardModal addCard={(cardName, cardDescription) => this.addCard(cardName, cardDescription)} />
-                    </Segment>
+                    </Segment></div>)}
                 </Segment.Group>
-            </div>
+            </div>)
         );
     };
 
     getCards = () => {
         const list = this.props.list;
-        const cards = list.cards;
+        const cards = list.cards.sort((a: ICard, b: ICard) => {return a.listIndex - b.listIndex});
 
         let cardList: Object[] = [];
         for (let i = 0; i < cards.length; i++) {
@@ -86,7 +119,8 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
                     listId={list.listId}
                     card={card}
                     deleteCard={() => this.deleteCard(cardId)}
-                    updateCard={(cardName, cardDescription) => { this.updateCard(cardId, cardName, cardDescription) }}
+                    updateCard={(cardName, cardDescription) => { this.updateCard(cardId, card.listIndex, cardName, cardDescription) }}
+                    moveCard={(card, sourceListId, targetListId, targetCardId) => this.props.moveCard(card, sourceListId, targetListId, targetCardId)}
                 />
             );
         }
@@ -96,8 +130,8 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
 
     addCard = (cardName: string, cardDescription: string) => {
         const { list, updateList } = this.props;
-
-        const newCard = { cardId: generate(), name: cardName, description: cardDescription }
+        const targetIndex = list.cards.length;
+        const newCard = { cardId: generate(), listIndex: targetIndex, name: cardName, description: cardDescription };
         const cards = [...list.cards, newCard];
 
         updateList(list.name, cards);
@@ -107,16 +141,23 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
         const { list, updateList } = this.props;
 
         const filteredCards = list.cards.filter((element) => element.cardId !== cardId);
+        this.updateListIndexes(filteredCards);
         updateList(list.name, filteredCards);
     };
 
-    updateCard = (cardId: string, cardName: string, cardDescription: string) => {
+    updateListIndexes = (cards: ICard[]) => {
+        cards.forEach(card => {
+            card.listIndex = cards.indexOf(card);
+        });
+    };
+
+    updateCard = (cardId: string, cardListIndex: number, cardName: string, cardDescription: string) => {
         const { list, updateList } = this.props;
 
         const cards = [...list.cards];
         const cardIndex = this.getIndexToUpdate(cardId);
 
-        const newCard = { cardId: cardId, name: cardName, description: cardDescription };
+        const newCard = { cardId: cardId, listIndex: cardListIndex, name: cardName, description: cardDescription };
         cards.splice(cardIndex, 1, newCard);
 
         updateList(list.name, cards);
@@ -143,4 +184,7 @@ class TrelloList extends React.Component<ITrelloListProps, ITrelloListState> {
     };
 }
 
-export default DropTarget("card", listTarget, collect)(TrelloList);
+export default _.flow(
+    DropTarget(["card", "list"], listTopTarget, targetTopCollect),
+    DropTarget(["card", "list"], listBottomTarget, targetBottomCollect),
+    DragSource("list", listSource, sourceCollect))(TrelloList);

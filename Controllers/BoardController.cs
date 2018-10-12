@@ -39,9 +39,15 @@ namespace aspnetreact.Controllers
         }
 
         [HttpPost("[action]")]
-        public void MoveCard([FromBody] MovedCard card)
+        public void RemoveCard([FromBody] RemovedCard card)
         {
-            _repository.MoveCard(card);
+            _repository.RemoveCard(card.CardId, card.SourceListId);
+        }
+
+        [HttpPost("[action]")]
+        public void AddCard([FromBody] AddedCard card)
+        {
+            _repository.AddCard(card.Card, card.TargetListId);
         }
     }
 }

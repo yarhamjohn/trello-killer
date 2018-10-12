@@ -8,6 +8,7 @@ namespace aspnetreact.Server.Repositories
         void AddList(TrelloKillerList trelloKillerList);
         void ModifyList(TrelloKillerList trelloKillerList);
         void RemoveList(string listId);
-        void MoveCard(MovedCard card);
+        void AddCard(TrelloKillerCard card, string targetListId);
+        void RemoveCard(string cardId, string sourceListId);
     }
 }

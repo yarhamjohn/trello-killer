@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27e758d0-4ca0-4023-9a3c-1e5ee22a20e7" name="Default" comment="Create drop target for card">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="27e758d0-4ca0-4023-9a3c-1e5ee22a20e7" name="Default" comment="allow dragging onto cards">
+      <change beforePath="$PROJECT_DIR$/ClientApp/components/Board/Board.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/components/Board/Board.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/components/List/List.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/components/List/List.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
     <ignored path="D:\repositories\dotnet\aspnetreact\.idea\.idea.aspnetreact\.idea\shelf/" />
@@ -16,65 +17,95 @@
     <session id="-251357269">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="json" value="116" />
-          <entry key="tsx" value="1689" />
-          <entry key="txt" value="183" />
+          <entry key="cs" value="485" />
+          <entry key="json" value="166" />
+          <entry key="tsx" value="8389" />
+          <entry key="txt" value="310" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="116" />
-          <entry key="PLAIN_TEXT" value="183" />
-          <entry key="TypeScript JSX" value="1689" />
+          <entry key="C#" value="485" />
+          <entry key="JSON" value="166" />
+          <entry key="PLAIN_TEXT" value="310" />
+          <entry key="TypeScript JSX" value="8389" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="8" />
+          <entry key="cs" value="28" />
           <entry key="css" value="2" />
-          <entry key="json" value="2" />
-          <entry key="ts" value="1" />
-          <entry key="tsx" value="14" />
+          <entry key="json" value="6" />
+          <entry key="ts" value="3" />
+          <entry key="tsx" value="31" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="8" />
+          <entry key="C#" value="28" />
           <entry key="CSS" value="2" />
-          <entry key="JSON" value="2" />
-          <entry key="TypeScript" value="1" />
-          <entry key="TypeScript JSX" value="14" />
+          <entry key="JSON" value="6" />
+          <entry key="TypeScript" value="3" />
+          <entry key="TypeScript JSX" value="31" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TypeScriptServerServiceImpl" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.checkout.local" value="2" />
-          <entry key="git.branch.delete.local" value="1" />
+          <entry key="git.branch.create.new" value="1" />
+          <entry key="git.branch.delete.local" value="2" />
+          <entry key="git.branch.delete.remote" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+            <state relative-caret-position="215">
+              <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -85,22 +116,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Server/Repositories/TrelloKillerRepository.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.css">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state relative-caret-position="667">
+              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+              <folding>
+                <marker date="1537539448044" expanded="false" signature="6:96" ph="..." />
+                <marker date="1537539448044" expanded="true" signature="139:2503" ph="{...}" />
+                <marker date="1537539448044" expanded="true" signature="207:2501" ph="{...}" />
+                <marker date="1537539448044" expanded="true" signature="559:864" ph="{...}" />
+                <marker date="1537539448044" expanded="true" signature="919:1038" ph="{...}" />
+                <marker date="1537539448044" expanded="true" signature="1090:1167" ph="{...}" />
+                <marker date="1537539448044" expanded="true" signature="1234:1653" ph="{...}" />
+                <marker date="1537539448044" expanded="true" signature="1700:1851" ph="{...}" />
+                <marker date="1537539448044" expanded="true" signature="1919:2186" ph="{...}" />
+                <marker date="1537539448044" expanded="true" signature="2259:2495" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,60 +137,45 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientApp/api/api.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Program.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-              <folding>
-                <marker date="1534973062247" expanded="false" signature="6:89" ph="..." />
-                <marker date="1534973062247" expanded="true" signature="112:837" ph="{...}" />
-                <marker date="1534973062247" expanded="true" signature="139:835" ph="{...}" />
-                <marker date="1534973062247" expanded="true" signature="192:283" ph="{...}" />
-                <marker date="1534973062247" expanded="true" signature="505:829" ph="{...}" />
-                <marker date="1534973062247" expanded="true" signature="573:783" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Startup.cs">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+              <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Server/MovedCard.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
               <folding>
-                <marker date="1534973062262" expanded="false" signature="6:289" ph="..." />
-                <marker date="1534973062262" expanded="true" signature="312:1953" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="339:1951" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="398:461" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="684:899" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1087:1945" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1134:1427" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1290:1411" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1444:1528" ph="{...}" />
-                <marker date="1534973062262" expanded="true" signature="1597:1933" ph="{...}" />
+                <marker date="1537540426906" expanded="true" signature="28:305" ph="{...}" />
+                <marker date="1537540426906" expanded="true" signature="59:163" ph="{...}" />
+                <marker date="1537540426906" expanded="true" signature="191:303" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Server/Repositories/ITrelloKillerRepository.cs">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/Server/DomainServices/DatabaseConnection.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+              <folding>
+                <marker date="1534973062248" expanded="true" signature="66:400" ph="{...}" />
+                <marker date="1534973062248" expanded="true" signature="126:398" ph="{...}" />
+                <marker date="1534973062248" expanded="true" signature="195:392" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="136" column="6" lean-forward="true" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+            <state relative-caret-position="883">
+              <caret line="80" column="6" lean-forward="true" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -170,13 +184,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ClientApp/components/Layout/Layout.tsx">
+        <entry file="file://$PROJECT_DIR$/ClientApp/shared/Interfaces.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -186,13 +197,15 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>foreach</find>
+      <find>connectDropTarget</find>
+      <find>move</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="add-dnd" />
+        <entry key="$PROJECT_DIR$" value="master_john" />
       </map>
     </option>
   </component>
@@ -208,6 +221,7 @@
     <setting file="file://$PROJECT_DIR$/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/TrelloKillerList.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../TrelloKillerTests/Tests/UnitTests/CheckTestingWorks.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Server/TrelloKillerCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/Repositories/ITrelloKillerRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/Repositories/TrelloKillerRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Server/DomainServices/IDatabaseConnection.cs" root0="FORCE_HIGHLIGHTING" />
@@ -231,10 +245,19 @@
         <option value="$PROJECT_DIR$/ClientApp/components/pages/Forecast.tsx" />
         <option value="$PROJECT_DIR$/Program.cs" />
         <option value="$PROJECT_DIR$/Server/DomainServices/DatabaseConnection.cs" />
+        <option value="$PROJECT_DIR$/Server/TrelloKillerList.cs" />
+        <option value="$PROJECT_DIR$/appsettings.json" />
+        <option value="$PROJECT_DIR$/Server/TrelloKillerCard.cs" />
+        <option value="$PROJECT_DIR$/ClientApp/shared/Interfaces.tsx" />
+        <option value="$PROJECT_DIR$/Server/Repositories/TrelloKillerRepository.cs" />
+        <option value="$PROJECT_DIR$/Server/Repositories/ITrelloKillerRepository.cs" />
+        <option value="$PROJECT_DIR$/ClientApp/api/api.tsx" />
+        <option value="$PROJECT_DIR$/Server/MovedCard.cs" />
+        <option value="$PROJECT_DIR$/Controllers/BoardController.cs" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx" />
         <option value="$PROJECT_DIR$/ClientApp/components/Card/Card.tsx" />
         <option value="$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx" />
+        <option value="$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx" />
         <option value="$PROJECT_DIR$/ClientApp/components/List/List.tsx" />
         <option value="$PROJECT_DIR$/ClientApp/components/Board/Board.tsx" />
       </list>
@@ -255,8 +278,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-14" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -266,6 +289,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -283,13 +307,6 @@
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="api" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
@@ -320,14 +337,6 @@
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
               <item name="components" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Layout" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="components" type="24d0babc:SolutionExplorerModelNode" />
               <item name="List" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
@@ -336,7 +345,7 @@
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
               <item name="components" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="NavMenu" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="UpdateCard" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
@@ -344,13 +353,6 @@
               <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
               <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
               <item name="pages" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="aspnetreact" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="ClientApp" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="shared" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
@@ -377,13 +379,12 @@
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="list&#9;FILE&#9;file://D:/repositories/dotnet/aspnetreact/ClientApp/components/List/List.tsx&#10;tkc&#9;FILE&#9;file://D:/repositories/dotnet/aspnetreact/Server/TrelloKillerCard.cs&#10;tkl&#9;FILE&#9;file://D:/repositories/dotnet/aspnetreact/Server/TrelloKillerList.cs" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -470,6 +471,11 @@
       <workItem from="1533303041106" duration="1172000" />
       <workItem from="1533758293432" duration="2649000" />
       <workItem from="1535734370233" duration="8382000" />
+      <workItem from="1537171592722" duration="1610000" />
+      <workItem from="1537186798723" duration="30000" />
+      <workItem from="1537535731926" duration="2108000" />
+      <workItem from="1537538072401" duration="7869000" />
+      <workItem from="1538418831112" duration="10011000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1525441010858</created>
@@ -555,11 +561,46 @@
       <option name="project" value="LOCAL" />
       <updated>1535744838372</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="random files">
+      <created>1536941118465</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1536941118465</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add card list indexes">
+      <created>1537539090268</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1537539090268</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Split MoveCard into two calls">
+      <created>1537540533048</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1537540533048</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Update card index on drag and drop">
+      <created>1537541900122</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1537541900122</updated>
+    </task>
+    <task id="LOCAL-00017" summary="allow dragging onto cards">
+      <created>1537545637542</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1537545637542</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21086000" />
+    <option name="totallyTimeSpent" value="45332000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -571,16 +612,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-14" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24360341" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25692964" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.33187294" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978212" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.3308026" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
@@ -590,10 +631,10 @@
       <window_info anchor="bottom" id="TypeScript" order="10" weight="0.32897604" />
       <window_info anchor="bottom" id="Unit Tests" order="11" weight="0.32897604" />
       <window_info anchor="bottom" id="REST Client" order="12" weight="0.32897604" />
-      <window_info anchor="bottom" id="Terminal" order="13" weight="0.32897604" />
+      <window_info anchor="bottom" id="Terminal" order="13" weight="0.3286334" />
       <window_info anchor="bottom" id="Event Log" order="14" sideWeight="0.50053304" side_tool="true" weight="0.32897604" />
-      <window_info anchor="bottom" id="Version Control" order="15" visible="true" weight="0.30694142" />
-      <window_info anchor="bottom" id="Build" order="16" weight="0.32858709" />
+      <window_info anchor="bottom" id="Version Control" order="15" weight="0.30694142" />
+      <window_info anchor="bottom" id="Build" order="16" weight="0.3275488" />
       <window_info anchor="bottom" id="Messages" order="17" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -638,6 +679,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
     <MESSAGE value="Initial setup" />
     <MESSAGE value="Kick off mongo server automatically on start" />
     <MESSAGE value="Make it work with rider" />
@@ -645,7 +687,12 @@
     <MESSAGE value="Use DragDropContext" />
     <MESSAGE value="get card drop source working" />
     <MESSAGE value="Create drop target for card" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create drop target for card" />
+    <MESSAGE value="random files" />
+    <MESSAGE value="Add card list indexes" />
+    <MESSAGE value="Split MoveCard into two calls" />
+    <MESSAGE value="Update card index on drag and drop" />
+    <MESSAGE value="allow dragging onto cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="allow dragging onto cards" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -685,9 +732,6 @@
     <entry file="file://$PROJECT_DIR$/appsettings.Development.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/npm-shrinkwrap.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/pages/Counter.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -696,9 +740,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webpack.config.vendor.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/appsettings.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/jest.config.js">
@@ -714,93 +755,15 @@
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/DomainServices/DatabaseConnection.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/.idea.aspnetreact/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2565" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="30" lean-forward="true" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="39" column="48" lean-forward="true" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/DomainServices/IDatabaseConnection.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1534973062249" expanded="true" signature="66:180" ph="{...}" />
-            <marker date="1534973062249" expanded="true" signature="109:178" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controllers/BoardController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="28" selection-start-line="43" selection-start-column="28" selection-end-line="43" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/MovedCard.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/boot.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/shared/drap-and-drop/DragAndDrop.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
@@ -808,29 +771,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Server/Repositories/TrelloKillerRepository.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/shared/drap-and-drop/DragAndDrop.ts" />
     <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -841,10 +785,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/api/api.tsx">
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/Layout/Layout.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -852,53 +796,179 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <marker date="1534973062247" expanded="false" signature="6:89" ph="..." />
-            <marker date="1534973062247" expanded="true" signature="112:837" ph="{...}" />
-            <marker date="1534973062247" expanded="true" signature="139:835" ph="{...}" />
-            <marker date="1534973062247" expanded="true" signature="192:283" ph="{...}" />
-            <marker date="1534973062247" expanded="true" signature="505:829" ph="{...}" />
-            <marker date="1534973062247" expanded="true" signature="573:783" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Startup.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
-          <folding>
-            <marker date="1534973062262" expanded="false" signature="6:289" ph="..." />
-            <marker date="1534973062262" expanded="true" signature="312:1953" ph="{...}" />
-            <marker date="1534973062262" expanded="true" signature="339:1951" ph="{...}" />
-            <marker date="1534973062262" expanded="true" signature="398:461" ph="{...}" />
-            <marker date="1534973062262" expanded="true" signature="684:899" ph="{...}" />
-            <marker date="1534973062262" expanded="true" signature="1087:1945" ph="{...}" />
-            <marker date="1534973062262" expanded="true" signature="1134:1427" ph="{...}" />
-            <marker date="1534973062262" expanded="true" signature="1290:1411" ph="{...}" />
-            <marker date="1534973062262" expanded="true" signature="1444:1528" ph="{...}" />
-            <marker date="1534973062262" expanded="true" signature="1597:1933" ph="{...}" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server/Repositories/ITrelloKillerRepository.cs">
+    <entry file="file://$PROJECT_DIR$/npm-shrinkwrap.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ClientApp/components/Layout/Layout.tsx">
+    <entry file="file://$PROJECT_DIR$/Server/DomainServices/IDatabaseConnection.cs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/TrelloKillerList.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="195">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/appsettings.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/TrelloKillerCard.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controllers/BoardController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/AddCard/Modal.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Server/Repositories/ITrelloKillerRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <marker date="1537539650172" expanded="true" signature="76:469" ph="{...}" />
+            <marker date="1537539650172" expanded="true" signature="123:467" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/UpdateCard/Modal.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/api/api.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="57" column="9" selection-start-line="57" selection-start-column="9" selection-end-line="57" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/shared/Interfaces.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/MovedCard.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding>
+            <marker date="1537540426906" expanded="true" signature="28:305" ph="{...}" />
+            <marker date="1537540426906" expanded="true" signature="59:163" ph="{...}" />
+            <marker date="1537540426906" expanded="true" signature="191:303" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/DomainServices/DatabaseConnection.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="63" selection-start-line="8" selection-start-column="63" selection-end-line="8" selection-end-column="63" />
+          <folding>
+            <marker date="1534973062248" expanded="true" signature="66:400" ph="{...}" />
+            <marker date="1534973062248" expanded="true" signature="126:398" ph="{...}" />
+            <marker date="1534973062248" expanded="true" signature="195:392" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server/Repositories/TrelloKillerRepository.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="667">
+          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <marker date="1537539448044" expanded="false" signature="6:96" ph="..." />
+            <marker date="1537539448044" expanded="true" signature="139:2503" ph="{...}" />
+            <marker date="1537539448044" expanded="true" signature="207:2501" ph="{...}" />
+            <marker date="1537539448044" expanded="true" signature="559:864" ph="{...}" />
+            <marker date="1537539448044" expanded="true" signature="919:1038" ph="{...}" />
+            <marker date="1537539448044" expanded="true" signature="1090:1167" ph="{...}" />
+            <marker date="1537539448044" expanded="true" signature="1234:1653" ph="{...}" />
+            <marker date="1537539448044" expanded="true" signature="1700:1851" ph="{...}" />
+            <marker date="1537539448044" expanded="true" signature="1919:2186" ph="{...}" />
+            <marker date="1537539448044" expanded="true" signature="2259:2495" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/pages/TrelloKiller.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/Card/Card.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="40" column="37" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/react-dnd/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-486">
+          <caret line="111" column="18" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ClientApp/components/List/List.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="136" column="6" lean-forward="true" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
+        <state relative-caret-position="883">
+          <caret line="80" column="6" lean-forward="true" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ClientApp/components/Board/Board.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="137" lean-forward="true" selection-start-line="137" selection-end-line="137" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

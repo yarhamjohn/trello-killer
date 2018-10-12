@@ -62,9 +62,6 @@
         </e>
         <e p="routes.tsx" t="Include" />
         <e p="Shared" t="Include">
-          <e p="drap-and-drop" t="Include">
-            <e p="DragAndDrop.ts" t="Include" />
-          </e>
           <e p="images" t="Include">
             <e p="red_skull_icon.png" t="Include" />
             <e p="trello_killer_icon.png" t="Include" />
@@ -83,6 +80,7 @@
         <e p="@types" t="IncludeRecursive">
           <e p="history" t="IncludeRecursive" />
           <e p="jest" t="IncludeRecursive" />
+          <e p="lodash" t="IncludeRecursive" />
           <e p="node" t="IncludeRecursive" />
           <e p="react" t="IncludeRecursive" />
           <e p="react-dnd" t="IncludeRecursive" />
@@ -105,6 +103,7 @@
         <e p="jest" t="IncludeRecursive" />
         <e p="jquery" t="IncludeRecursive" />
         <e p="json-loader" t="IncludeRecursive" />
+        <e p="lodash" t="IncludeRecursive" />
         <e p="react" t="IncludeRecursive" />
         <e p="react-dnd" t="IncludeRecursive" />
         <e p="react-dnd-html5-backend" t="IncludeRecursive" />

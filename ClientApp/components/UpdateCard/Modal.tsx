@@ -9,6 +9,7 @@ interface IUpdateCardModalProps {
     card: ICard;
     deleteCard(): void;
     updateCard(cardName: string, cardDescription: string): void;
+    moveCard(card: ICard, sourceListId: string, targetListId: string, targetCardId: string): void;
 }
 
 interface IUpdateCardModalState {
@@ -35,7 +36,7 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
     };
 
     render() {
-        const { card, deleteCard, listId } = this.props;
+        const { card, deleteCard, moveCard, listId } = this.props;
 
         return (
             <Modal className="card-update-modal"
@@ -45,7 +46,9 @@ export class UpdateCardModal extends React.Component<IUpdateCardModalProps, IUpd
                         card={card}
                         deleteCard={() => deleteCard()}
                         openModal={() => this.openModal()}
+                        moveCard={(card, sourceListId, targetListId, targetCardId) => moveCard(card, sourceListId, targetListId, targetCardId)}
                         connectDragSource={null as any}
+                        connectDropTarget={null as any}
                     />
                 }
                 open={this.state.modalIsOpen}
