@@ -79,8 +79,7 @@ class TrelloBoard extends React.Component<ITrelloListDropProps, ITrelloBoardStat
                         updateList={(listName: string, listCards: ICard[]) => { this.updateList(listId, list.boardIndex, listName, listCards) }}
                         moveCard={(card: ICard, sourceListId: string, targetListId: string, targetCardId: string) => { this.moveCardBetweenLists(card, sourceListId, targetListId, targetCardId)}}
                         moveList={(sourceListIndex: number, targetListIndex: number) => { this.moveList(sourceListIndex, targetListIndex)}}
-                        connectDropTopTarget={null as any}
-                        connectDropBottomTarget={null as any}
+                        connectDropTarget={null as any}
                         connectDragSource={null as any}
                         isDragging={null as any}
                         isOver={null as any}
