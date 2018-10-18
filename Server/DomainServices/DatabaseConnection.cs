@@ -7,7 +7,7 @@ namespace aspnetreact.Server.DomainServices
     {
         public IMongoDatabase GetDatabase(string databaseName)
         {
-            var connectionString = @"mongodb://trellokiller:qi5otoGBi8mA4fhiyO2l8UFUnfPCU78H0T3hFOaaCFv3PtAIXX5QLFmQFjZUDxMbsTj4UQN8v2qze56ZEOGA1A==@trellokiller.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+            var connectionString = @"mongodb://trellokiller:kbU9GPHFKsrTwZPHmJW734HTICkqHfmkK9aMoutzbwlXYjRmXEA9cVzDbBZxRWS5xDWzlLwet9qw0p4nOb6ZHQ==@trellokiller.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
 
             var settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
             settings.SslSettings =
